@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logoutCurrentUser } from '../../actions/session_action';
+import { deleteSession } from '../../actions/session_action';
 import { openModal } from '../../actions/modal_action';
 import NavBar from './nav_bar';
 
@@ -8,7 +8,7 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logoutCurrentUser()),
+  logout: () => dispatch(deleteSession()),
   openModal: modal => dispatch(openModal(modal))
 });
 

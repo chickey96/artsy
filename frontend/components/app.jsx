@@ -5,8 +5,10 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 
 const App = () => (
   <div>
-    <Modal/>
-  <NavBarContainer/>
+  <Modal/>
+  <header>
+    <NavBarContainer/>
+  </header>
   </div>
 );
 

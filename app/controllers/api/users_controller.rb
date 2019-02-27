@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
   def new
   
@@ -8,14 +8,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      #redirect_to main page
+      render 'api/users/show'
     else  
-      render json: @user.errors.full_messages, status: 422
+      render json: @user.errors.full_messages, status: 401
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :email, :password)
   end
 end

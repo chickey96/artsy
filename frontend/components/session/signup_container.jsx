@@ -6,14 +6,14 @@ import { openModal, closeModal } from '../../actions/modal_action';
 
 
 const mapStateToProps = state => ({
-  formType: 'register',
+  formType: 'Register',
   errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   action: user => dispatch(createUser(user)),
-  alternativeForm: (
+  altForm: (
     <button onClick={() => dispatch(openModal('login'))}>
       Login
     </button>

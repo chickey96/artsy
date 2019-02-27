@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
 
   def new
 
@@ -11,14 +11,13 @@ class SessionsController < ApplicationController
     )
     if @user.save
       login(@user)
-      # redirect_to main page
+      render json: 'api/users/show'
     else
-      render json: ['Invalid Credentials'] 
+      render json: ['Invalid Credentials'], status: 401
   end
 
   def destroy
     logout!
-    redirect_to new_session_url
   end
 
 end

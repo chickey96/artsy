@@ -24,7 +24,6 @@ function Modal ({ modal, closeModal }) {
     <div className='modal-background' onClick={closeModal}>
     {/* stop propagation prevents modal from closing when user clicks inside */}
       <div className='modal-foreground' onClick={e => e.stopPropagation()}>
-        should be here
         {component}
       </div>
     </div>

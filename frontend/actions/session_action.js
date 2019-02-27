@@ -8,19 +8,22 @@ const receiveCurrentUser = user => ({
   user
 });
 
-const receiveErrors = errors => ({
-  type: RECEIVE_SESSION_ERRORS,
-  errors
-});
-
-export const logoutCurrentUser = () => ({
-  type: LOGOUT_CURRENT_USER,
-});
+const receiveErrors = err => {
+  const type = RECEIVE_SESSION_ERRORS;
+  const errors = err;
+  return {type, errors};
+};
 
 export const createUser = user => dispatch => (
   SessionAPIUtil.createUser(user)
-  .then(user => dispatch(receiveCurrentUser(user)),
-  errors => (dispatch(receiveErrors(errors.responseJSON))))
+  .then(user => {
+    debugger
+    dispatch(receiveCurrentUser(user))
+  },
+  errors => {
+    debugger
+    dispatch(receiveErrors(errors.responseJSON))
+  })
 );
 
 export const createSession = user => dispatch => (
@@ -29,7 +32,7 @@ export const createSession = user => dispatch => (
       errors => (dispatch(receiveErrors(errors.responseJSON))))
 );
 
-export const deleteSession = id => dispatch => (
+export const deleteSession = () => dispatch => (
   SessionAPIUtil.deleteSession()
     .then(() => dispatch(logoutCurrentUser()),
       errors => (dispatch(receiveErrors(errors.responseJSON))))
