@@ -17,11 +17,9 @@ const receiveErrors = err => {
 export const createUser = user => dispatch => (
   SessionAPIUtil.createUser(user)
   .then(user => {
-    debugger
     dispatch(receiveCurrentUser(user))
   },
   errors => {
-    debugger
     dispatch(receiveErrors(errors.responseJSON))
   })
 );
