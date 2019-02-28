@@ -90,37 +90,68 @@
   padding: 12px 28px;
   font-weight: bold;
 }
-
- .nav-bar{
-   position: static;
-   right: 0;
-    top: 0;
-    height: 60px;
-    margin: 0 -10px;
-    padding: 0;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+.body{
+   height: 100%;
+   cursor: default;
  }
 
+ .header{
+   height: 130px;
+   cursor: default;
+ }
+
+.nav-bar{
+  display: block; 
+  padding: 0;
+  top: 0;
+  height: 100%;
+  margin: 0;
+}
+
+ .offset-banner{
+  
+   background-color: #2F766D;
+   height: 35%;
+   margin-top: -10px;
+   margin-right: -10px;
+   margin-left: -10px;
+ }
+ .options-bar{
+    height: 65%;
+    margin-right: -10px;
+    margin-left: -10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    list-style: none; 
+    display: flex;
+    flex-direction: row-reverse;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    
+ }
+
+
+
  #register-button{
-  //  display: flex;
-  //  float: right;
+    display: flex;
     float: left;
-    position: relative;
-    list-style: none;
     border: 0 none;
-    margin: 0;
-    padding: 0;
+    height: 80%;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
  }
 
  #login-button{
-   float: left;
-    position: relative;
-    list-style: none;
+    display: flex;
+    float: right;
     border: 0 none;
-    margin: 0;
-    padding: 0;
+    height: 80%;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
  }
 
- .nav-bar > button{
+ 
 
- }

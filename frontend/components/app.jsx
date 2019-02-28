@@ -6,7 +6,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 const App = () => (
   <div>
   <Modal/>
-  <header>
+  <header className="header">
     <NavBarContainer/>
   </header>
   </div>

@@ -3,14 +3,20 @@ import React from 'react';
 const NavBar = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
       <nav className="nav-bar">
-        <button  onClick={() => openModal('login')}>
-          Login 
-        </button>
+        <div className="offset-banner"></div>
+        <ul className="options-bar">
+        <li>
+          <button id="login-button" onClick={() => openModal('login')}>
+            Login 
+          </button>
+        </li>
 
-      <button id="register-button" onClick={() => openModal('signup')}>
-          Register 
-        </button>
-
+        <li>
+          <button id="register-button" onClick={() => openModal('signup')}>
+            Register 
+          </button>
+        </li>
+        </ul>
       </nav>
   );
 
