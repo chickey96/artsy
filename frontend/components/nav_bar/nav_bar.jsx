@@ -5,13 +5,13 @@ const NavBar = ({ currentUser, logout, openModal }) => {
       <nav className="nav-bar">
         <div className="offset-banner"></div>
         <ul className="options-bar">
-        <li>
+        <li id="login-list-el">
           <button id="login-button" onClick={() => openModal('login')}>
-            Login 
+            Sign in  
           </button>
         </li>
 
-        <li>
+        <li id="register-list-el">
           <button id="register-button" onClick={() => openModal('signup')}>
             Register 
           </button>

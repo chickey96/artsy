@@ -4,7 +4,7 @@ import Modal from './modal/modal';
 import NavBarContainer from './nav_bar/nav_bar_container';
 
 const App = () => (
-  <div>
+  <div className="full-page">
   <Modal/>
   <header className="header">
     <NavBarContainer/>

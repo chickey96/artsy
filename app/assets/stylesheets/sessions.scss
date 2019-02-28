@@ -17,14 +17,18 @@
   position: absolute;
   display: flex;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 10px;
   padding: 18px;
+  height: 100%;
+  width: auto;
+  max-width: 360px;
 }
 .session-form{
   display: block;
-  max-width: 360px;
   position: relative;
   padding: 0;
+  height: 100%;
+  width: 100%; 
 }
 
 .modal-form{
@@ -37,20 +41,31 @@
     margin-left: -12px;
     margin-right: -12px;
     cursor: default;
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    min-height: 500px;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
 }
 
 .login-form{
+  height: 100%;
+  width: 100%;
   display: block;
   position: relative;
   font-size: 14px;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
+
 #greeting{
-  font-size: 20px;
+  font-size: 26px;
   font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 500;
   margin: 0;
+  padding-bottom: 5px;
 }
 #tagline{
   padding-bottom: 5px;
@@ -73,14 +88,15 @@
   border-radius: 4px;
   position: relative;
   box-shadow: none;
-  border-color: #adaeaa;
-  padding-left: 16px;
-  padding-right: 16px;
+ outline-style: none;
   border-width: 1px;
+  width: 98%;
+  border-color: #E1E3DF; 
 }
 
 .modal-submit{
-  background-color: black;
+  border-radius: 4px;
+  background-color: #222222;
   color: white;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -90,13 +106,60 @@
   padding: 12px 28px;
   font-weight: bold;
 }
-.body{
+.modal-submit:hover{
+  background-color: #3c3c3c;
+}
+
+.modal-divider{
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid #E1E3DF;
+  margin-bottom: 24px;
+  margin-top: 24px;
+  line-height: 0;
+
+}
+#or-option{
+      color: #595959;
+      text-align: center;
+      background-color: white;
+      padding: 12px;
+      font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+}
+#demo-signin{
+  border-radius: 4px;
+  border-color: #E1E3DF; 
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: 48px;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 28px;
+  font-weight: bold;
+  background-color: #FFF;
+  color: #222;
+}
+
+#demo-signin:hover{
+  background-color: #f9f9f7;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+#full-screen{
+  margin: 0;
+}
+
+.full-page{
    height: 100%;
+   width: 100%;
    cursor: default;
+    margin: 0;
+    min-height: 100vh;
  }
 
  .header{
-   height: 130px;
+   height: 115px;
+   width: 100%;
    cursor: default;
  }
 
@@ -109,49 +172,106 @@
 }
 
  .offset-banner{
-  
+   height: 45%;
+   margin-top: 0;
+   display: block;
    background-color: #2F766D;
-   height: 35%;
    margin-top: -10px;
-   margin-right: -10px;
-   margin-left: -10px;
  }
  .options-bar{
-    height: 65%;
-    margin-right: -10px;
-    margin-left: -10px;
+    height: 55%;
+    width: 100%;
     margin-top: 0;
     margin-bottom: 10px;
     list-style: none; 
     display: flex;
     flex-direction: row-reverse;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
-    
  }
 
+#login-list-el {
+    margin-right: 120px;
+    margin-top: 15px;
+    display: flex;
+    height: fit-content;
+    float: right;
+    width: fit-content;
+    line-height: 15px;
+}
+
+#register-list-el {
+    margin-right: 5px;
+    float: left;
+    width: fit-content;
+    margin-top: 15px;
+    display: flex;
+    height: fit-content;
+}
 
 
  #register-button{
-    display: flex;
-    float: left;
+    height: 60%;
+    width: fit-content;
     border: 0 none;
-    height: 80%;
-    padding: 10px;
-    margin: 10px;
+    padding: 8px;
     font-size: 14px;
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
  }
 
  #login-button{
-    display: flex;
-    float: right;
-    border: 0 none;
-    height: 80%;
-    padding: 10px;
-    margin: 10px;
+    height: 60%;
+    width: fit-content;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 8px;
     font-size: 14px;
+    // text-decoration: none;
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
  }
 
- 
+  #register-button:hover {
+    text-decoration: underline;
+    color: #595959;
+  }
+
+  #register-button:focus{
+      border: none;
+      outline: none;
+  }
+
+  #register-button:active {
+      border: none;
+      outline: none;
+  }
+
+  // #login-button:link{
+  //   text-decoration: none;
+  // }
+
+  #login-button:visited {
+    color: #222;
+    text-decoration: underline;
+  }
+
+  #login-button:hover{
+      background-color: #3c3c3c !important;
+      color: #FFF;
+      border-color: #222222;
+  }
+
+  #login-button:focus {
+    outline: none;
+    border: 1px solid;
+  }
+
+  #login-button:active{
+      outline: none;
+      text-decoration: underline;
+      background-color: white;
+      color:#222;
+  }
+
+  
+
+  
 

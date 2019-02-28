@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { createSession } from '../../actions/session_action';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -20,38 +21,47 @@ class SessionForm extends React.Component {
     });
   }
 
+  loginDemoUser(e){
+    e.preventDefault();
+    createSession({
+      email: "zglass@salinger.com", 
+    username: "Zooey", 
+    password: "whentheFatLadysings" }
+    );
+  }
+
+  
+
   renderErrors() {
     return(
-      <ul>
+      <div>
         {this.props.errors.map((error, idx) => (
-          <li key={`error-${idx}`}>
+          <p id={`error-${idx}`}>
             {error}
-          </li>
-          ))}
-      </ul>
+          </p>
+          ))} 
+      </div>
     );
   }
 
   render() {
-
+    
     return (
       <div className='session-form'>
         
         <br></br>
-        <form onSubmit={this.handleSubmit} className="modal-form">
+          <form onSubmit={this.handleSubmit} className="modal-form">
           <div className="login-form">
           <h1 id="greeting">Create your account</h1>
           <p id="tagline">Registration is easy.</p>
-          <p id="errors"> {this.renderErrors()}</p>
-
-
-          <label htmlFor="email-input" >Email address
-          </label>
+           
+          <label htmlFor="email-input" >Email address</label>
             <input type="text" 
             id="email-input"
             value={this.state.email}
             onChange={this.update('email')}
             className="modal-input"/>
+
 
           <label htmlFor="username-input" >First name
           </label>
@@ -70,7 +80,12 @@ class SessionForm extends React.Component {
             className="modal-input"/>
           <br></br>
           <input className="modal-submit"type="submit" value={this.props.formType}/>
-          
+          <div className="modal-divider">
+            <span id="or-option">
+              OR
+            </span>
+          </div>
+          <button onClick={this.loginDemoUser} id="demo-signin">Demo</button>
           </div>
         </form>
       </div>
