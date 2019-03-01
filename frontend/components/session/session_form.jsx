@@ -25,8 +25,8 @@ class SessionForm extends React.Component {
     e.preventDefault();
     createSession({
       email: "zglass@salinger.com", 
-    username: "Zooey", 
-    password: "whentheFatLadysings" }
+      username: "Zooey", 
+      password: "whentheFatLadysings" }
     );
   }
 
@@ -52,9 +52,9 @@ class SessionForm extends React.Component {
         <br></br>
           <form onSubmit={this.handleSubmit} className="modal-form">
           <div className="login-form">
-          <h1 id="greeting">Create your account</h1>
-          <p id="tagline">Registration is easy.</p>
-           
+          <h1 id="greeting">{this.props.greeting}</h1>
+          <p id="tagline">{this.props.tagline}</p>
+           <br/>
           <label htmlFor="email-input" >Email address</label>
             <input type="text" 
             id="email-input"

@@ -7,6 +7,8 @@ import { openModal, closeModal } from '../../actions/modal_action';
 
 const mapStateToProps = state => ({
   formType: 'Register',
+  greeting: 'Create your account',
+  tagline: 'Registration is easy.',
   errors: state.errors.session
 });
 

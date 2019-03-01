@@ -5,7 +5,9 @@ import { createSession } from '../../actions/session_action';
 import { closeModal, openModal } from '../../actions/modal_action';
 
 const mapStateToProps = ({ errors }) => ({
-  formType: 'login',
+  formType: 'Sign in',
+  greeting: 'Sign in to continue',
+  tagline: '',
   errors: errors.session
 });
 
