@@ -13,23 +13,23 @@
   z-index: 80;
   justify-content: center;
   overflow: scroll;
+  padding-top: 30px;
 }
 .modal-foreground{
   position: absolute;
   display: flex;
   margin-bottom: 0;
-  margin-top: -15px;
   height: 100%;
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
 }
 .session-form{
   display: block;
   position: relative;
   padding: 0;
+  margin: 0;
   height: 100%;
   width: 100%;
-  margin: 40px auto;
   max-width: 360px; 
 }
 
@@ -42,10 +42,11 @@
    line-height: 1.4;
     margin-left: -12px;
     margin-right: -12px;
+    margin-top: -15px;
     cursor: default;
     width: 100%;
     height: auto;
-    min-height: 650px;
+    min-height: 700px;
     max-height: calc(100vh - 250px);
     position: relative;
     overflow: hidden;
@@ -70,7 +71,6 @@
   padding-bottom: 5px;
 }
 #tagline{
-  padding-bottom: 5px;
   margin: 0;
   font-size: 14px;
   font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -83,6 +83,15 @@
   margin-bottom: 6px;
 }
 
+ #username-label{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  }
+  #username-input{
+    margin-top: 6px;
+  }
+
 .modal-input{
   margin-bottom: 0;
   height: 48px;
@@ -90,18 +99,31 @@
   border-radius: 4px;
   position: relative;
   box-shadow: none;
- outline-style: none;
+  outline-style: none;
   border-width: 1px;
-  width: 98%;
+  margin-right: 20px;
+  width: 95%;
   border-color: #E1E3DF; 
+  padding-left: 15px;
 }
  .errors{
-    color: red;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 16px;
+   color: red;
+   list-style: none;
+   padding-left: 0;
    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  }
+  
+  .err-div{
+    padding-top: 0;
+    height: 15px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    margin-top: -10px;
+  }
+
+  .login-err-div{
+    height: 15px;
+    margin-bottom: 10px;
   }
 
 .modal-submit{
@@ -118,6 +140,7 @@
 }
 .modal-submit:hover{
   background-color: #3c3c3c;
+  cursor: pointer;
 }
 
 .modal-divider{
@@ -153,6 +176,7 @@
 #demo-signin:hover{
   background-color: #f9f9f7;
   border-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 #demo-signin:focus{
@@ -166,13 +190,6 @@
   margin: 0;
   min-width: 100vw;
 }
-
-// .full-page{
-//    height: 100%;
-//    width: 100%;
-//    cursor: default;
-//     margin: 0;
-//  }
 
  .header{
    height: 115px;
@@ -192,7 +209,6 @@
     height: 55%;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
  }
 
  .options-bar-el{
@@ -242,6 +258,7 @@
     border: 1px solid;
     border-radius: 3px;
     font-size: 14px;
+    width: 65px;
  }
  #logout-button{
     border: 1px solid;
@@ -255,6 +272,7 @@
   #register-button:hover {
     text-decoration: underline;
     color: #595959;
+    cursor: pointer;
   }
 
   #register-button:focus{
@@ -276,12 +294,14 @@
       background-color: #3c3c3c !important;
       color: #FFF;
       border-color: #222222;
+      cursor: pointer;
   }
 
   #logout-button:hover{
       background-color: #3c3c3c !important;
       color: #FFF;
       border-color: #222222;
+      cursor: pointer;
   }
 
   #login-button:focus {
@@ -300,6 +320,7 @@
       color:#222;
   }
 
+ 
  
 
   

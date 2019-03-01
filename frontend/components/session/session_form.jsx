@@ -80,15 +80,18 @@ class SessionForm extends React.Component {
       return null;
     }else{
       return (
-        <div>
-        <label htmlFor="username-input" >First name
+        <div className="username-div">
+          <label id="username-label" htmlFor="username-input" >First name
           </label>
         <input type="text"
           id="username-input"
           value={this.state.username}
           onChange={this.update('username')}
           className="modal-input" />
-           { this.renderUsernameErrors() }
+          <div className="err-div">
+            {this.renderUsernameErrors()}
+          </div>
+           
         </div>
       )
     }
@@ -105,15 +108,21 @@ class SessionForm extends React.Component {
           <div className="login-form">
           <h1 id="greeting">{this.props.greeting}</h1>
           <p id="tagline">{this.props.tagline}</p>
-           <br/>
-           {this.renderLoginErrors()}
+         
+            <div className="login-err-div">
+              {this.renderLoginErrors()}
+            </div>
+          
           <label htmlFor="email-input" >Email address</label>
             <input type="text" 
             id="email-input"
             value={this.state.email}
             onChange={this.update('email')}
             className="modal-input"/>
-          {this.renderEmailErrors()}
+            <div className="err-div">
+              {this.renderEmailErrors()}
+            </div>
+          
 
           {this.renderUsername()}
 
@@ -124,7 +133,10 @@ class SessionForm extends React.Component {
             value={this.state.password} 
             onChange={this.update('password')} 
             className="modal-input"/>
-            {this.renderPasswordErrors()}
+            <div className="err-div">
+              {this.renderPasswordErrors()}
+            </div>
+            
           <br></br>
           <input className="modal-submit"type="submit" value={this.props.formType}/>
           <div className="modal-divider">

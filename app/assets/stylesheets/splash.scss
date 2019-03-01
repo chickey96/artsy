@@ -1,0 +1,17 @@
+.splash-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.category {
+  font-size: 14px;
+  text-align: center;
+  padding: 15px;
+  font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.category:hover{
+    border-bottom: 3px solid #F56400;
+    cursor: pointer;
+}
