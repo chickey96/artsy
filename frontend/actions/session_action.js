@@ -13,6 +13,10 @@ const receiveErrors = err => ({
   errors: err
 });
 
+const logoutCurrentUser = () => ({
+  type: LOGOUT_CURRENT_USER
+});
+
 export const createUser = user => dispatch => (
   SessionAPIUtil.createUser(user)
   .then(user => {

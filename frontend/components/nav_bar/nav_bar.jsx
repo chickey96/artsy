@@ -1,57 +1,64 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const NavBar = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
       <nav className="nav-bar">
         <div className="offset-banner"></div>
 
-        <ul className="options-bar">
+        <div className="options-bar">
 
-          <li className="options-bar-el" id="logo-li">
+          <div className="options-bar-el" id="logo-search">
             <div className="options-bar-item" id="logo">
               Artsy
             </div>  
-          </li>
-
-        <li className="options-bar-el" id="search-li">
+          
           <div className="options-bar-item" id="search">
             SearchBarHere
           </div>
-        </li>
+        </div>
 
-          <li className="options-bar-el" id="register-list-el">
-            <button className="options-bar-item" id="register-button" onClick={() => openModal('signup')}>
-              Register
-              </button>
-          </li>
+            {relevantButtons}
 
-          <li className="options-bar-el" id="login-list-el">
-          <button className="options-bar-item" id="login-button" onClick={() => openModal('login')}>
-              Sign in  
-            </button>
-          </li>
-
-        </ul>
+        </div>
       </nav>
   );
-
+    const handleLogout = (e) => {
+      e.preventDefault();
+      logout()
+    }
   const logoutTools = () => (
-      <div>
-        <button onClick={logout}>Log out</button>
+      <div  id="logout-div">
+        <button className="options-bar-item" 
+        id="logout-button" onClick={handleLogout}>Log out</button>
       </div>
   );
 
   const loginTools = () => (
-      <div>
-        
+      <div className="options-bar-el" id="login-options">
+      <div id="register-div">
+        <button className="options-bar-item" id="register-button" onClick={() => openModal('signup')}>
+          Register
+              </button>
+      </div>
+
+      <div id="login-div">
+        <button className="options-bar-item" id="login-button" onClick={() => openModal('login')}>
+          Sign in
+            </button>
+      </div>
       </div>
   );
 
+  const relevantButtons = (
+      currentUser ?
+      logoutTools() :
+      loginTools()
+  )
+
   return (
-    currentUser ?
-    greeting(currentUser, logout) :
     sessionLinks()
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
