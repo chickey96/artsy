@@ -30,19 +30,57 @@ class SessionForm extends React.Component {
     );
   }
 
-  
-
-  renderErrors() {
+  renderEmailErrors() {
+    const emailErrors = this.props.errors.filter(err => (err.includes('Email')))
     return(
-      <div>
-        {this.props.errors.map((error, idx) => (
-          <p id={`error-${idx}`}>
-            {error}
-          </p>
-          ))} 
-      </div>
-    );
+      <ul>
+        {emailErrors.map((err, idx) => (
+          <li key={`emailErr${idx}`}>{err}</li>
+        ))}
+      </ul>
+    )
   }
+
+  renderUsernameErrors() {
+    const usernameErrors = this.props.errors.filter(err => (err.includes('Username')))
+    return (
+      <ul>
+        {usernameErrors.map((err, idx) => (
+          <li key={`usernameErr${idx}`}>{err}</li>
+        ))}
+      </ul>
+    )
+  }
+  renderPasswordErrors() {
+    const passwordErrors = this.props.errors.filter(err => (err.includes('Password')))
+    return (
+      <ul>
+        {passwordErrors.map((err, idx) => (
+          <li key={`passwordErr${idx}`}>{err}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  renderUsername() {
+    if(this.props.formType === 'Sign in'){
+      return null;
+    }else{
+      return (
+        <div>
+        <label htmlFor="username-input" >First name
+          </label>
+        <input type="text"
+          id="username-input"
+          value={this.state.username}
+          onChange={this.update('username')}
+          className="modal-input" />
+           { this.renderUsernameErrors() }
+        </div>
+      )
+    }
+  }
+   
 
   render() {
     
@@ -61,16 +99,10 @@ class SessionForm extends React.Component {
             value={this.state.email}
             onChange={this.update('email')}
             className="modal-input"/>
+          {this.renderEmailErrors()}
 
+          {this.renderUsername()}
 
-          <label htmlFor="username-input" >First name
-          </label>
-            <input type="text" 
-            id="username-input"
-            value={this.state.username}
-            onChange={this.update('username')}
-            className="modal-input"/>
-         
           <label htmlFor="password-input" >Password
           </label>
             <input type="password"
@@ -78,6 +110,7 @@ class SessionForm extends React.Component {
             value={this.state.password} 
             onChange={this.update('password')} 
             className="modal-input"/>
+            {this.renderPasswordErrors()}
           <br></br>
           <input className="modal-submit"type="submit" value={this.props.formType}/>
           <div className="modal-divider">

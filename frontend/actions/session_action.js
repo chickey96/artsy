@@ -8,11 +8,10 @@ const receiveCurrentUser = user => ({
   user
 });
 
-const receiveErrors = err => {
-  const type = RECEIVE_SESSION_ERRORS;
-  const errors = err;
-  return {type, errors};
-};
+const receiveErrors = err => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors: err
+});
 
 export const createUser = user => dispatch => (
   SessionAPIUtil.createUser(user)
@@ -26,8 +25,13 @@ export const createUser = user => dispatch => (
 
 export const createSession = user => dispatch => (
   SessionAPIUtil.createSession(user)
-    .then(user => dispatch(receiveCurrentUser(user)),
-      errors => (dispatch(receiveErrors(errors.responseJSON))))
+    .then(user => {
+      dispatch(receiveCurrentUser(user))
+    },
+      errors => {
+        debugger;
+        dispatch(receiveErrors(errors.responseJSON))
+    })
 );
 
 export const deleteSession = () => dispatch => (

@@ -4,11 +4,11 @@ import SessionForm from './session_form';
 import { createSession } from '../../actions/session_action';
 import { closeModal, openModal } from '../../actions/modal_action';
 
-const mapStateToProps = ({ errors }) => ({
+const mapStateToProps = state => ({
   formType: 'Sign in',
   greeting: 'Sign in to continue',
   tagline: '',
-  errors: errors.session
+  errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -9,11 +9,13 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    if @user.save
+    if @user
       login(@user)
-      render json: 'api/users/show'
+      render 'api/users/show'
     else
-      render json: ['Invalid Credentials'], status: 401
+      error = ['Username and Password not found']
+      render json: error, status: 401 
+    end
   end
 
   def destroy
