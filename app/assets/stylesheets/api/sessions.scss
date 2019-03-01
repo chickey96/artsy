@@ -106,6 +106,20 @@
   border-color: #E1E3DF; 
   padding-left: 15px;
 }
+ .input-error{
+    border-color: red;
+    margin-bottom: 0;
+    height: 48px;
+    font-size: 16px;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: none;
+    outline-style: none;
+    border-width: 1px;
+    margin-right: 20px;
+    width: 95%;
+    padding-left: 15px;
+  }
  .errors{
    color: red;
    list-style: none;
@@ -320,6 +334,7 @@
       color:#222;
   }
 
+ 
  
  
 

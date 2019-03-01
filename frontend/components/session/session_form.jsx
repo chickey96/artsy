@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { createSession } from '../../actions/session_action';
-
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -9,6 +7,9 @@ class SessionForm extends React.Component {
     this.state = { email: '', username: '', password: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
+    this.emailInput = React.createRef();
+    this.usernameInput = React.createRef();
+    this.passwordInput = React.createRef();
   }
 
   handleSubmit(e){
@@ -35,45 +36,68 @@ class SessionForm extends React.Component {
 
   renderLoginErrors() {
     const error = this.props.errors.filter(err => (err.includes('credentials')));
+    if (error.length > 0) {
+      this.emailInput.className = "input-error";
+      this.passwordInput.className = "input-error";
+    }
+    // else{
+    //   this.emailInput.className = "modal-input";
+    //   this.passwordInput.className = "modal-input";
+    // }
     return (
       <div className="errors">
         <p>
           {error}
         </p>
       </div>
-    )
-  }
+    )}
+
   renderEmailErrors() {
     const emailErrors = this.props.errors.filter(err => (err.includes('Email')))
-    return(
+    if(emailErrors.length > 0){
+      this.emailInput.className += " input-error"
+    }
+    // else{
+    //   this.emailInput.className -= " input-error"
+    // }
+    return (
       <ul className="errors">
         {emailErrors.map((err, idx) => (
           <li key={`emailErr${idx}`}>{err}</li>
         ))}
       </ul>
-    )
-  }
+    )}
 
   renderUsernameErrors() {
     const usernameErrors = this.props.errors.filter(err => (err.includes('Username')))
+    if (usernameErrors.length > 0) {
+      this.usernameInput.className = "input-error"
+    }
+    // else{
+    //     this.usernameInput.className = this.usernameInput.className - "input-error";
+    // }
     return (
       <ul className="errors">
         {usernameErrors.map((err, idx) => (
           <li key={`usernameErr${idx}`}>{err}</li>
         ))}
       </ul>
-    )
-  }
+    )}
   renderPasswordErrors() {
     const passwordErrors = this.props.errors.filter(err => (err.includes('Password')))
+    if (passwordErrors.length > 0) {
+      this.passwordInput.className = "input-error"
+    }
+    // else{
+    //   this.passwordInput.className = "modal-input"
+    // }
     return (
       <ul className="errors">
         {passwordErrors.map((err, idx) => (
           <li key={`passwordErr${idx}`}>{err}</li>
         ))}
       </ul>
-    )
-  }
+    )}
 
   renderUsername() {
     if(this.props.formType === 'Sign in'){
@@ -85,21 +109,19 @@ class SessionForm extends React.Component {
           </label>
         <input type="text"
           id="username-input"
+          ref={ref => this.usernameInput = ref}
           value={this.state.username}
           onChange={this.update('username')}
-          className="modal-input" />
+          className="modal-input" 
+          />
           <div className="err-div">
             {this.renderUsernameErrors()}
           </div>
            
         </div>
-      )
-    }
-  }
+      )}}
    
-
   render() {
-    
     return (
       <div className='session-form'>
         
@@ -116,20 +138,22 @@ class SessionForm extends React.Component {
           <label htmlFor="email-input" >Email address</label>
             <input type="text" 
             id="email-input"
+            ref={ref => this.emailInput = ref}
             value={this.state.email}
             onChange={this.update('email')}
-            className="modal-input"/>
+            className="modal-input"
+            />
             <div className="err-div">
               {this.renderEmailErrors()}
             </div>
           
-
           {this.renderUsername()}
 
           <label htmlFor="password-input" >Password
           </label>
             <input type="password"
             id="password-input"
+            ref={ref => this.passwordInput = ref}
             value={this.state.password} 
             onChange={this.update('password')} 
             className="modal-input"/>
@@ -148,8 +172,6 @@ class SessionForm extends React.Component {
           </div>
         </form>
       </div>
-    )
-  }
-}
+    )}}
 
 export default withRouter(SessionForm);
