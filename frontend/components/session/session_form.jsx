@@ -2,17 +2,19 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { createSession } from '../../actions/session_action';
 
+
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { email: '', username: '', password: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.action(user);
+    this.props.action(user).then(this.props.closeModal);
   }
 
   update(field){
@@ -23,17 +25,28 @@ class SessionForm extends React.Component {
 
   loginDemoUser(e){
     e.preventDefault();
-    createSession({
-      email: "zglass@salinger.com", 
-      username: "Zooey", 
-      password: "whentheFatLadysings" }
-    );
+    const demoUser = {
+        email: "zglass@salinger.com", 
+        username: "Zooey", 
+        password: "whentheFatLadysings" 
+      };
+      this.props.demoAction(demoUser).then(this.props.closeModal);
   }
 
+  renderLoginErrors() {
+    const error = this.props.errors.filter(err => (err.includes('credentials')));
+    return (
+      <div className="errors">
+        <p>
+          {error}
+        </p>
+      </div>
+    )
+  }
   renderEmailErrors() {
     const emailErrors = this.props.errors.filter(err => (err.includes('Email')))
     return(
-      <ul>
+      <ul className="errors">
         {emailErrors.map((err, idx) => (
           <li key={`emailErr${idx}`}>{err}</li>
         ))}
@@ -44,7 +57,7 @@ class SessionForm extends React.Component {
   renderUsernameErrors() {
     const usernameErrors = this.props.errors.filter(err => (err.includes('Username')))
     return (
-      <ul>
+      <ul className="errors">
         {usernameErrors.map((err, idx) => (
           <li key={`usernameErr${idx}`}>{err}</li>
         ))}
@@ -54,7 +67,7 @@ class SessionForm extends React.Component {
   renderPasswordErrors() {
     const passwordErrors = this.props.errors.filter(err => (err.includes('Password')))
     return (
-      <ul>
+      <ul className="errors">
         {passwordErrors.map((err, idx) => (
           <li key={`passwordErr${idx}`}>{err}</li>
         ))}
@@ -93,6 +106,7 @@ class SessionForm extends React.Component {
           <h1 id="greeting">{this.props.greeting}</h1>
           <p id="tagline">{this.props.tagline}</p>
            <br/>
+           {this.renderLoginErrors()}
           <label htmlFor="email-input" >Email address</label>
             <input type="text" 
             id="email-input"
@@ -117,7 +131,7 @@ class SessionForm extends React.Component {
             <span id="or-option">
               OR
             </span>
-          </div>
+          </div> 
           <button onClick={this.loginDemoUser} id="demo-signin">Demo</button>
           </div>
         </form>

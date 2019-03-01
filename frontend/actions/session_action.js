@@ -29,7 +29,6 @@ export const createSession = user => dispatch => (
       dispatch(receiveCurrentUser(user))
     },
       errors => {
-        debugger;
         dispatch(receiveErrors(errors.responseJSON))
     })
 );

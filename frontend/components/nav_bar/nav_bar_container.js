@@ -3,8 +3,8 @@ import { deleteSession } from '../../actions/session_action';
 import { openModal } from '../../actions/modal_action';
 import NavBar from './nav_bar';
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+const mapStateToProps = state => ({
+  currentUser: state.entities.users[state.session.currentUser]
 });
 
 const mapDispatchToProps = dispatch => ({

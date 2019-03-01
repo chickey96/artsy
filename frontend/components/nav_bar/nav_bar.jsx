@@ -35,11 +35,16 @@ const NavBar = ({ currentUser, logout, openModal }) => {
       </nav>
   );
 
-  const greeting = () => (
-      <nav>
-        <h2>Welcome, {currentUser.username}</h2>
+  const logoutTools = () => (
+      <div>
         <button onClick={logout}>Log out</button>
-      </nav>
+      </div>
+  );
+
+  const loginTools = () => (
+      <div>
+        
+      </div>
   );
 
   return (

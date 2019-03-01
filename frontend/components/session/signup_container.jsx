@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import SessionForm from './session_form';
-import { createUser } from '../../actions/session_action';
+import { createUser, createSession } from '../../actions/session_action';
 import { openModal, closeModal } from '../../actions/modal_action';
 
 
@@ -15,11 +15,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   action: user => dispatch(createUser(user)),
-  altForm: (
-    <button onClick={() => dispatch(openModal('login'))}>
-      Login
-    </button>
-  )
+  demoAction: user => dispatch(createSession(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

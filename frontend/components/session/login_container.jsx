@@ -14,11 +14,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   action: user => dispatch(createSession(user)),
   closeModal: () => dispatch(closeModal()),
-  altForm: (
-    <button onClick={() => dispatch(openModal('signup'))}>
-      Register
-    </button>
-  )
+  demoAction: user => dispatch(createSession(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
