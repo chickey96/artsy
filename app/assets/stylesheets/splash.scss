@@ -1,17 +1,159 @@
 .splash-grid{
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
+  height: 60px;
+  padding: 0;
+  align-content: center;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
+.category-li {
+  list-style: none;
+  margin: 0 35px;
+}
+
 .category {
+  padding: 20px;
+  width: 90px;
   font-size: 14px;
   text-align: center;
-  padding: 15px;
   font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.category:hover{
+.category-li:hover{
     border-bottom: 3px solid #F56400;
     cursor: pointer;
+    margin-bottom: -3px;
+}
+
+.front-page-pics{
+  display: grid;
+  grid-template-rows: 200px 100px;
+  grid-template-columns: 450px 300px;
+  justify-content: center;
+}
+.front-page-pics div{
+  border: 1px solid  #595959;
+}
+
+#pic1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+#pic2 {
+  grid-column-start: 2;
+  grid-column-end: 2; 
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+#pic3 {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.catchphrase {
+    font-size: 26px;
+    font-family: "Guardian-EgypTT",serif;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    margin: 50px;
+}
+
+.front-page-mottos{
+  margin: 50px;
+  display: grid;
+  grid-template-rows: 100px;
+  grid-template-columns: 250px 250px 250px;
+  justify-content: center;
+  grid-gap: 30px;
+}
+
+.motto {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px;
+  align-items: center;
+  text-align: center;
+  font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+}
+
+.motto-title{
+  margin: 10px 0;
+ font-size: 16px;
+ padding-left: 10px;
+}
+.motto-topline{
+  display: flex;
+  width: fit-content;
+  align-items: center;
+}
+
+.motto-body{
+  display: flex;
+  font-size: 14px;
+}
+.checkmark {
+  fill: #E55400;
+  font-size: 12px;
+  height: 24px;
+  width: 24px;
+}
+
+.footer{
+  display: flex;
+  height: 35px;
+  padding: 25px 0;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.footer-logo{
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  font-size: 26px;
+  color: #E55400;
+  width: fit-content;
+}
+
+.footer-phrase{
+  height: 100%;
+  display: flex;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.info-box{
+  background-color: #FDEBD2;
+  width: 100vw;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.info-box-text{
+  width: fit-content;
+  text-align: center;
+}
+
+.info-box-header{
+    font-family: "Guardian-EgypTT",serif;
+    font-weight: 300;
+    font-size: 32px;
+}
+
+.info-box-segment{
+  padding: 15px 0;
+}
+
+.info-box-title{
+    font-family: "Guardian-EgypTT",serif;
+    font-weight: 300;
+    font-size: 24px;
 }
