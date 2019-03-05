@@ -6,7 +6,10 @@ class Api::ProductsController < ApplicationController
 
   
   def index
-    @products = Product.where(params[:media_type].include?(params[:product][:category]))
+    products = Product.all
+    @products = products.select do |product| 
+      product.media_type.include?(params[:category])
+    end
   end
 
 end

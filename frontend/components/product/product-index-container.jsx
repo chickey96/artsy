@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
 import ProductIndex from './product_index';
+import {fetchProducts} from '../../actions/product_action';
+
 
 const mapStateToProps = state => {
-  const products = [{title: 'title1', artist_id: 1, price: '5.00', media_type: 'charcoal'},
-    { title: 'title2', artist_id: 1, price: '5.00', media_type: 'charcoal' },
-    { title: 'title3', artist_id: 1, price: '5.00', media_type: 'charcoal' },
-    { title: 'title4', artist_id: 1, price: '5.00', media_type: 'charcoal' },
-    { title: 'title5', artist_id: 1, price: '5.00', media_type: 'charcoal' },
-    { title: 'title6', artist_id: 1, price: '5.00', media_type: 'charcoal' },
-    { title: 'title7', artist_id: 1, price: '5.00', media_type: 'charcoal' }
-];
-  return {products};
-  // products: state.entities.products.map(id => (state.products[id]))
+  const products = Object.values(state.entities.products);
+  const artists = state.entities.users;
+  return {products, artists};
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchProducts: category => dispatch(fetchProducts(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductIndex);

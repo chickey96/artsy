@@ -17,7 +17,7 @@ export const fetchProduct = id => dispatch => (
   .then(product => dispatch(receiveProduct(product)))
 );
 
-export const fetchProducts = () => dispatch => (
-  ProductAPIUtil.fetchProducts()
+export const fetchProducts = category => dispatch => (
+  ProductAPIUtil.fetchProducts(category)
   .then(products => dispatch(receiveProducts(products)))
 );

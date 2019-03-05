@@ -7,43 +7,43 @@ const Directory = () => {
       <ul className="splash-grid">
 
         <li className="category-li">
+          <Link className="directory-link" to="/drawing" style={{ color: '#222222', textDecoration: 'none' }}>
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='drawing'>
               Drawings
-            </Link>
           </div>
+          </Link>
         </li>
 
         <li className="category-li">
+            <Link to="/painting" style={{ color: '#222222', textDecoration: 'none' }} >
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='painting'>
               Paintings
-            </Link>
           </div>
+            </Link>
         </li>
 
         <li className="category-li">
+            <Link to="/flowers" style={{ color: '#222222', textDecoration: 'none' }} >
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='flowers'>
               Flowers
-            </Link>
           </div>
+            </Link>
         </li>
 
         <li className="category-li">
+            <Link to="/mixed-media" style={{ color: '#222222', textDecoration: 'none' }} >
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='mixed-media'>
               Mixed Media
-            </Link>
           </div>
+            </Link>
         </li>
 
         <li className="category-li">
+            <Link to="/3d" style={{ color: '#222222', textDecoration: 'none' }} >
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='3d'>
               3-D Art
-            </Link>
           </div>
+            </Link>
         </li>
 
       </ul>

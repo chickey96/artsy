@@ -5,9 +5,10 @@ export const fetchProduct = id => (
   })
 );
 
-export const fetchProducts = () => (
+export const fetchProducts = category => (
   $.ajax({
     method: 'GET',
-    url: '/api/products'
+    url: '/api/products',
+    data: {category}
   })
 );

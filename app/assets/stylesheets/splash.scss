@@ -1,12 +1,19 @@
 .splash-grid{
   display: grid;
-  grid-template-columns: repeat(5, 20vw); 
+  grid-template-columns: repeat(5, 18vw); 
   height: 35%;
   margin-top: 20px;
   margin: 0;
+  padding-left: 5vw;
+  padding-right: 5vw;
   width: 100vw;
   padding: 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.directory-link{
+  height: 100%;
+  width: 100%;
 }
 .category-li {
   list-style: none;
