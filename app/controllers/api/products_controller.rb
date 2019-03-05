@@ -6,9 +6,7 @@ class Api::ProductsController < ApplicationController
 
   
   def index
-    @products = Product.where(:media_type => params[:media_type])
-    # @page_name = params[:page_name] 
-    # json.page_name @page_name
+    @products = Product.where(params[:media_type].include?(params[:product][:category]))
   end
 
 end

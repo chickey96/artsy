@@ -8,7 +8,7 @@ const Directory = () => {
 
         <li className="category-li">
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} page_name='Drawings' media_type='charcoal'>
+            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='drawing'>
               Drawings
             </Link>
           </div>
@@ -16,33 +16,33 @@ const Directory = () => {
 
         <li className="category-li">
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} media_type='charcoal'>
+            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='painting'>
               Paintings
-                  </Link>
+            </Link>
           </div>
         </li>
 
         <li className="category-li">
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} media_type='charcoal'>
+            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='flowers'>
               Flowers
-                  </Link>
+            </Link>
           </div>
         </li>
 
         <li className="category-li">
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} media_type='charcoal'>
+            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='mixed-media'>
               Mixed Media
-                  </Link>
+            </Link>
           </div>
         </li>
 
         <li className="category-li">
           <div className="category">
-            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} media_type='charcoal'>
+            <Link to="/products" style={{ color: '#222222', textDecoration: 'none' }} category='3d'>
               3-D Art
-                  </Link>
+            </Link>
           </div>
         </li>
 
