@@ -5,6 +5,7 @@ import Splash from './splash';
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import productIndexContainer from './product/product-index-container';
 import productShowContainer from './product/product_show_container';
+import Directory from './nav_bar/directory';
 
 const App = () => (
   <div className="full-page">
@@ -13,6 +14,7 @@ const App = () => (
     <Link to="/" style={{textDecoration: 'none'}}>
       <NavBarContainer/>
     </Link>
+    <Directory/>
   </header>
   <Switch>
     <Route exact path="/products" component={productIndexContainer}/>

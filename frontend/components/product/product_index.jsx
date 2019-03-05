@@ -8,7 +8,7 @@ class ProductIndex extends React.Component {
   
     const products = this.props.products.map(product => {
        return (
-         <Link to={`/products/${product.id}`}>
+         <Link className="product-link" to={`/products/${product.id}`}>
           <div className="product">
             <div className="product-image">
             </div>
@@ -28,7 +28,9 @@ class ProductIndex extends React.Component {
 
     return (
       <div className="product-index">
-        {products}
+        <div className="product-index-interior">
+          {products}
+        </div>
       </div>
     )
   }

@@ -20,11 +20,16 @@ class ProductShow extends React.Component {
           {this.props.product.title}
         </div>
         <div className="show-artist">
-          {this.props.product.artist}
+          Made by: {this.props.product.artist}
         </div>
         <div className="show-price">
           ${this.props.product.price}
         </div>
+
+        <div className="line">
+
+        </div>
+
         <div className="overview">
         <div className="overview-title">
           Overview
@@ -42,6 +47,10 @@ class ProductShow extends React.Component {
           </ul>
            
         </div>
+
+            <div className="line">
+
+            </div>
         
       </div>
 
