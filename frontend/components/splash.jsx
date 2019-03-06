@@ -10,14 +10,24 @@ const Splash = () => {
 
     <div className="front-page-pics">
       <div id="pic1">
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/lion.jpg' className="front-page-image"/>
       </div>
 
       <div id="pic2">
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/100%25_monochromatic.jpg' className="front-page-image" />
       </div>
 
       <div id="pic3">
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/bang.jpg' className="front-page-image" />
       </div>
 
+        <div id="pic4">
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/car_in_a_minor_swirl.jpg' className="front-page-image" />
+        </div>
+
+        <div id="pic5">
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/frank.jpg' className="front-page-image" />
+        </div>
     </div>
 
     <div className="front-page-mottos">
