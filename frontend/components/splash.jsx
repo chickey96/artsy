@@ -14,7 +14,7 @@ const Splash = () => {
       </div>
 
       <div id="pic2">
-          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/100%25_monochromatic.jpg' className="front-page-image" />
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/flowers10.jpg' className="front-page-image" />
       </div>
 
       <div id="pic3">
@@ -22,7 +22,7 @@ const Splash = () => {
       </div>
 
         <div id="pic4">
-          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/car_in_a_minor_swirl.jpg' className="front-page-image" />
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/flowers24.jpg' className="front-page-image" />
         </div>
 
         <div id="pic5">

@@ -38,13 +38,6 @@ const Directory = () => {
             </Link>
         </li>
 
-        <li className="category-li">
-            <Link to="/3d" style={{ color: '#222222', textDecoration: 'none' }} >
-          <div className="category">
-              3-D Art
-          </div>
-            </Link>
-        </li>
 
       </ul>
     )
