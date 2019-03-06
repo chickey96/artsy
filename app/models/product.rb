@@ -6,6 +6,11 @@ class Product < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :User
 
+  has_many :comments,
+    primary_key: :id, 
+    foreign_key: :product_id,
+    class_name: :Product 
+
   has_one_attached :photo
 
   

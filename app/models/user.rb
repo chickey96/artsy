@@ -8,6 +8,11 @@ class User < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Product
 
+  has_many :comments,
+    primary_key: :id, 
+    foreign_key: :user_id,
+    class_name: :Comment 
+
   # belongs_to :cart,
   #   primary_key: :id,
   #   foreign_key: :user_id,
