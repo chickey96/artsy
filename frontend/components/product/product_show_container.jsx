@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import ProductShow from './product_show';
+import {fetchProduct} from '../../actions/product_action';
 
 const mapStateToProps = state => {
-  const product = { title: 'title1', artist: "charlie", price: '5.00', media_type: 'charcoal'};
+  debugger;
+  const product = {};
   return {product};
+
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchProduct: id => dispatch(fetchProduct(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductShow);

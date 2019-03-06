@@ -3,6 +3,18 @@ import React from 'react';
 
 class ProductShow extends React.Component {
 
+  componentDidMount() {
+    let path = this.props.location.pathname;
+    debugger;
+    this.props.fetchProduct(this.props.location.pathname);
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.match.params.id != this.props.location.pathname){
+      this.props.fetchProduct(this.props.location.pathname);
+    }
+  }
+
   render () {
     return (
       <div className="product-show-page">

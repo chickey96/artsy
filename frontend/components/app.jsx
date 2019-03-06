@@ -22,7 +22,7 @@ const App = () => (
     <Route exact path="/flowers" component={productIndexContainer}/>
     <Route exact path="/mixed-media" component={productIndexContainer}/>
     <Route exact path="/3d" component={productIndexContainer}/>
-    <Route path="/products/" component={productShowContainer} />
+    <Route exact path="/products/:productId" component={productShowContainer} />
     <Route exact path="/" component={Splash}/>
     <Redirect to="/"/> 
   </Switch>

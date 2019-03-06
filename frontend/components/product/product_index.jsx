@@ -23,7 +23,9 @@ class ProductIndex extends React.Component {
        return (
          <Link className="product-link" to={`/products/${product.id}`}>
           <div className="product">
+          <div className="image-box">
            <img src={product.photoUrl} className="image"/>
+          </div>
            <div className="pertinent-info">
             <div className="product-title">
               {product.title}
