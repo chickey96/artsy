@@ -4,7 +4,6 @@ const productsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_PRODUCT:
-      debugger;
       return { [action.product.id]: action.product };
     case RECEIVE_PRODUCTS:
       const products = {};

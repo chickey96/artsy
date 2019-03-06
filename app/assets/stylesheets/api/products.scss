@@ -101,6 +101,13 @@
   align-items: center;
 }
 
+.image-show{
+  max-height: 500px;
+  max-width: 500px;
+  height: auto;
+  width: auto;
+}
+
 .image-placeholder{
   display: flex;
   width: 100%;

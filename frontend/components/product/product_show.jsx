@@ -4,18 +4,27 @@ import React from 'react';
 class ProductShow extends React.Component {
 
   componentDidMount() {
-    let path = this.props.location.pathname;
-    debugger;
-    this.props.fetchProduct(this.props.location.pathname);
+    this.props.fetchProduct(this.props.match.params.productId);
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.match.params.id != this.props.location.pathname){
-      this.props.fetchProduct(this.props.location.pathname);
+    if(prevProps.match.params.productId != this.props.match.params.productId){
+      this.props.fetchProduct(this.props.match.params.productId);
     }
   }
 
   render () {
+    if(!this.props.product){
+      return null;
+    }
+    let media = this.props.product.media_type;
+    let materials = "";
+    for(let i = 0; i < media.length; i++){
+      if(media[i] === ':'){
+        materials = media.slice(i+1);
+        break;
+      }
+    }
     return (
       <div className="product-show-page">
 
@@ -23,7 +32,7 @@ class ProductShow extends React.Component {
       <div className="product-show">
       <div className="show-image">
         <div className="image-placeholder">
-
+        <img src={this.props.product.photoUrl} className="image-show" />
         </div>
 
       </div>
@@ -35,7 +44,7 @@ class ProductShow extends React.Component {
           Made by: {this.props.product.artist}
         </div>
         <div className="show-price">
-          ${this.props.product.price}
+          ${this.props.product.price}.00
         </div>
 
         <div className="line">
@@ -51,7 +60,7 @@ class ProductShow extends React.Component {
               Handmade item 
             </li>
             <li>
-              Materials used: {this.props.product.media_type}
+              Materials used: {materials}
             </li>
             <li>
               Made to order
