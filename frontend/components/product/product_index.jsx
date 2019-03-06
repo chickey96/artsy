@@ -19,7 +19,7 @@ class ProductIndex extends React.Component {
 
   render() {
     const products = this.props.products.map(product => {
-      console.log(product.photoUrl);
+      
        return (
          <Link className="product-link" to={`/products/${product.id}`}>
           <div className="product">
