@@ -28,59 +28,54 @@ class ProductShow extends React.Component {
     return (
       <div className="product-show-page">
 
-   
-      <div className="product-show">
-      <div className="show-image">
-        <div className="image-placeholder">
-        <img src={this.props.product.photoUrl} className="image-show" />
-        </div>
+          <div className="product-show">
+            <div className="product-section">
+              <div className="show-image">
+                <div className="image-placeholder">
+                  <img src={this.props.product.photoUrl} className="image-show" />
+                </div>
+              </div>
 
-      </div>
-      <div className="show-info">
-        <div className="show-title">
-          {this.props.product.title}
-        </div>
-        <div className="show-artist">
-          Made by: {this.props.product.artist}
-        </div>
-        <div className="show-price">
-          ${this.props.product.price}.00
-        </div>
-
-        <div className="line">
-
-        </div>
-
-        <div className="overview">
-        <div className="overview-title">
-          Overview
-        </div>
-          <ul className="overview-list">
-            <li>
-              Handmade item 
-            </li>
-            <li>
-              Materials used: {materials}
-            </li>
-            <li>
-              Made to order
-            </li>
-          </ul>
-           
-        </div>
-
-            <div className="line">
-
+              <div className="show-info">
+                <div className="show-title">
+                  {this.props.product.title}
+                </div>
+                <div className="show-artist">
+                  Made by: {this.props.product.artist}
+                </div>
+                <div className="show-price">
+                  ${this.props.product.price}.00
+                </div>
+                <div className="line"></div>
+                <div className="overview">
+                  <div className="overview-title">
+                    Overview
+                  </div>
+                    <ul className="overview-list">
+                      <li>
+                        Handmade item 
+                      </li>
+                      <li>
+                        Materials used: {materials}
+                      </li>
+                      <li>
+                        Made to order
+                      </li>
+                    </ul>   
+                </div>
+                <div className="line"></div> 
+              </div>
             </div>
-        
-      </div>
+          <div className="comment-index">
+            <div className="major-line"></div>
+            <div className="comment-header">Comments</div>
+            <CommentIndexContainer/>
+          </div>
 
         </div>
-      <div>
-        <CommentIndexContainer/>
-      </div>
 
-    </div>
+
+      </div>
     )};
 
 

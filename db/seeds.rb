@@ -9,6 +9,7 @@
 
     User.destroy_all
     Product.destroy_all 
+    Comment.destroy_all
 
     user1 = User.create(
     email: "zglass@salinger.com", 
@@ -32,6 +33,12 @@
     email: "smorningred@gmail.com",
     username: "Sarah", 
     password: "password" 
+    )
+
+    user5 = User.create(
+    email: 'chickey@roadrunner.com',
+    username: 'Cindy',
+    password: 'password'
     )
 
     user6 = User.create(
@@ -986,13 +993,13 @@
 
     comment26 = Comment.create(
         body: "¡Adorable! Quiero el perrecito también.",
-        user_id: user9.id,
+        user_id: user8.id,
         product_id: prod49.id
     )
 
     comment27 = Comment.create(
         body: "Compré para mi mama, es perfecto",
-        user_id: user9.id,
+        user_id: user8.id,
         product_id: prod39.id
     )
 
@@ -1190,7 +1197,7 @@
 
     comment60 = Comment.create(
         body: "Perfect for my daughter's bridal shower!",
-        user_id: user15.id,
+        user_id: user5.id,
         product_id: prod32.id
     )
 
