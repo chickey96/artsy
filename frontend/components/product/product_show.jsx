@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CommentIndexContainer from './../comments/comment_index_container';
 
 class ProductShow extends React.Component {
 
@@ -76,6 +76,10 @@ class ProductShow extends React.Component {
       </div>
 
         </div>
+      <div>
+        <CommentIndexContainer/>
+      </div>
+
     </div>
     )};
 

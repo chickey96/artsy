@@ -1,21 +1,15 @@
 class Api::CommentsController < ApplicationController
 
-  before_action :require_login, only:[ :new, :create, :edit, :update, :destroy]
-
-  def new
-    @comment = Comment.new()
-  end
+  before_action :require_login, only:[ :create, :edit, :update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    #get product_id from current url?
 
     if @comment.save
-      render 'api/products/@comment.product_id'
+      render 'api/comments/show'
     else  
       render json: @comment.errors.full_messages, status: 401
-      render :new #still on product show pg?
     end   
   end
 
@@ -24,21 +18,29 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comments = Comments.all 
-    #filter by product_id here or in component?
-  end
-
-  def edit
+    @comments = Comment.where(product_id: params[:productId])
   end
 
   def update
+    @comment = current_user.comments.find(params[:id])
+    if @comment.update_attributes(params[:comment][:body])
+      render 'api/comments/show'
+    else
+      render json: @comment.errors.full_messages, status: 401
+    end
   end
 
   def destroy
+    @comment = current_user.comments.find(params[:id])
+    if @comment 
+      delete @comment 
+    else  
+      render json: ["Cannot delete someone else's comment"]
+    end
   end
 
   private
   def comment_params
-    params.require[:comment].permit[:body]
+    params.require[:comment].permit[:body, :product_id]
   end
 end

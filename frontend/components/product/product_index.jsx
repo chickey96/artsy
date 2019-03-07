@@ -4,20 +4,17 @@ import { Link } from 'react-router-dom';
 class ProductIndex extends React.Component {
 
   componentDidMount() {
-    const path_name = this.props.location.pathname;
-    const category = path_name.slice(1);
-    this.props.fetchProducts(category);
+    this.props.fetchProducts(this.props.match.params.category);
   }
 
   componentDidUpdate(prevProps) {
-    if(prevProps.location.pathname != this.props.location.pathname){
-      const path_name = this.props.location.pathname;
-      const category = path_name.slice(1);
-      this.props.fetchProducts(category);
+    if (prevProps.match.params.category != this.props.match.params.category){
+      this.props.fetchProducts(this.props.match.params.category);
     }
   }
 
   render() {
+   
     const products = this.props.products.map(product => {
    
        return (

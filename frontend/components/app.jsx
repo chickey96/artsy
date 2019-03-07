@@ -17,11 +17,7 @@ const App = () => (
     <Directory/>
   </header>
   <Switch>
-    <Route exact path="/drawing" component={productIndexContainer}/>
-    <Route exact path="/painting" component={productIndexContainer}/>
-    <Route exact path="/flowers" component={productIndexContainer}/>
-    <Route exact path="/mixed-media" component={productIndexContainer}/>
-    <Route exact path="/3d" component={productIndexContainer}/>
+    <Route exact path="/:category" component={productIndexContainer}/>
     <Route exact path="/products/:productId" component={productShowContainer} />
     <Route exact path="/" component={Splash}/>
     <Redirect to="/"/> 

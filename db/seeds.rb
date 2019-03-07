@@ -28,6 +28,72 @@
     password: "soitgoes..." 
     )
 
+    user4 = User.create(
+    email: "smorningred@gmail.com",
+    username: "Sarah", 
+    password: "password" 
+    )
+
+    user6 = User.create(
+    email: "carly_anders@gmail.com",
+    username: "charlie", 
+    password: "password" 
+    )
+
+    user7 = User.create(
+    email: "ignacio@gmail.com",
+    username: "iggy", 
+    password: "password" 
+    )
+
+    user8 = User.create(
+    email: "caro@gmail.com",
+    username: "Caro", 
+    password: "password" 
+    )
+
+    user9 = User.create(
+    email: "shickey@westmont.edu",
+    username: "shannabelle", 
+    password: "password" 
+    )
+
+    user10 = User.create(
+    email: "talster@ucla.edu",
+    username: "tal", 
+    password: "password" 
+    )
+
+    user11 = User.create(
+    email: "ishaanPatek@ucla.edu",
+    username: "Ishaan", 
+    password: "password" 
+    )
+
+    user12 = User.create(
+    email: "alyxJohns@gmail.com",
+    username: "Alyx", 
+    password: "password" 
+    )
+
+    user13 = User.create(
+    email: "dhtond@gmail.com",
+    username: "danielle", 
+    password: "password" 
+    )
+
+    user14 = User.create(
+    email: "bdaysjr@gmail.com",
+    username: "Braheme", 
+    password: "password" 
+    )
+
+    user15 = User.create(
+    email: "floral@arrangements.inc",
+    username: "floralArrangements", 
+    password: "password" 
+    )
+
     prod1 = Product.create(
         title: "A Lion",
         artist_id: user3.id,
@@ -768,4 +834,455 @@
     prod74.photo.attach(io: file74, filename: 'file74')
     prod74.save!
 
+    comment1 = Comment.create(
+        body: "Nice work!",
+        user_id: user1.id,
+        product_id: prod1.id
+    )
+
+    comment2 = Comment.create(
+        body: "Love this car",
+        user_id: user1.id,
+        product_id: prod3.id
+    )
+
+    comment3 = Comment.create(
+        body: "Fresh, beautiful, and on schedule.",
+        user_id: user1.id,
+        product_id: prod32.id
+    )
+
+    comment4 = Comment.create(
+        body: "Love the colors",
+        user_id: user1.id,
+        product_id: prod41.id
+    )
+
+    comment5 = Comment.create(
+        body: "Very intense, great work",
+        user_id: user2.id,
+        product_id: prod28.id
+    )
+
+    comment6 = Comment.create(
+        body: "You should draw one of my flower arrangements!",
+        user_id: user2.id,
+        product_id: prod24.id
+    )
+
+    comment7 = Comment.create(
+        body: "Ooooh! Very interesting piece, I like it.",
+        user_id: user2.id,
+        product_id: prod22.id
+    )
+
+    comment8 = Comment.create(
+        body: "Got this for mother's day, it was perfect!",
+        user_id: user3.id,
+        product_id: prod46.id
+    )
+
+    comment9 = Comment.create(
+        body: "My friend would love this.",
+        user_id: user3.id,
+        product_id: prod59.id
+    )
+
+    comment10 = Comment.create(
+        body: "Brought these to family thanksgiving, they added a great touch. Thank you!",
+        user_id: user3.id,
+        product_id: prod62.id
+    )
+
+    comment11 = Comment.create(
+        body: "One of my favorites",
+        user_id: user3.id,
+        product_id: prod55.id
+    )
+
+    comment12 = Comment.create(
+        body: "I LOVE this bouquet.",
+        user_id: user3.id,
+        product_id: prod51.id
+    )
+
+    comment13 = Comment.create(
+        body: "I brought this to my aunt's holiday party, huge hit.",
+        user_id: user4.id,
+        product_id: prod67.id
+    )
+
+    comment14 = Comment.create(
+        body: "I want to learn how to make these!",
+        user_id: user4.id,
+        product_id: prod70.id
+    )
+
+    comment15 = Comment.create(
+        body: "I got this for Valentine's day! Such a beautiful arrangement.",
+        user_id: user4.id,
+        product_id: prod72.id
+    )
+
+    comment16 = Comment.create(
+        body: "Really beautiful, my mom loved it.",
+        user_id: user4.id,
+        product_id: prod73.id
+    )
+
+    comment17 = Comment.create(
+        body: "Got this as a birthday present, I love it!",
+        user_id: user4.id,
+        product_id: prod13.id
+    )
+
+    comment18 = Comment.create(
+        body: "Got this for my mom, she loved it!",
+        user_id: user6.id,
+        product_id: prod66.id
+    )
+
+    comment19 = Comment.create(
+        body: "My boyfriend got me this bouquet, it's breathtaking",
+        user_id: user6.id,
+        product_id: prod64.id
+    )
+
+    comment20 = Comment.create(
+        body: "I want one of these so bad!",
+        user_id: user6.id,
+        product_id: prod58.id
+    )
+
+    comment21 = Comment.create(
+        body: "Beautiful, I got it for my friend's birthday",
+        user_id: user6.id,
+        product_id: prod13.id
+    )
+
+    comment22 = Comment.create(
+        body: "So pretty, it's hanging in my room",
+        user_id: user6.id,
+        product_id: prod12.id
+    )
+
+    comment23 = Comment.create(
+        body: "Love this! I got it custom done in purple",
+        user_id: user6.id,
+        product_id: prod10.id
+    )
+
+    comment24 = Comment.create(
+        body: "compré para la madre de mi hijo, es perfecto",
+        user_id: user7.id,
+        product_id: prod44.id
+    )
+
+    comment25 = Comment.create(
+        body: "bacán, voy a ordenarla al tiro",
+        user_id: user7.id,
+        product_id: prod2.id
+    )
+
+    comment26 = Comment.create(
+        body: "¡Adorable! Quiero el perrecito también.",
+        user_id: user9.id,
+        product_id: prod49.id
+    )
+
+    comment27 = Comment.create(
+        body: "Compré para mi mama, es perfecto",
+        user_id: user9.id,
+        product_id: prod39.id
+    )
+
+    comment28 = Comment.create(
+        body: "¡Bella!",
+        user_id: user8.id,
+        product_id: prod13.id
+    )
+
+    comment29 = Comment.create(
+        body: "¿Quién es? Un poco caro para mi, pero buen creado.",
+        user_id: user8.id,
+        product_id: prod11.id
+    )
+
+    comment30 = Comment.create(
+        body: "¡La emoción! Pobrecito, me encanta",
+        user_id: user8.id,
+        product_id: prod5.id
+    )
+
+    comment31 = Comment.create(
+        body: "These add a really great touch to any bouquet",
+        user_id: user9.id,
+        product_id: prod70.id
+    )
+
+    comment32 = Comment.create(
+        body: "Looks perfect for a dinner party centerpiece!",
+        user_id: user9.id,
+        product_id: prod64.id
+    )
+
+    comment33 = Comment.create(
+        body: "I love these, we ordered them for my neice's birthday and they were a total hit.",
+        user_id: user9.id,
+        product_id: prod57.id
+    )
+
+    comment34 = Comment.create(
+        body: "Beautiful!",
+        user_id: user9.id,
+        product_id: prod52.id
+    )
+
+    comment35 = Comment.create(
+        body: "Truly an eyeful, hard to take my eyes off them! Thanks for another great order Moira.",
+        user_id: user9.id,
+        product_id: prod48.id
+    )
+
+    comment36 = Comment.create(
+        body: "I got a custom delivery for my baby shower, it was perfect! Thanks Moira!",
+        user_id: user9.id,
+        product_id: prod43.id
+    )
+
+    comment37 = Comment.create(
+        body: "Beautiful! I want to learn your ways.",
+        user_id: user9.id,
+        product_id: prod36.id
+    )
+
+    comment38 = Comment.create(
+        body: "She did a custom piece of my parent's dog, they love it!",
+        user_id: user9.id,
+        product_id: prod16.id
+    )
+
+    comment39 = Comment.create(
+        body: "Got this for my husband, we love owls! I might ask for a custom one that's a little more on the cute side",
+        user_id: user9.id,
+        product_id: prod4.id
+    )
+
+    comment40 = Comment.create(
+        body: "My kitchen is literally exploding with sunshine!",
+        user_id: user10.id,
+        product_id: prod50.id
+    )
+
+    comment41 = Comment.create(
+        body: "So pretty! I wish I could get one every week",
+        user_id: user10.id,
+        product_id: prod34.id
+    )
+
+    comment42 = Comment.create(
+        body: "So cute! Got it for my parents",
+        user_id: user10.id,
+        product_id: prod20.id
+    )
+
+    comment43 = Comment.create(
+        body: "Epic. I got 3",
+        user_id: user10.id,
+        product_id: prod14.id
+    )
+
+    comment44 = Comment.create(
+        body: "Hanging in my room, I like it in blue even better",
+        user_id: user11.id,
+        product_id: prod9.id
+    )
+
+    comment45 = Comment.create(
+        body: "Beautiful",
+        user_id: user11.id,
+        product_id: prod8.id
+    )
+
+    comment46 = Comment.create(
+        body: "So cool! She does custom vinyl work",
+        user_id: user11.id,
+        product_id: prod6.id
+    )
+
+    comment47 = Comment.create(
+        body: "I love this piece",
+        user_id: user11.id,
+        product_id: prod1.id
+    )
+
+    comment48 = Comment.create(
+        body: "Incredible, I want one of these in every room of my house",
+        user_id: user12.id,
+        product_id: prod54.id
+    )
+
+    comment49 = Comment.create(
+        body: "I got these for my puppy but he tried to eat them",
+        user_id: user12.id,
+        product_id: prod49.id
+    )
+
+    comment50 = Comment.create(
+        body: "So cool, and the flowers keep really well",
+        user_id: user12.id,
+        product_id: prod46.id
+    )
+
+    comment51 = Comment.create(
+        body: "Gorgeous, brightens up my dining room",
+        user_id: user12.id,
+        product_id: prod39.id
+    )
+
+    comment52 = Comment.create(
+        body: "I ordered a custom version, so excited!",
+        user_id: user12.id,
+        product_id: prod18.id
+    )
+
+    comment53 = Comment.create(
+        body: "Really captures the emotion, I love it",
+        user_id: user12.id,
+        product_id: prod15.id
+    )
+
+    comment54 = Comment.create(
+        body: "I have this hanging in my living room, it makes me so happy",
+        user_id: user12.id,
+        product_id: prod29.id
+    )
+
+    comment55 = Comment.create(
+        body: "Really brightened up my room :)",
+        user_id: user13.id,
+        product_id: prod44.id
+    )
+
+    comment56 = Comment.create(
+        body: "I love her collage pieces",
+        user_id: user13.id,
+        product_id: prod14.id
+    )
+
+    comment57 = Comment.create(
+        body: "I love the detail!",
+        user_id: user13.id,
+        product_id: prod5.id
+    )
+
+    comment58 = Comment.create(
+        body: "This piece is awesome",
+        user_id: user14.id,
+        product_id: prod2.id
+    )
+
+    comment59 = Comment.create(
+        body: "Bought this for my girlfriend, she loved it.",
+        user_id: user14.id,
+        product_id: prod30.id
+    )
+
+    comment60 = Comment.create(
+        body: "Perfect for my daughter's bridal shower!",
+        user_id: user15.id,
+        product_id: prod32.id
+    )
+
+    comment61 = Comment.create(
+        body: "Always fresh and reliable",
+        user_id: user15.id,
+        product_id: prod33.id
+    )
+
+    comment62 = Comment.create(
+        body: "Gorgeous, she does custom too!",
+        user_id: user15.id,
+        product_id: prod38.id
+    )
+
+    comment63 = Comment.create(
+        body: "Delivery was ontime and everything looked great",
+        user_id: user15.id,
+        product_id: prod43.id
+    )
+
+    comment64 = Comment.create(
+        body: "We love these seasonal bouquets!",
+        user_id: user15.id,
+        product_id: prod45.id
+    )
+
+    comment65 = Comment.create(
+        body: "She does bulk orders for events, great for baby showers",
+        user_id: user15.id,
+        product_id: prod57.id
+    )
+
+    comment66 = Comment.create(
+        body: "Gorgeous!",
+        user_id: user15.id,
+        product_id: prod59.id
+    )
+
+    comment67 = Comment.create(
+        body: "Great for wedding centerpieces",
+        user_id: user15.id,
+        product_id: prod69.id
+    )
+
+    comment68 = Comment.create(
+        body: "Beautiful!",
+        user_id: user15.id,
+        product_id: prod30.id
+    )
+
+    comment69 = Comment.create(
+        body: "Flowers always come fresh and on time",
+        user_id: user15.id,
+        product_id: prod37.id
+    )
+
+    comment70 = Comment.create(
+        body: "Thanks for all the support! If you have a vinyl you want me to use for a custom piece, let me know! c.m.hickey06@gmail.com",
+        user_id: user3.id,
+        product_id: prod6.id
+    )
+
+    comment71 = Comment.create(
+        body: "Thank YOU for all your support!",
+        user_id: user2.id,
+        product_id: prod43.id
+    )
+
+    comment72 = Comment.create(
+        body: "Thank YOU for all your support!",
+        user_id: user2.id,
+        product_id: prod48.id
+    )
+
+    comment73 = Comment.create(
+        body: "Absolutely stunning!",
+        user_id: user1.id,
+        product_id: prod54.id
+    )
+
+    comment74 = Comment.create(
+        body: "Love the seasonal bouquets",
+        user_id: user1.id,
+        product_id: prod47.id
+    )
+
+    comment75 = Comment.create(
+        body: "Great work",
+        user_id: user1.id,
+        product_id: prod25.id
+    )
+
+   
    
