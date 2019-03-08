@@ -32,6 +32,33 @@
   height: fit-content;
 }
 
+.add-container{
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0;
+}
+
+.add-input{
+  width: 150px;
+}
+
+.add-button{
+  height: 25px;
+  width: 70px;
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid  #595959;
+  outline: none;
+  margin-top: 10px;
+  color: black;
+}
+
+.add-button:hover{
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
 .comment-header{
   font-weight: 600;
   margin-top: 15px;
@@ -40,8 +67,13 @@
   max-width: 1030px;
 }
 
+.comment-holder{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .comment-container{
-  margin: 15px 0;
+  // margin: 15px 0;
   font-size: 13px;
   display: flex;
   flex-direction: row;
@@ -56,50 +88,65 @@
   align-items: center;
 }
 
+.bigger-comment-container{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .comment-content{
   width: 60%;
-  height: fit-content;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .comment-author{
   margin-top: 5px;
   padding: 10px;
+  font-weight: 600;
 }
 
 .comment-body:disabled{
+  font-weight: 400;
   padding: 8px 10px;
+  margin-left: -3px;
   border-color: transparent;
   font-size: 13px;
-   width: 80%;
-  height: fit fit-content;
-}
-.comment-body{
-  padding: 8px 10px;
-  border: 1px solid #595959;
-  font-size: 13px;
-  outline: none;
   width: 80%;
   height: fit fit-content;
+  resize: none;
+  color: black;
 }
-
-.comment-edit-button{
-  padding-left: 10px;
-  padding-top: 8px;
-  width: 100px;
-  height: 25px;
+.comment-body{
+  font-weight: 400;
+  padding: 10px 10px;
+  border: 1px solid #595959;
+  border-radius: 3px;
+  font-size: 13px;
+  outline: none;
+  width: auto;
+  height: auto;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  color: black;
 }
 
 .hidden-button{
   border: none;
+  height: 0;
 }
 
 .edit-button{
-  height: 100%;
-  width: 100%;
+  height: 25px;
+  width: 70px;
   border-radius: 3px;
   font-weight: 500;
   border: 1px solid  #595959;
   outline: none;
+  margin-left: 8px;
+  margin-top: -10px;
+  margin-bottom: 40px;
+  color: black;
 }
 
 .edit-button:hover{
@@ -108,3 +155,58 @@
   color: white;
 }
 
+.update-button{
+  height: 25px;
+  width: 70px;
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid  #595959;
+  outline: none;
+  margin-left: 9px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.update-button:hover{
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.delete-div{
+  margin-left: 10px;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.delete-button{
+  height: 25px;
+  width: 100%;
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid  #595959;
+  outline: none;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  color: black;
+}
+
+.delete-button:hover{
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.interum{
+  color: #595959;
+  font-size: 13px;
+  width: 70px;
+  height: fit-content;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
