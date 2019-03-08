@@ -265,9 +265,11 @@
     font-size: 14px;
  }
  #logout-div{
-  clear: right;
-   margin-right: 70px;
+   clear: right;
+   margin-right: 50px;
    display: flex;
+   align-items: center;
+   
  }
  
  #login-button{
@@ -282,8 +284,47 @@
     font-size: 14px;
     padding: 8px;
     margin-top: 15px;
-    height: 60%;
+    height: 45px;
+    width: 75px;
  }
+  .cart-link{
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-top: 15px;
+    height: 45px;
+    width: 45px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+  }
+
+  .cart-label{
+    font-size: 10px;
+    color: inherit;
+  }
+
+  .cart-image{
+    margin-bottom: -3px;
+    margin-right: -3px;
+    -webkit-text-stroke-width: thick;
+    font-size: 18px;
+  }
+
+    .cart-link:hover > div{
+      fill: white;
+    }
+
+  .cart-link:hover{
+      fill: white;
+      background-color: #3c3c3c !important;
+      color: #FFF;
+      border-color: #414141;
+      cursor: pointer;
+  }
 
   #register-button:hover {
     text-decoration: underline;
@@ -319,6 +360,14 @@
       border-color: #222222;
       cursor: pointer;
   }
+
+  #cart-link:hover{
+      background-color: #3c3c3c;
+      color: #FFF;
+      border-color: #222222;
+      cursor: pointer;
+  }
+  
 
   #login-button:focus {
     outline: none;

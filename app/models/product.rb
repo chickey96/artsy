@@ -11,6 +11,11 @@ class Product < ApplicationRecord
     foreign_key: :product_id,
     class_name: :Product 
 
+  has_many :carts,
+    primary_key: :id,
+    foreign_key: :product_id,
+    class_name: :Cart 
+
   has_one_attached :photo
 
   

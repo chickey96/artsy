@@ -6,6 +6,7 @@ import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import productIndexContainer from './product/product-index-container';
 import productShowContainer from './product/product_show_container';
 import Directory from './nav_bar/directory';
+import CartIndexContainer from './carts/cart_index_container';
 
 const App = () => (
   <div className="full-page">
@@ -17,6 +18,7 @@ const App = () => (
     <Directory/>
   </header>
   <Switch>
+    <Route exact path="/cart" component={CartIndexContainer}/>
     <Route exact path="/:category" component={productIndexContainer}/>
     <Route exact path="/products/:productId" component={productShowContainer} />
     <Route exact path="/" component={Splash}/>

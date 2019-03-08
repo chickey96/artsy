@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+
 
 const NavBar = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
@@ -17,9 +18,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
             
           </div>
         </div>
-
             {relevantButtons}
-
         </div>
       </nav>
   );
@@ -29,9 +28,20 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     }
   const logoutTools = () => (
       <div  id="logout-div">
-        <button className="options-bar-item" 
-        id="logout-button" onClick={handleLogout}>Log out</button>
-      </div>
+        <button className="options-bar-item" id="logout-button" onClick={handleLogout}>
+          Log out
+        </button>
+      
+        <Link className="cart-link" to="/cart">
+          <div className="cart-image">
+            &#x1F6D2; 
+          </div>
+          <div className="cart-label">
+            Cart
+          </div>
+        </Link>
+    </div>
+     
   );
 
   const loginTools = () => (
@@ -61,4 +71,4 @@ const NavBar = ({ currentUser, logout, openModal }) => {
   );
 };
 
-export default withRouter(NavBar);
+export default NavBar;

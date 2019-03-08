@@ -3,6 +3,17 @@ import CommentIndexContainer from './../comments/comment_index_container';
 
 class ProductShow extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.addCart = this.addCart.bind(this);
+  }
+
+  addCart(e){
+    e.preventDefault();
+    const cart = {user_id: this.props.currentUser, product_id: this.props.product.id};
+    this.props.createCart(cart);
+  }
+
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
   }
@@ -64,6 +75,11 @@ class ProductShow extends React.Component {
                     </ul>   
                 </div>
                 <div className="line"></div> 
+                <div className="cart-section">
+                  <button className="cart-add-button" onClick={this.addCart}>
+                    Add To Cart
+                  </button>
+                </div>
               </div>
             </div>
           <div className="comment-index">

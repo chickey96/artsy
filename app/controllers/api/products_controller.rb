@@ -8,7 +8,7 @@ class Api::ProductsController < ApplicationController
   def index
     products = Product.all
     @products = products.select do |product| 
-    product.media_type.include?(params[:category])
+      product.media_type.include?(params[:category])
     end
   end
 

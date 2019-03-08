@@ -13,10 +13,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Comment 
 
-  # belongs_to :cart,
-  #   primary_key: :id,
-  #   foreign_key: :user_id,
-  #   class_name: :Cart 
+  has_many :carts,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Cart 
 
   after_initialize :ensure_session_token
 
