@@ -4,7 +4,6 @@ import {fetchComments} from '../../actions/comment_action';
 import {withRouter} from 'react-router-dom';
 
 const mapStateToProps = state => {
-  
   const comments = Object.values(state.entities.comments);
   return {comments};
 };

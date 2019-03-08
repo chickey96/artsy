@@ -22,8 +22,8 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @comment = current_user.comments.find(params[:id])
-    if @comment.update_attributes(params[:comment][:body])
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(comment_params)
       render 'api/comments/show'
     else
       render json: @comment.errors.full_messages, status: 401
@@ -31,16 +31,11 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = current_user.comments.find(params[:id])
-    if @comment 
-      delete @comment 
-    else  
-      render json: ["Cannot delete someone else's comment"]
-    end
+    delete @comment 
   end
 
   private
   def comment_params
-    params.require[:comment].permit[:body, :product_id]
+    params.require(:comment).permit(:body, :user_id, :product_id)
   end
 end

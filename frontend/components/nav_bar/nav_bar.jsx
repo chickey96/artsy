@@ -14,7 +14,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
             </div>  
           
           <div className="options-bar-item" id="search">
-            SearchBarHere
+            
           </div>
         </div>
 

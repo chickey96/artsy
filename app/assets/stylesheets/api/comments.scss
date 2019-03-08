@@ -45,6 +45,7 @@
   font-size: 13px;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .profile-pic{
@@ -55,11 +56,55 @@
   align-items: center;
 }
 
+.comment-content{
+  width: 60%;
+  height: fit-content;
+}
+
 .comment-author{
   margin-top: 5px;
   padding: 10px;
 }
 
+.comment-body:disabled{
+  padding: 8px 10px;
+  border-color: transparent;
+  font-size: 13px;
+   width: 80%;
+  height: fit fit-content;
+}
 .comment-body{
   padding: 8px 10px;
+  border: 1px solid #595959;
+  font-size: 13px;
+  outline: none;
+  width: 80%;
+  height: fit fit-content;
 }
+
+.comment-edit-button{
+  padding-left: 10px;
+  padding-top: 8px;
+  width: 100px;
+  height: 25px;
+}
+
+.hidden-button{
+  border: none;
+}
+
+.edit-button{
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid  #595959;
+  outline: none;
+}
+
+.edit-button:hover{
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
