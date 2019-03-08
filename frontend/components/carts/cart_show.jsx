@@ -12,10 +12,6 @@ class CartShow extends React.Component {
     this.props.deleteCart(this.state.id);
   }
 
-  componentDidMount(){
-    this.props.fetchCart(this.state.id);
-  }
-
   render(){
     if(!this.props.cart){
       return null;

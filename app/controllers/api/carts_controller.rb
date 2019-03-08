@@ -7,11 +7,6 @@ class Api::CartsController < ApplicationController
     @cart.save
   end
 
-  def show 
-    @cart = Cart.find(params[:id])
-    @product = @cart.product 
-  end
-
   def index
     @carts = Cart.where(user_id: params[:userId])
   end

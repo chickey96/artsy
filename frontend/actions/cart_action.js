@@ -1,12 +1,6 @@
 import * as CartAPIUtil from '../utils/cart_util';
-export const RECEIVE_CART = 'RECEIVE_CART';
 export const RECEIVE_CARTS = 'RECEIVE_CARTS';
 export const REMOVE_CART = 'REMOVE_CART';
-
-const receiveCart = cart => ({
-  type: RECEIVE_CART,
-  cart
-});
 
 const receiveCarts = carts => ({
   type: RECEIVE_CARTS,
@@ -17,11 +11,6 @@ const removeCart = (cartId) => ({
   type: REMOVE_CART,
   cartId
 });
-
-export const fetchCart = id => dispatch => (
-  CartAPIUtil.fetchCart(id)
-    .then(cart => dispatch(receiveCart(cart)))
-);
 
 export const fetchCarts = userId => dispatch => {
   return (

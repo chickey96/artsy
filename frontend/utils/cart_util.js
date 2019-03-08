@@ -1,10 +1,3 @@
-export const fetchCart = id => (
-  $.ajax({
-    method: 'GET',
-    url: `/api/carts/${id}`,
-  })
-);
-
 export const fetchCarts = userId => {
   return $.ajax({
     method: 'GET',
