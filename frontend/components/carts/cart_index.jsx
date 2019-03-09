@@ -21,8 +21,17 @@ class CartIndex extends React.Component {
     })
 
     return (
-      <div className="cart-index-container">
-        {carts}
+      <div className="cart-page">
+        <div className="cart-index-container">
+          {carts}
+        </div>
+        
+
+        <div className="vertical-line"></div>
+
+        <div className="col-4">
+          <button>Checkout</button>
+        </div>
       </div>
     )
   }

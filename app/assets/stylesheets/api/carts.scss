@@ -2,9 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.cart-page{
+  padding: 100px 0;
+  width: 100%;
+  margin-top: 22px;
+  background-color: #FAF9F5;
+}
+
+.cart-index-container{
+  border: 1px solid #E1E3DF;
+  border-bottom-color: #CBCCC9;
+  border-radius: 3px;
+  background-color: #FFF;
+  padding-top: 60px;
+}
 .carts-index{
-  justify-content: center;
-  display: flex;
+ 
 }
 .cart-item{
   width: 400px;

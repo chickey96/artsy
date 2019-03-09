@@ -14,6 +14,7 @@ class Api::CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy 
+    @cartId = params[:cartId]
   end
 
   private

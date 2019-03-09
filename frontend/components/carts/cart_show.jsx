@@ -18,21 +18,27 @@ class CartShow extends React.Component {
     }
     return (
       <div className="cart-item">
-        <div className="cart-item-left">
+
+        <div className="col-1">
           <img className="cart-item-image" 
           src={this.state.photoUrl} />
         </div>
-        <div className="cart-item-right">
+
+        <div className="col-2">
           <div className="cart-item-title">
             {this.state.title}
           </div>
+          <button className="cart-delete" onClick={this.deleteCart}>
+            Remove Item
+          </button>
+        </div>
+
+        <div className="col-3">
           <div className="cart-item-price">
             ${this.state.price}.00
           </div>
-          <button className="cart-delete" onClick={this.deleteCart}>
-            Remove Item 
-          </button>
         </div>
+
       </div>
     )
   }
