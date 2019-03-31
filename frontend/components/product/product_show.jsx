@@ -6,6 +6,7 @@ class ProductShow extends React.Component {
   constructor(props){
     super(props);
     this.addCart = this.addCart.bind(this);
+    this.visitCart = this.visitCart.bind(this);
   }
 
   addCart(e){
@@ -13,7 +14,10 @@ class ProductShow extends React.Component {
     const cart = {user_id: this.props.currentUser, product_id: this.props.product.id};
     this.props.createCart(cart);
   }
-
+  visitCart(e){
+    e.preventDefault();
+    this.props.history.push('/cart');
+  }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
   }
@@ -35,6 +39,32 @@ class ProductShow extends React.Component {
         materials = media.slice(i+1);
         break;
       }
+    }
+    let inCart = false;
+    for(let i = 0; i < this.props.carts.length; i++){
+      let cart = this.props.carts[i];
+      if(cart.product_id === this.props.product.id){
+        inCart = true;
+        break;
+      }
+    }
+    let cartOption = (<div></div>);
+    if(this.props.currentUser){
+      if(!inCart){
+        cartOption = (
+          <button className="cart-add-button" onClick={this.addCart}>
+            Add To Cart
+          </button>
+        )
+      }
+      else {
+        cartOption = (
+          <button className="cart-increment-button" onClick={this.visitCart}>
+            View in Cart 
+          </button>
+        )
+      }
+      
     }
     return (
       <div className="product-show-page">
@@ -76,9 +106,7 @@ class ProductShow extends React.Component {
                 </div>
                 <div className="line"></div> 
                 <div className="cart-section">
-                  <button className="cart-add-button" onClick={this.addCart}>
-                    Add To Cart
-                  </button>
+                  {cartOption}
                 </div>
               </div>
             </div>

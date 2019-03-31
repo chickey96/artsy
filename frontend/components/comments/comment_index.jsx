@@ -38,8 +38,8 @@ class CommentIndex extends React.Component {
         </div>
       )
     })
-    return (
-      <div className="comment-index-container" >
+    let content = (
+      <div>
         <div className="add-container">
           <div className="add-title">
             Add Comment
@@ -55,6 +55,18 @@ class CommentIndex extends React.Component {
         </div>
       </div>
     )
+    if(!this.props.currentUser){
+      content = (
+          <div className="comment-holder">
+            {comments}
+          </div>
+      )
+    }
+    return (
+      <div className="comment-index-container">
+        {content}
+      </div>
+    )   
   }
 }
 

@@ -4,7 +4,15 @@ class Api::CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
-    @cart.save
+    if @cart.save
+      render 'api/carts/show'
+    else  
+      render json: @comment.errors.full_messages, status: 401
+    end  
+  end
+
+  def show
+    @cart = Cart.find(params[:id])
   end
 
   def index

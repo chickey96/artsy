@@ -117,15 +117,6 @@ const Splash = () => {
       </div>
     </div>
     
-
-    <footer className="footer">
-      <div className="footer-logo">
-        Artsy
-      </div>
-      <div className="footer-phrase">
-        Helping you find a thing. 
-      </div>
-    </footer>
     </div>
   )
 };
