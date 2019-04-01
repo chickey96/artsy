@@ -8,7 +8,7 @@ class ProductIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.category != this.props.match.params.category){
+    if (prevProps.match.params.category !== this.props.match.params.category){
       this.props.fetchProducts(this.props.match.params.category);
     }
   }
