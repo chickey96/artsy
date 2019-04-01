@@ -179,3 +179,18 @@
 .real-total{
   align-self: flex-end;
 }
+
+.checkout-modal{
+  border-radius: 3px;
+  padding: 20px;
+  background-color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  height: fit-content;
+  width: 400px;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}

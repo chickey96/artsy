@@ -3,19 +3,24 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_action';
 import SignupFormContainer from '../../components/session/signup_container';
 import LoginFormContainer from '../../components/session/login_container';
+import Checkout from '../../components/carts/checkout';
 
 function Modal ({ modal, closeModal }) {
   if(!modal){
     return null;
   }
 
-  let component;
+  let component = null;
   switch(modal){
     case 'signup':
       component = <SignupFormContainer/>
       break;
     case 'login':
       component = <LoginFormContainer/>;
+      break;
+    case 'checkout':
+    debugger;
+      component = <Checkout/>
       break;
     default:
       return null;

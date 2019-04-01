@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CartIndex from './cart_index';
 import { fetchCarts } from '../../actions/cart_action';
+import {openModal} from '../../actions/modal_action';
 
 const mapStateToProps = state => {
 
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchCarts: userId => dispatch(fetchCarts(userId))
+  fetchCarts: userId => dispatch(fetchCarts(userId)),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIndex);

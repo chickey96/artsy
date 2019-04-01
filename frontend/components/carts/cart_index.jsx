@@ -3,8 +3,19 @@ import CartShowContainer from './cart_show_container';
 
 class CartIndex extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.checkout = this.checkout.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchCarts(this.props.currentUser); 
+  }
+
+  checkout(){
+    debugger;
+    this.props.openModal('checkout');
+    debugger
   }
 
   render(){
@@ -62,7 +73,9 @@ class CartIndex extends React.Component {
               <div className="checkout-line"></div>
               <div className="real-total">${adjustedTotal}</div>
             </div>
-            <button>Proceed to Checkout</button>
+            <button onClick={this.checkout}>
+              Proceed to Checkout
+            </button>
           </div>
 
         </div>
