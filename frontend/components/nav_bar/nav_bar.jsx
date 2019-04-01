@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class NavBar extends React.Component{
   constructor(props){
     super(props);
-    debugger;
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
@@ -38,9 +37,6 @@ class NavBar extends React.Component{
           <Link className="cart-link" to="/cart">
             <div className="cart-image">
               &#x1F6D2; 
-            </div>
-            <div className="cart-label">
-              Cart
             </div>
           </Link>
       </div>

@@ -15,7 +15,15 @@ class CartShow extends React.Component {
 
   deleteCart(e){
     e.preventDefault();
-    this.props.deleteCart(this.props.cart.id);
+    let existingCarts = [];
+    this.props.carts.forEach(cart => {
+      if (cart.product_id === this.props.cart.product_id) {
+        existingCarts.push(cart);
+      }
+    })
+    existingCarts.forEach(cart => {
+      this.props.deleteCart(cart.id);
+    })
   }
   
   updatePrice(e){
@@ -41,7 +49,6 @@ class CartShow extends React.Component {
             existingCarts.push(cart);
           }
         })
-        debugger;
         let k = 0;
         while (j > newQuantity) {
           this.props.deleteCart(existingCarts[k].id);
