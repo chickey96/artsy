@@ -14,9 +14,7 @@ class CartIndex extends React.Component {
   }
 
   checkout(){
-    debugger;
     this.props.openModal('checkout');
-    debugger
   }
 
   render(){

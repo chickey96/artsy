@@ -8,7 +8,7 @@ class Footer extends React.Component {
         Artsy
       </div>
       <div className="footer-phrase">
-        Helping you find some thing.
+        Helping you find some things.
       </div>
     </footer>
     )

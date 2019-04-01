@@ -1,5 +1,4 @@
 import React from 'react';
-import {fetchProduct} from '../../actions/product_action';
 
 class ProductIndexItem extends React.Component {
 

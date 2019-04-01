@@ -2,11 +2,10 @@ import React from 'react';
 
 class Checkout extends React.Component {
   render(){
-    debugger;
     return(
       <div className="checkout-modal">
         <div>
-          Thank you for your interest purchasing Artsy products.
+          Thank you for your interest in purchasing Artsy products.
         </div>
         <br/>
         <div>

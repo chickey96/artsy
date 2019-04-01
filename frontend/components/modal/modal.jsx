@@ -11,6 +11,7 @@ function Modal ({ modal, closeModal }) {
   }
 
   let component = null;
+  let checkout = false;
   switch(modal){
     case 'signup':
       component = <SignupFormContainer/>
@@ -19,11 +20,21 @@ function Modal ({ modal, closeModal }) {
       component = <LoginFormContainer/>;
       break;
     case 'checkout':
-    debugger;
       component = <Checkout/>
+      checkout = true;
       break;
     default:
       return null;
+  }
+  if(checkout){
+    return (
+      <div className='modal-background' onClick={closeModal}>
+        {/* stop propagation prevents modal from closing when user clicks inside */}
+        <div className='cart-modal-foreground' onClick={e => e.stopPropagation()}>
+          {component}
+        </div>
+      </div>
+    );
   }
   return (
     <div className='modal-background' onClick={closeModal}>
