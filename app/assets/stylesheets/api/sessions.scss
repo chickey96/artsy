@@ -267,6 +267,7 @@
  #register-button{
     border: 0 none;
     font-size: 14px;
+    height: 36px;
     font-family: 'Montserrat', sans-serif;
  }
  #logout-div{
@@ -281,6 +282,7 @@
     border-radius: 3px;
     font-size: 14px;
     width: 75px;
+    height: 36px;
     font-family: 'Montserrat', sans-serif;
  }
  #logout-button{
@@ -288,7 +290,6 @@
     border-radius: 3px;
     font-size: 14px;
     padding: 8px;
-    // margin-top: 15px;
     height: 36px;
     width: 75px;
     font-family: 'Montserrat', sans-serif;
@@ -296,12 +297,10 @@
   .cart-link{
     border: 1px solid black;
     border-radius: 3px;
-    // margin-top: 15px;
     height: 36px;
     width: 45px;
     margin-left: 15px;
     display: flex;
-    // flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
