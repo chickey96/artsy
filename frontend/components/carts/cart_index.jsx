@@ -49,10 +49,17 @@ class CartIndex extends React.Component {
     tax = tax.toFixed(2);
     let adjustedTotal = parseFloat(total) + parseFloat(tax);
     adjustedTotal = adjustedTotal.toFixed(2);
+    let totalItems = filteredCarts.length;
+    let term = "items";
+    if(totalItems === 1){
+      term = "item";
+    }
     return (
       <div className="cart-page">
+        <div className="item-count">
+          {totalItems} {term} in your cart
+          </div>
         <div className="cart-index-container">
-
           <div className="cart-container">
             {carts}
           </div>
