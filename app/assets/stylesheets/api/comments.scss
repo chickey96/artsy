@@ -14,7 +14,7 @@
 }
 
 .comment-index{
-  font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 22px;
   margin-bottom: 20px;
   width: 100%;
@@ -51,6 +51,7 @@
   outline: none;
   margin-top: 10px;
   color: black;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .add-button:hover{
@@ -73,7 +74,6 @@
 }
 
 .comment-container{
-  // margin: 15px 0;
   font-size: 13px;
   display: flex;
   flex-direction: row;
@@ -129,6 +129,7 @@
   margin-left: 10px;
   margin-bottom: 5px;
   color: black;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .hidden-button{
@@ -210,3 +211,8 @@
   display: flex;
   justify-content: center;
 }
+
+.comment-content button {
+  font-family: 'Montserrat', sans-serif;
+}
+

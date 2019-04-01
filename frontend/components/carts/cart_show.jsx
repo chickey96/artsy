@@ -4,9 +4,6 @@ class CartShow extends React.Component {
   constructor(props){
     super(props);
     this.deleteCart = this.deleteCart.bind(this);
-    this.state = {};
-    this.state.cart = this.props.cart;
-    this.state.quantity
     this.updatePrice = this.updatePrice.bind(this);
   }
 
@@ -20,23 +17,38 @@ class CartShow extends React.Component {
     e.preventDefault();
     this.props.deleteCart(this.props.cart.id);
   }
-  componentDidMount(){
-    this.props.onQuantityChange(this.props.cart.currPrice, this.props.cartNum)
-  }
+  
   updatePrice(e){
     e.preventDefault();
-    let dropDown = document.getElementById(`dropdown/${this.props.cart.id}`);
+    let dropDown = document.getElementById(`dropdown/${this.props.cart.product_id}`);
     let i = dropDown.selectedIndex;
-    let quantity = parseInt(dropDown[i].innerText);
-    let oldPrice = this.props.cart.currPrice;
-    let newPrice = quantity * this.props.cart.price;
-    this.setState({
-      cart: {
-        currPrice: newPrice
+    let newQuantity = parseInt(dropDown[i].innerText);
+    if(newQuantity === this.props.quantity){
+      return;
+    }
+    if(newQuantity > this.props.quantity){
+      let i = this.props.quantity;
+      let newCart = { product_id: this.props.cart.product_id, user_id: this.props.cart.user_id};
+      while( i < newQuantity){
+        this.props.createCart(newCart);
+        i++;
       }
-    })
-    debugger;
-    this.props.onQuantityChange(newPrice, this.props.cartNum, oldPrice);
+    } else {
+        let j = this.props.quantity;
+        let existingCarts = [];
+        this.props.carts.forEach(cart => {
+          if(cart.product_id === this.props.cart.product_id){
+            existingCarts.push(cart);
+          }
+        })
+        debugger;
+        let k = 0;
+        while (j > newQuantity) {
+          this.props.deleteCart(existingCarts[k].id);
+          k++;
+          j--;
+        }
+    }
   }
 
   render(){
@@ -44,7 +56,11 @@ class CartShow extends React.Component {
       return null;
     }
     
-
+    let currPrice = this.props.quantity * this.props.cart.price;
+    let unitPrice = (<div></div>)
+    if (this.props.quantity > 1) {
+      unitPrice = `($${this.props.cart.price}.00 each)`
+    }
     return (
       <div className="cart-item">
 
@@ -58,12 +74,12 @@ class CartShow extends React.Component {
             {this.props.cart.title}
           </div>
           <button className="cart-delete" onClick={this.deleteCart}>
-            Remove Item
+            Remove 
           </button>
         </div>
 
           <div className="drop-down-col" >
-            <select id={`dropdown/${this.props.cart.id}`}className="dropdown" onChange={this.updatePrice}>
+            <select value={this.props.quantity} id={`dropdown/${this.props.cart.product_id}`}className="dropdown" onChange={this.updatePrice}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -78,7 +94,11 @@ class CartShow extends React.Component {
 
         <div className="price-col">
           <div className="cart-item-price">
-            ${this.props.cart.currPrice}.00
+            ${currPrice}.00
+            <br/>
+            <div className="unit-price">
+              {unitPrice}
+            </div>
           </div>
         </div>
 

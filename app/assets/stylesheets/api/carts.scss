@@ -3,11 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cart-page{
-  padding: 100px 0;
-  width: 100%;
   height: 100%;
   margin-top: 22px;
   background-color: #FAF9F5;
+  padding: 75px 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .cart-index-container{
@@ -15,10 +16,9 @@
   border-top-color: #CBCCC9;
   border-radius: 3px;
   background-color: #FFF;
-  margin: 40px 100px;
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   height: 100%;
 }
 
@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: 'Raleway', sans-serif;
 }
 
 .photo-col {
@@ -68,70 +69,113 @@
 
 .cart-delete {
   height: 30px;
-  width: 90px;
-  border-radius: 3px;
+  width: fit-content;
   font-weight: 500;
-  border: 1px solid  #595959;
+  font-size: 13px;
+  border: none;
   outline: none;
-  margin-top: 10px;
+  padding: 0;
   color: black;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .cart-delete:hover{
-  background-color: black;
-  border-color: black;
-  color: white;
+  text-decoration: underline;
 }
 
 .drop-down-col {
-  width: 15%;
+  width: 10%;
   display: flex;
   justify-content: flex-end;
 }
 
 .dropdown {
   z-index: 5;
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 38px;
   background-color: white;
   outline: none;
-  border: none;
-  -webkit-appearance: none;
+  border: 1px solid  #E1E3DF; 
+  // -webkit-appearance: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+
+.cart-item-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .price-col {
   width: 25%;
+  height: 38px;
   display: flex;
-  justify-content: center;
 }
 
-.cart-item-price {
+.unit-price {
+  font-size: 12px;
 }
 
 .checkout-col {
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 8px 0;
   border-left: 1px solid #E1E3DF;
   border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .checkout-col button {
-  height: 30px;
-  width: 90px;
+  height: 40px;
+  width: 90%;
   border-radius: 3px;
-  font-weight: 500;
-  border: 1px solid  #595959;
-  outline: none;
-  margin-top: 10px;
-  color: black;
-}
-
-.checkout-col button:hover{
+  font-weight: 600;
   background-color: black;
   border-color: black;
   color: white;
+  outline: none;
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.checkout-col button:hover{
+  border: 1px solid  #595959;
+  background-color: #595959;
+}
+
+.total {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 175px;
+  width: 85%;
+}
+
+.total-amount{
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tax{
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkout-line{
+    border: 1px solid #595959;
+    border-bottom-width: 0px;
+}
+.real-total{
+  align-self: flex-end;
 }

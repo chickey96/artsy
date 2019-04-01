@@ -65,8 +65,7 @@
 
 #greeting{
   font-size: 26px;
-  font-family: 'Raleway', sans-serif;
-  // font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin: 0;
   padding-bottom: 5px;
@@ -74,14 +73,12 @@
 #tagline{
   margin: 0;
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
-  // font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .login-form > label {
   display: block;
   font-weight: 500;
-  font-family: 'Raleway', sans-serif;
-  // font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   margin-bottom: 6px;
 }
@@ -89,8 +86,7 @@
  #username-label{
     font-size: 14px;
     font-weight: 500;
-    font-family: 'Raleway', sans-serif;
-    // font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   #username-input{
     margin-top: 6px;
@@ -109,7 +105,7 @@
   width: 95%;
   border-color: #E1E3DF; 
   padding-left: 15px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
  .input-error{
     border-color: red;
@@ -129,8 +125,7 @@
    color: red;
    list-style: none;
    padding-left: 0;
-   font-family: 'Raleway', sans-serif;
-  //  font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+   font-family: 'Montserrat', sans-serif;
   }
   
   .err-div{
@@ -147,7 +142,7 @@
   }
 
 .modal-submit{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 4px;
   background-color: #222222;
   color: white;
@@ -178,8 +173,7 @@
       text-align: center;
       background-color: white;
       padding: 12px;
-      font-family: 'Raleway', sans-serif;
-      // font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+      font-family: 'Montserrat', sans-serif;
 }
 #demo-signin{
   border-radius: 4px;
@@ -193,7 +187,7 @@
   font-weight: bold;
   background-color: #FFF;
   color: #222;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #demo-signin:hover{
@@ -262,34 +256,32 @@
     font-size: 32px;
     color: #f45800;
     margin-top: -15px;
-    font-family: 'Indie Flower', cursive;  
+    font-family: 'Raleway', sans-serif; 
   }
   
   .options-bar-item{
     padding: 8px;
-    font-family: 'Raleway', sans-serif;
-    // font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
  #register-button{
     border: 0 none;
     font-size: 14px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
  }
  #logout-div{
    clear: right;
    margin-right: 50px;
    display: flex;
    align-items: center;
-   
  }
  
  #login-button{
     border: 1px solid;
     border-radius: 3px;
     font-size: 14px;
-    width: 65px;
-    font-family: 'Raleway', sans-serif;
+    width: 75px;
+    font-family: 'Montserrat', sans-serif;
  }
  #logout-button{
     border: 1px solid;
@@ -299,7 +291,7 @@
     margin-top: 15px;
     height: 45px;
     width: 75px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
  }
   .cart-link{
     border: 1px solid black;
@@ -319,6 +311,7 @@
   .cart-label{
     font-size: 10px;
     color: inherit;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .cart-image{

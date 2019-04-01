@@ -2,85 +2,71 @@ import React from 'react';
 import CartShowContainer from './cart_show_container';
 
 class CartIndex extends React.Component {
-  constructor(props){
-    super(props);
-    this.addItem = this.addItem.bind(this);
-    this.setTotal = this.setTotal.bind(this);
-    let carts = this.props.carts;
-    this.state = { carts: this.props.carts };
-   
-  }
 
   componentDidMount() {
     this.props.fetchCarts(this.props.currentUser); 
-  }
-
-  addItem(itemTotal, cartNum, oldPrice=0){
-    debugger;
-    let price = Math.abs(itemTotal - oldPrice);
-    if(this.state.total){
-      this.state.total += price;
-    } else {
-      this.state.total = price;
-    }
-    if(cartNum === this.props.carts.length){
-      this.setTotal(this.state.total)
-    }
-    debugger;
-  }
-
-  setTotal(total){
-    this.setState({ total: total})
-    this.render();
   }
 
   render(){
     if (!this.props.carts) {
       return null;
     }
-      this.state.carts = this.props.carts;
-      debugger;
-      this.state.carts.forEach(cart => {
-        cart.currPrice = cart.price;
-      });
-      let cartNum = 0;
-      const carts = this.state.carts.map(cart => {
-        cartNum++;
+    //store the number of carts for each product
+    let quantityHash = {};
+    //filter the array of carts to contain unique products
+    let filteredCarts = [];
+    this.props.carts.forEach( cart => {
+      if(quantityHash[cart.product_id]){
+        quantityHash[cart.product_id] += 1;
+      } else {
+        filteredCarts.push(cart);
+        quantityHash[cart.product_id] = 1;
+      }
+    })
+    let total = 0;
+    const carts = filteredCarts.map(cart => {
+        let quantity = quantityHash[cart.product_id];
+        let itemTotal = cart.price * quantity;
+        total += itemTotal;
         return (
           <div className="carts-index-item">
-            <CartShowContainer cart={cart} cartNum={cartNum} onQuantityChange={this.addItem} />
+            <CartShowContainer carts={this.props.carts} cart={cart} quantity={quantity}/>
           </div>
         )
-      })
-      debugger;
-      let tot = 0;
-      if(this.state.total){
-        tot = this.state.total;
-      }
-      debugger;
-      let tax = Math.round(tot * 0.07 * 100)/100;
-      debugger;
-
+    })
+    let tax = total * 0.07;
+    tax = tax.toFixed(2);
+    let adjustedTotal = parseFloat(total) + parseFloat(tax);
+    adjustedTotal = adjustedTotal.toFixed(2);
     return (
       <div className="cart-page">
         <div className="cart-index-container">
-        <div className="cart-container">
-            {carts}
-        </div>
-       
-        <div className="checkout-col">
-          <div>Your total is</div>
-          <br/>
-          <div>${this.state.total}.00</div>
-          <br/>
-          <div>+  {tax} (tax)</div>
-          <br/>
-          <button>Checkout</button>
-        </div>
-        </div>
-        
 
-      </div>
+          <div className="cart-container">
+            {carts}
+          </div>
+       
+          <div className="checkout-col">
+            <div className="total">
+              <div className="total-title">
+                Your total
+              </div> 
+              <div className="total-amount">
+                <div>Items</div>
+                <div>${total}.00</div>
+              </div>   
+              <div className="tax">
+                <div>+ tax</div>
+                <div>{`$${tax}`}</div>
+              </div>
+              <div className="checkout-line"></div>
+              <div className="real-total">${adjustedTotal}</div>
+            </div>
+            <button>Proceed to Checkout</button>
+          </div>
+
+        </div>
+    </div>
     )
   }
 }
