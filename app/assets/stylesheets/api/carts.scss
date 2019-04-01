@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cart-page{
-  height: 100%;
-  margin-top: 22px;
+  min-height: 42vh;
+  margin-top: 18px;
   background-color: #FAF9F5;
   padding: 50px 150px;
   display: flex;
@@ -106,7 +106,7 @@
   outline: none;
   border: 1px solid  #E1E3DF; 
   // -webkit-appearance: none;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 }
 
@@ -202,4 +202,28 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
+}
+
+.empty-cart {
+  background-color: white;
+  border: 1px solid  #E1E3DF; 
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 60px;
+  margin-top: -70px;
+}
+
+.empty-statement{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.empty-link {
+  color: black;
+  font-size: 14px;
 }
