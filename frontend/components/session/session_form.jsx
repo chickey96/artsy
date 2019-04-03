@@ -161,7 +161,6 @@ class SessionForm extends React.Component {
               {this.renderPasswordErrors()}
             </div>
             
-          <br></br>
           <input className="modal-submit"type="submit" value={this.props.formType}/>
           <div className="modal-divider">
             <span id="or-option">
