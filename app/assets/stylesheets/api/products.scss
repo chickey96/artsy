@@ -53,11 +53,9 @@
 }
 
 .image{
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .pertinent-info{
@@ -106,10 +104,7 @@
 .image-show{
   max-height: 100%;
   max-width: 100%;
-  height: auto;
-  width: auto;
-  min-height: 420px;
-  min-width: 420px;
+  object-fit: contain;
 }
 
 .image-placeholder{

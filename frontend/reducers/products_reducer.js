@@ -1,4 +1,4 @@
-import { RECEIVE_PRODUCT, RECEIVE_PRODUCTS } from '../actions/product_action';
+import { RECEIVE_PRODUCT, RECEIVE_PRODUCTS, CLEAR_PRODUCTS } from '../actions/product_action';
 
 const productsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -11,6 +11,8 @@ const productsReducer = (state = {}, action) => {
           products[product.id] = product;
       });
       return products;
+    case CLEAR_PRODUCTS:
+      return {};
     default:
       return state;
   }

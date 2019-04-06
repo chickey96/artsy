@@ -9,15 +9,17 @@
   border-bottom-color: #CBCCC9;
 }
 
-.directory-link{
-  height: 100%;
-  width: 100%;
-}
 .category-li {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.category-li button {
+  outline: none;
+  border: none;
+  height: 100%;
 }
 
 .category {

@@ -1,6 +1,7 @@
 import * as ProductAPIUtil from '../utils/product_util';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
+export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';
 
 const receiveProduct = product => ({
   type: RECEIVE_PRODUCT,
@@ -11,6 +12,12 @@ const receiveProducts = res => ({
   type: RECEIVE_PRODUCTS,
   products: res,
 });
+
+const wipeProducts = () => {
+  const type = CLEAR_PRODUCTS;
+  debugger;
+  return({type});
+}
 
 export const fetchProduct = id => dispatch => (
   ProductAPIUtil.fetchProduct(id)
@@ -26,4 +33,8 @@ export const searchProducts = query => dispatch => {
   return(
   ProductAPIUtil.searchProducts(query)
     .then(products => dispatch(receiveProducts(products)))
-  )}
+  )};
+
+export const clearProducts = () => dispatch => {
+  return (dispatch(wipeProducts()));
+};

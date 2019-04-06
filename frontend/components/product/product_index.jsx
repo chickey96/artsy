@@ -5,18 +5,18 @@ import ProductIndexItem from './product_index_item';
 class ProductIndex extends React.Component {
 
   componentDidMount() {
-    this.props.fetchProducts(this.props.match.params.category);
+    this.props.fetchProducts(this.props.category);
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.category !== this.props.match.params.category){
+    if (prevProps.match.params.category !== this.props.category){
       this.props.fetchProducts(this.props.match.params.category);
     }
   }
 
   render() {
 
-    if(this.props.products.length === 0){
+    if(this.props.products.length === 0 && this.props.category === 'products'){
       return (
         <div className="cart-page">
           <div className="empty-cart">No items matched your search.</div>

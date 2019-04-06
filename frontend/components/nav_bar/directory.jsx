@@ -1,46 +1,85 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { clearProducts, fetchProducts } from '../../actions/product_action';
 
-const Directory = () => {
+const mapDispatchToProps = dispatch => ({
+  clearProducts: () => dispatch(clearProducts()),
+  fetchProducts: category => dispatch(fetchProducts(category))
+})
 
+class Directory extends React.Component {
+  constructor(props){
+    super(props)
+    this.toDrawing = this.toDrawing.bind(this);
+    this.toFlowers = this.toFlowers.bind(this);
+    this.toMixed = this.toMixed.bind(this);
+    this.toPainting = this.toPainting.bind(this);
+  }
+  toDrawing(e){
+    e.preventDefault();
+    this.props.clearProducts();
+    this.props.fetchProducts('drawing')
+      .then(this.props.history.push('/drawing'))
+  }
+  toPainting(e){
+    e.preventDefault();
+    this.props.clearProducts();
+    this.props.fetchProducts('painting')
+      .then(this.props.history.push('/painting'))
+  }
+  toMixed(e){
+    e.preventDefault();
+    this.props.clearProducts();
+    this.props.fetchProducts('mixed-media')
+      .then(this.props.history.push('/mixed-media'))
+  }
+  toFlowers(e){
+    e.preventDefault();
+    this.props.clearProducts();
+    this.props.fetchProducts('flowers')
+      .then(this.props.history.push('/flowers'))
+  }
+  
+  render(){
     return (
       <ul className="splash-grid">
 
         <li className="category-li">
-          <Link className="directory-link" to="/drawing" style={{ color: '#222222', textDecoration: 'none' }}>
-          <div className="category">
+          <button onClick={this.toDrawing}>
+            <div className="category">
               Drawings
-          </div>
-          </Link>
+            </div>
+          </button>
         </li>
 
         <li className="category-li">
-            <Link to="/painting" style={{ color: '#222222', textDecoration: 'none' }} >
-          <div className="category">
+          <button onClick={this.toPainting}>
+            <div className="category">
               Paintings
-          </div>
-            </Link>
+            </div>
+         </button>
         </li>
 
         <li className="category-li">
-            <Link to="/flowers" style={{ color: '#222222', textDecoration: 'none' }} >
-          <div className="category">
+          <button onClick={this.toFlowers}>
+            <div className="category">
               Flowers
-          </div>
-            </Link>
+            </div>
+          </button>
         </li>
 
         <li className="category-li">
-            <Link to="/mixed-media" style={{ color: '#222222', textDecoration: 'none' }} >
-          <div className="category">
+          <button onClick={this.toMixed}>
+            <div className="category">
               Mixed Media
-          </div>
-            </Link>
+            </div>
+          </button>
         </li>
-
 
       </ul>
     )
   }
+  }
 
-export default Directory;
+export default withRouter(connect(null, mapDispatchToProps)(Directory));

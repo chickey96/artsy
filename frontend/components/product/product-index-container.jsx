@@ -5,7 +5,8 @@ import {fetchProducts} from '../../actions/product_action';
 
 const mapStateToProps = (state, ownProps) => {
   const products = Object.values(state.entities.products);
-  return {products};
+  const category = ownProps.match.params.category;
+  return {category, products};
 };
 
 const mapDispatchToProps = dispatch => ({

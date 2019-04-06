@@ -2,10 +2,10 @@ import React from 'react';
 import Modal from './modal/modal';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import Splash from './splash';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import productIndexContainer from './product/product-index-container';
 import productShowContainer from './product/product_show_container';
-import Directory from './nav_bar/directory';
+import DirectoryContainer from './nav_bar/directory';
 import CartIndexContainer from './carts/cart_index_container';
 import Footer from './footer';
 
@@ -14,7 +14,7 @@ const App = () => (
   <Modal/>
   <header className="header">
     <NavBarContainer/>
-    <Directory/>
+    <DirectoryContainer/>
   </header>
   <Switch>
     <Route path="/cart" component={CartIndexContainer}/>
