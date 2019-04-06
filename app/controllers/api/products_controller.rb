@@ -13,18 +13,19 @@ class Api::ProductsController < ApplicationController
   end
 
   def search
+    query = params[:query].downcase
     products = Product.all 
     mediaProducts = products.select do |product|
-      product.media_type.include?(params[:query])
+      product.media_type.downcase.include?(query)
     end
     titleProducts = products.select do |product|
-      product.title.include?(params[:query])
+      product.title.downcase.include?(query)
     end
     userProducts = products.select do |product|
-      product.artist.username.include?(params[:query])
+      product.artist.username.downcase.include?(query)
     end
     priceProducts = products.select do |product|
-      product.price.to_s.include?(params[:query])
+      product.price.to_s.downcase.include?(query)
     end
     @products = (mediaProducts + titleProducts + 
       userProducts + priceProducts)
