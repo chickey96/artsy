@@ -13,9 +13,7 @@ const App = () => (
   <div className="full-page">
   <Modal/>
   <header className="header">
-    <Link to="/" style={{textDecoration: 'none'}}>
-      <NavBarContainer/>
-    </Link>
+    <NavBarContainer/>
     <Directory/>
   </header>
   <Switch>

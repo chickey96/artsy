@@ -15,6 +15,14 @@ class ProductIndex extends React.Component {
   }
 
   render() {
+
+    if(this.props.products.length === 0){
+      return (
+        <div className="cart-page">
+          <div className="empty-cart">No items matched your search.</div>
+        </div>
+      )
+    }
    
     const products = this.props.products.map(product => {
    

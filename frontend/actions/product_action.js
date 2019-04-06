@@ -7,9 +7,9 @@ const receiveProduct = product => ({
   product 
 });
 
-const receiveProducts = products => ({
+const receiveProducts = res => ({
   type: RECEIVE_PRODUCTS,
-  products
+  products: res,
 });
 
 export const fetchProduct = id => dispatch => (
@@ -21,3 +21,9 @@ export const fetchProducts = category => dispatch => (
   ProductAPIUtil.fetchProducts(category)
   .then(products => dispatch(receiveProducts(products)))
 );
+
+export const searchProducts = query => dispatch => {
+  return(
+  ProductAPIUtil.searchProducts(query)
+    .then(products => dispatch(receiveProducts(products)))
+  )}

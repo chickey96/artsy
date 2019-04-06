@@ -12,3 +12,11 @@ export const fetchProducts = category => (
     data: {category}
   })
 );
+
+export const searchProducts = query => {
+ return( $.ajax({
+    method: 'GET',
+    url: `products/search`,
+    data: {query}
+  })
+ )}

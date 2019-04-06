@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import SearchContainer from '../search/searchContainer'
 
 class NavBar extends React.Component{
   constructor(props){
@@ -71,11 +71,15 @@ class NavBar extends React.Component{
         <div className="options-bar">
 
           <div className="options-bar-el" id="logo-search">
-            <div className="options-bar-item" id="logo">
-              Artsy
-            </div>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="options-bar-item" id="logo">
+                Artsy
+              </div>
+            </Link> 
 
-            <div className="options-bar-item" id="search"></div>
+            <div className="options-bar-item" id="search">
+              <SearchContainer/>
+            </div>
 
           </div>
           {relevantButtons}
