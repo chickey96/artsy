@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
-  get 'products/search', to: 'api/products#search'
+  get '/search/:query', to: 'api/products#search'
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:new, :create]

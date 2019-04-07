@@ -5,12 +5,13 @@ import {fetchProducts} from '../../actions/product_action';
 
 const mapStateToProps = (state, ownProps) => {
   const products = Object.values(state.entities.products);
-  const category = ownProps.match.params.category;
-  return {category, products};
+  const query = ownProps.match.params.category;
+  const category = query;
+  return {category, query, products};
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchProducts: category => dispatch(fetchProducts(category))
+  getProducts: query => dispatch(fetchProducts(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductIndex);

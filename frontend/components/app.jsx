@@ -8,6 +8,7 @@ import productShowContainer from './product/product_show_container';
 import DirectoryContainer from './nav_bar/directory';
 import CartIndexContainer from './carts/cart_index_container';
 import Footer from './footer';
+import searchProductIndexContainer from './search/searchProductIndexContainer';
 
 const App = () => (
   <div className="full-page">
@@ -19,6 +20,7 @@ const App = () => (
   <Switch>
     <Route path="/cart" component={CartIndexContainer}/>
     <Route exact path="/:category" component={productIndexContainer}/>
+    <Route path="/search/:query" component={searchProductIndexContainer}/>
     <Route exact path="/products/:productId" component={productShowContainer} />
     <Route exact path="/" component={Splash}/>
     <Redirect to="/"/> 

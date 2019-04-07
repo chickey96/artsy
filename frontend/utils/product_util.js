@@ -16,7 +16,7 @@ export const fetchProducts = category => (
 export const searchProducts = query => {
  return( $.ajax({
     method: 'GET',
-    url: `products/search`,
+    url: `search/${query}`,
     data: {query}
   })
  )}

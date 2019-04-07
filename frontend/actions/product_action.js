@@ -15,7 +15,6 @@ const receiveProducts = res => ({
 
 const wipeProducts = () => {
   const type = CLEAR_PRODUCTS;
-  debugger;
   return({type});
 }
 
