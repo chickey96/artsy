@@ -15,7 +15,6 @@ class ProductIndex extends React.Component {
   }
 
   render() { 
-
     if(this.props.products.length === 0 && this.props.category === 'search'){
       return (
         <div className="cart-page">
