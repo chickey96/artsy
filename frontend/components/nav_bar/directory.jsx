@@ -19,22 +19,22 @@ class Directory extends React.Component {
   toDrawing(e){
     e.preventDefault();
     this.props.clearProducts();
-    this.props.history.push('/drawing')
+    this.props.history.push('/products/drawing')
   }
   toPainting(e){
     e.preventDefault();
     this.props.clearProducts();
-    this.props.history.push('/painting')
+    this.props.history.push('/products/painting')
   }
   toMixed(e){
     e.preventDefault();
     this.props.clearProducts();
-    this.props.history.push('/mixed-media')
+    this.props.history.push('/products/mixed-media')
   }
   toFlowers(e){
     e.preventDefault();
     this.props.clearProducts();
-    this.props.history.push('/flowers')
+    this.props.history.push('/products/flowers')
   }
   
   render(){

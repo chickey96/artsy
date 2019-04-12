@@ -10,7 +10,7 @@ const AuthRoute = ({ component: Component, currentUser, ...rest }) => (
         <Component {...props} />
       ) : (
         <Redirect to= {
-          { pathname: '/', 
+          { pathname: '/login', 
            state: {redirect: true } } }/>
         )
     }

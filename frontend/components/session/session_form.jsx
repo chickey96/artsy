@@ -10,12 +10,24 @@ class SessionForm extends React.Component {
     this.emailInput = React.createRef();
     this.usernameInput = React.createRef();
     this.passwordInput = React.createRef();
+    this.exit = this.exit.bind(this);
+    this.close = this.close.bind(this);
+  }
+  
+  exit() {
+    this.props.clearErrors();
+    this.props.history.goBack();
+  }
+  close(info){
+    if(info.props.currentUser){
+      this.exit()
+    }
   }
 
   handleSubmit(e){
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.action(user).then(this.props.closeModal);
+    this.props.action(user).then( () => this.close(this) )
   }
 
   update(field){
@@ -31,15 +43,16 @@ class SessionForm extends React.Component {
         username: "Zooey", 
         password: "whentheFatLadysings" 
       };
-      this.props.demoAction(demoUser).then(this.props.closeModal);
+      this.props.demoAction(demoUser)
+      this.exit();
   }
 
   renderLoginErrors() {
     const error = this.props.errors.filter(err => (err.includes('credentials')));
-    if (error.length > 0) {
-      this.emailInput.className = "input-error";
-      this.passwordInput.className = "input-error";
-    }
+    // if (error.length > 0) {
+    //   this.passwordInput.className = "input-error";
+    //   this.emailInput.className = "input-error";
+    // }
     // else{
     //   this.emailInput.className = "modal-input";
     //   this.passwordInput.className = "modal-input";
@@ -54,9 +67,9 @@ class SessionForm extends React.Component {
 
   renderEmailErrors() {
     const emailErrors = this.props.errors.filter(err => (err.includes('Email')))
-    if(emailErrors.length > 0){
-      this.emailInput.className += " input-error"
-    }
+    // if(emailErrors.length > 0){
+    //   this.emailInput.className += " input-error"
+    // }
     // else{
     //   this.emailInput.className -= " input-error"
     // }
@@ -70,9 +83,9 @@ class SessionForm extends React.Component {
 
   renderUsernameErrors() {
     const usernameErrors = this.props.errors.filter(err => (err.includes('Username')))
-    if (usernameErrors.length > 0) {
-      this.usernameInput.className = "input-error"
-    }
+    // if (usernameErrors.length > 0) {
+    //   this.usernameInput.className = "input-error"
+    // }
     // else{
     //     this.usernameInput.className = this.usernameInput.className - "input-error";
     // }
@@ -85,9 +98,9 @@ class SessionForm extends React.Component {
     )}
   renderPasswordErrors() {
     const passwordErrors = this.props.errors.filter(err => (err.includes('Password')))
-    if (passwordErrors.length > 0) {
-      this.passwordInput.className = "input-error"
-    }
+    // if (passwordErrors.length > 0) {
+    //   this.passwordInput.className = "input-error"
+    // }
     // else{
     //   this.passwordInput.className = "modal-input"
     // }
@@ -122,7 +135,11 @@ class SessionForm extends React.Component {
       )}}
    
   render() {
-    return (
+   
+    return (<div className='modal-background' onClick={this.exit}>
+      {/* stop propagation prevents modal from closing when user clicks inside */}
+      <div className='modal-foreground' onClick={e => e.stopPropagation()}>
+      
       <div className='session-form'>
         
         <br></br>
@@ -141,7 +158,7 @@ class SessionForm extends React.Component {
             ref={ref => this.emailInput = ref}
             value={this.state.email}
             onChange={this.update('email')}
-            className="modal-input"
+            className='modal-input'
             />
             <div className="err-div">
               {this.renderEmailErrors()}
@@ -156,7 +173,7 @@ class SessionForm extends React.Component {
             ref={ref => this.passwordInput = ref}
             value={this.state.password} 
             onChange={this.update('password')} 
-            className="modal-input"/>
+            className='modal-input'/>
             <div className="err-div">
               {this.renderPasswordErrors()}
             </div>
@@ -171,6 +188,8 @@ class SessionForm extends React.Component {
           </div>
         </form>
       </div>
+      </div>
+    </div>
     )}}
 
 export default withRouter(SessionForm);

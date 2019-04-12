@@ -13,17 +13,20 @@ class NavBar extends React.Component{
   handleLogout(e) {
     e.preventDefault();
     this.props.logout();
-    this.props.history.replace("/");
   }
 
   handleLogin(e){
     e.preventDefault();
-    this.props.openModal('login');
+    let currPath = this.props.history.location.pathname;
+    if(currPath === '/') currPath = ""
+    this.props.history.push(`${currPath}/login`);
   }
 
   handleSignup(e){
     e.preventDefault();
-    this.props.openModal('signup');
+    let currPath = this.props.history.location.pathname;
+    if (currPath === '/') currPath = ""
+    this.props.history.push(`${currPath}/signup`)
   }
 
   render(){

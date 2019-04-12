@@ -14,7 +14,7 @@ class CartIndex extends React.Component {
   }
 
   checkout(){
-    this.props.openModal('checkout');
+    this.props.history.push('/cart/checkout')
   }
 
   render(){
@@ -44,7 +44,7 @@ class CartIndex extends React.Component {
           <div className="empty-statement">
             Your cart is empty.
           </div>
-          <Link to="/mixed-media" className="empty-link">
+          <Link to="/products/mixed-media" className="empty-link">
             Find something incredible to fill it
           </Link>
         </div>

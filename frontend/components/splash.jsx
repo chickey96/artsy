@@ -1,14 +1,5 @@
 import React from 'react';
-import { openModal } from '../actions/modal_action';
-import { connect } from 'react-redux';
-
-class Splash extends React.Component {
-  constructor(props) {
-    super(props)
-    if(this.props.location.state){
-      this.props.openModal('login')
-    }
-  }
+export default class Splash extends React.Component {
 
   render () {
     return (
@@ -130,10 +121,3 @@ class Splash extends React.Component {
     )
   }
 };
-
-
-const mapDispatchToProps = dispatch => ({
-  openModal: modal => dispatch(openModal(modal))
-})
-
-export default connect(null, mapDispatchToProps)(Splash)

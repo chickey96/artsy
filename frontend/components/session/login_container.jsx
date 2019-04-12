@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { createSession } from '../../actions/session_action';
-import { closeModal } from '../../actions/modal_action';
+import { createSession, clearErrors } from '../../actions/session_action';
 
 const mapStateToProps = state => ({
   formType: 'Sign in',
   greeting: 'Sign in to continue',
   tagline: '',
-  errors: state.errors.session
+  errors: state.errors.session,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
   action: user => dispatch(createSession(user)),
-  closeModal: () => dispatch(closeModal()),
-  demoAction: user => dispatch(createSession(user))
+  demoAction: user => dispatch(createSession(user)), 
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
