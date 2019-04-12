@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import SessionForm from './session_form';
 import { createUser, createSession } from '../../actions/session_action';
-import { openModal, closeModal } from '../../actions/modal_action';
+import { closeModal } from '../../actions/modal_action';
 
 
 const mapStateToProps = state => ({

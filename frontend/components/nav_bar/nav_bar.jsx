@@ -45,13 +45,13 @@ class NavBar extends React.Component{
     const loginTools = (
       <div className="options-bar-el" id="login-options">
         <div id="register-div">
-          <button className="options-bar-item" id="register-button" onClick={this.handleLogin}>
+          <button className="options-bar-item" id="register-button" onClick={this.handleSignup}>
             Register
           </button>
         </div>
 
         <div id="login-div">
-          <button className="options-bar-item" id="login-button" onClick={this.handleSignup}>
+          <button className="options-bar-item" id="login-button" onClick={this.handleLogin}>
             Sign in
           </button>
         </div>

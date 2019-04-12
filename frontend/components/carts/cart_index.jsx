@@ -50,13 +50,13 @@ class CartIndex extends React.Component {
         </div>
       )
     } else {
-        const carts = filteredCarts.map(cart => {
+        const carts = filteredCarts.map((cart, i) => {
           let quantity = quantityHash[cart.product_id];
           let itemTotal = cart.price * quantity;
           total += itemTotal;
           return (
             <div className="carts-index-item">
-              <CartShowContainer carts={this.props.carts} cart={cart} quantity={quantity}/>
+              <CartShowContainer carts={this.props.carts} cart={cart} key={i} quantity={quantity}/>
             </div>
           )
         })

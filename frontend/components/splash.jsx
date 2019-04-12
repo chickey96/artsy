@@ -1,8 +1,17 @@
 import React from 'react';
+import { openModal } from '../actions/modal_action';
+import { connect } from 'react-redux';
 
-const Splash = () => {
+class Splash extends React.Component {
+  constructor(props) {
+    super(props)
+    if(this.props.location.state){
+      this.props.openModal('login')
+    }
+  }
 
-  return (
+  render () {
+    return (
     <div className= "splash-page">
     <div className="catchphrase">
         If it's unconventionally crafted, angsty, or just plain nice to look at, it's on Artsy.
@@ -118,7 +127,13 @@ const Splash = () => {
     </div>
     
     </div>
-  )
+    )
+  }
 };
 
-export default Splash;
+
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+})
+
+export default connect(null, mapDispatchToProps)(Splash)
