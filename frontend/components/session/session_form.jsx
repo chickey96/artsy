@@ -100,7 +100,7 @@ class SessionForm extends React.Component {
       )}}
    
   render() {
-   
+    
     return (<div className='modal-background' onClick={this.exit}>
       {/* stop propagation prevents modal from closing when user clicks inside */}
       <div className='modal-foreground' onClick={e => e.stopPropagation()}>

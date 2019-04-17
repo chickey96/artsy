@@ -1,6 +1,6 @@
 class Api::CartsController < ApplicationController
 
-  before_action :require_login, only:[:create, :index, :destroy]
+  before_action :require_login, only:[:create, :show, :index, :destroy]
 
   def create
     @cart = Cart.new(cart_params)
