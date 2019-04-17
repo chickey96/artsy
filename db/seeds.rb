@@ -13,7 +13,7 @@
 
     user1 = User.create(
     email: "zglass@salinger.com", 
-    username: "Zooey", 
+    username: "Demo User", 
     password: "whentheFatLadysings" 
     )
 

@@ -50,7 +50,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const demoUser = {
         email: "zglass@salinger.com", 
-        username: "Zooey", 
         password: "whentheFatLadysings" 
       };
       this.props.demoAction(demoUser)
