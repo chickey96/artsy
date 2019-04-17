@@ -45,7 +45,6 @@
     margin-top: -15px;
     cursor: default;
     width: 100%;
-    height: auto;
     min-height: 700px;
     max-height: calc(100vh - 250px);
     position: relative;
@@ -68,26 +67,19 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin: 0;
-  padding-bottom: 5px;
 }
 #tagline{
-  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 25px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
 }
-.login-form > label {
+.input-label {
   display: block;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  margin-bottom: 6px;
 }
-
- #username-label{
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-  }
   #username-input{
     margin-top: 6px;
   }
@@ -97,18 +89,23 @@
   height: 48px;
   font-size: 16px;
   border-radius: 4px;
+  border: 1px solid rgba(203, 204, 201, 0.728);
   position: relative;
   box-shadow: none;
   outline-style: none;
-  border-width: 1px;
   margin-right: 20px;
+  margin-top: 5px;
   width: 95%;
-  border-color: #E1E3DF; 
   padding-left: 15px;
   font-family: 'Montserrat', sans-serif;
-}
+  }
+
+  .modal-input:focus {
+    border: 1px solid #595959;
+  }
+
  .input-error{
-    border-color: red;
+   border: 1px solid red;
     margin-bottom: 0;
     height: 48px;
     font-size: 16px;
@@ -116,7 +113,6 @@
     position: relative;
     box-shadow: none;
     outline-style: none;
-    border-width: 1px;
     margin-right: 20px;
     width: 95%;
     padding-left: 15px;
@@ -130,10 +126,9 @@
   
   .err-div{
     padding-top: 0;
-    height: 15px;
+    height: 20px;
     margin-bottom: 20px;
     padding-left: 0;
-    margin-top: -10px;
   }
 
   .login-err-div{

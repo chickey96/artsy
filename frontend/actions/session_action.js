@@ -37,7 +37,7 @@ export const createSession = user => dispatch => (
     .then(user => {
       dispatch(receiveCurrentUser(user))
     },
-      errors => {
+      errors => { console.log(errors);
         dispatch(receiveErrors(errors.responseJSON))
     })
 );

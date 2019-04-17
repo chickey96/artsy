@@ -7,27 +7,37 @@ class SessionForm extends React.Component {
     this.state = { email: '', username: '', password: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
-    this.emailInput = React.createRef();
-    this.usernameInput = React.createRef();
-    this.passwordInput = React.createRef();
     this.exit = this.exit.bind(this);
-    this.close = this.close.bind(this);
+    this.getClassName = this.getClassName.bind(this);
   }
   
+  //clear errors and return to original page when exiting modal
   exit() {
     this.props.clearErrors();
     this.props.history.goBack();
   }
-  close(info){
-    if(info.props.currentUser){
-      this.exit()
+
+  //determine whether modal input should be red due to errors 
+  getClassName(inputName){
+    const err = this.props.errors.filter(err => (err.includes(inputName)));
+    if(err.length > 0) return 'input-error';
+    if(inputName === 'Email' || inputName === 'Password'){
+      const genErr = this.props.errors.filter(err => (err.includes('credentials')));
+      if(genErr.length > 0) return 'input-error';
     }
+    return 'modal-input';
+  }
+
+  //close modal if login was successful
+  check(info){
+    if(info.props.currentUser) this.exit()
   }
 
   handleSubmit(e){
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.action(user).then( () => this.close(this) )
+    //see if login was successful
+    this.props.action(user).then( () => this.check(this))
   }
 
   update(field){
@@ -47,69 +57,27 @@ class SessionForm extends React.Component {
       this.exit();
   }
 
-  renderLoginErrors() {
-    const error = this.props.errors.filter(err => (err.includes('credentials')));
-    // if (error.length > 0) {
-    //   this.passwordInput.className = "input-error";
-    //   this.emailInput.className = "input-error";
-    // }
-    // else{
-    //   this.emailInput.className = "modal-input";
-    //   this.passwordInput.className = "modal-input";
-    // }
+  renderEmailErrors() {
+    const emailErrors = this.props.errors.filter(err => (err.includes('Email') || err.includes('credentials')))
     return (
       <div className="errors">
-        <p>
-          {error}
-        </p>
+        {emailErrors[0]}
       </div>
-    )}
-
-  renderEmailErrors() {
-    const emailErrors = this.props.errors.filter(err => (err.includes('Email')))
-    // if(emailErrors.length > 0){
-    //   this.emailInput.className += " input-error"
-    // }
-    // else{
-    //   this.emailInput.className -= " input-error"
-    // }
-    return (
-      <ul className="errors">
-        {emailErrors.map((err, idx) => (
-          <li key={`emailErr${idx}`}>{err}</li>
-        ))}
-      </ul>
     )}
 
   renderUsernameErrors() {
     const usernameErrors = this.props.errors.filter(err => (err.includes('Username')))
-    // if (usernameErrors.length > 0) {
-    //   this.usernameInput.className = "input-error"
-    // }
-    // else{
-    //     this.usernameInput.className = this.usernameInput.className - "input-error";
-    // }
     return (
-      <ul className="errors">
-        {usernameErrors.map((err, idx) => (
-          <li key={`usernameErr${idx}`}>{err}</li>
-        ))}
-      </ul>
+      <div className="errors">
+        {usernameErrors[0]}
+      </div>
     )}
   renderPasswordErrors() {
-    const passwordErrors = this.props.errors.filter(err => (err.includes('Password')))
-    // if (passwordErrors.length > 0) {
-    //   this.passwordInput.className = "input-error"
-    // }
-    // else{
-    //   this.passwordInput.className = "modal-input"
-    // }
+    const passwordErrors = this.props.errors.filter(err => (err.includes('Password') || err.includes('credentials')))
     return (
-      <ul className="errors">
-        {passwordErrors.map((err, idx) => (
-          <li key={`passwordErr${idx}`}>{err}</li>
-        ))}
-      </ul>
+      <div className="errors">
+        {passwordErrors[0]}
+      </div>
     )}
 
   renderUsername() {
@@ -118,15 +86,10 @@ class SessionForm extends React.Component {
     }else{
       return (
         <div className="username-div">
-          <label id="username-label" htmlFor="username-input" >First name
+          <label className='input-label' >First name
+            <input type="text" value={this.state.username} onChange={this.update('username')}
+            className={this.getClassName('Username')} />
           </label>
-        <input type="text"
-          id="username-input"
-          ref={ref => this.usernameInput = ref}
-          value={this.state.username}
-          onChange={this.update('username')}
-          className="modal-input" 
-          />
           <div className="err-div">
             {this.renderUsernameErrors()}
           </div>
@@ -142,50 +105,40 @@ class SessionForm extends React.Component {
       
       <div className='session-form'>
         
-        <br></br>
           <form onSubmit={this.handleSubmit} className="modal-form">
-          <div className="login-form">
-          <h1 id="greeting">{this.props.greeting}</h1>
-          <p id="tagline">{this.props.tagline}</p>
-         
-            <div className="login-err-div">
-              {this.renderLoginErrors()}
-            </div>
-          
-          <label htmlFor="email-input" >Email address</label>
-            <input type="text" 
-            id="email-input"
-            ref={ref => this.emailInput = ref}
-            value={this.state.email}
-            onChange={this.update('email')}
-            className='modal-input'
-            />
-            <div className="err-div">
-              {this.renderEmailErrors()}
-            </div>
-          
-          {this.renderUsername()}
-
-          <label htmlFor="password-input" >Password
-          </label>
-            <input type="password"
-            id="password-input"
-            ref={ref => this.passwordInput = ref}
-            value={this.state.password} 
-            onChange={this.update('password')} 
-            className='modal-input'/>
-            <div className="err-div">
-              {this.renderPasswordErrors()}
-            </div>
+            <div className="login-form">
+              <h1 id="greeting">{this.props.greeting}</h1>
+              <p id="tagline">{this.props.tagline}</p>
             
-          <input className="modal-submit"type="submit" value={this.props.formType}/>
-          <div className="modal-divider">
-            <span id="or-option">
-              OR
-            </span>
-          </div> 
-          <button onClick={this.loginDemoUser} id="demo-signin">Demo</button>
-          </div>
+              
+              <label className='input-label'>Email address
+                <input type="text" value={this.state.email} onChange={this.update('email')}
+                className={this.getClassName('Email')}
+                />
+              </label>
+              <div className="err-div">
+                {this.renderEmailErrors()}
+              </div>
+              
+              {this.renderUsername()}
+
+              <label className='input-label'>Password
+                <input type="password" value={this.state.password} onChange={this.update('password')} 
+                className={this.getClassName('Password')}/>
+              </label>
+
+              <div className="err-div">
+                {this.renderPasswordErrors()}
+              </div>
+                
+              <input className="modal-submit"type="submit" value={this.props.formType}/>
+              <div className="modal-divider">
+                <span id="or-option">
+                  OR
+                </span>
+              </div> 
+              <button onClick={this.loginDemoUser} id="demo-signin">Demo</button>
+            </div>
         </form>
       </div>
       </div>

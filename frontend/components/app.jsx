@@ -29,7 +29,7 @@ const App = () => (
   </Switch>
 
   <Switch>
-      <Route path='**/login' component={LoginContainer} />
+      <Route path='*/login' component={LoginContainer} />
       <Route path='*/signup' component={SignUpContainer} />
       <Route path='/cart/checkout' component={Checkout} />
   </Switch>
