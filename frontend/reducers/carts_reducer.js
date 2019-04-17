@@ -1,4 +1,5 @@
 import { RECEIVE_CARTS, REMOVE_CART, RECEIVE_CART } from '../actions/cart_action';
+import { LOGOUT_CURRENT_USER } from '../actions/session_action';
 import merge from 'lodash/merge';
 
 const cartsReducer = (state = {}, action) => {
@@ -16,6 +17,8 @@ const cartsReducer = (state = {}, action) => {
       let changeState = merge({}, state);
       delete changeState[action.cartId];
       return changeState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }

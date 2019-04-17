@@ -14,7 +14,10 @@ class SessionForm extends React.Component {
   //clear errors and return to original page when exiting modal
   exit() {
     this.props.clearErrors();
-    this.props.history.goBack();
+    const currPath = this.props.history.location.pathname;
+    const splitUrl = currPath.split('/');
+    let newUrl = splitUrl.slice(0, splitUrl.length-1).join("/");
+    this.props.history.replace(newUrl);
   }
 
   //determine whether modal input should be red due to errors 

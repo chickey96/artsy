@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
     require 'open-uri'
 
-    User.destroy_all
-    Product.destroy_all 
     Comment.destroy_all
+    Product.destroy_all 
+    User.destroy_all
 
     user1 = User.create(
     email: "zglass@salinger.com", 

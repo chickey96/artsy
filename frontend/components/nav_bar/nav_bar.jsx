@@ -12,7 +12,9 @@ class NavBar extends React.Component{
 
   handleLogout(e) {
     e.preventDefault();
+    let currPath = this.props.history.location.pathname;
     this.props.logout();
+    this.props.history.replace(currPath);
   }
 
   handleLogin(e){
@@ -32,7 +34,7 @@ class NavBar extends React.Component{
   render(){
     
     const logoutTools = (
-        <div  id="logout-div">
+        <div  className="options-bar-el" id="logout-cart-options">
           <button className="options-bar-item" id="logout-button" onClick={this.handleLogout}>
             Log out
           </button>

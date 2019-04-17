@@ -13,6 +13,7 @@ class Search extends React.Component {
   handleSearch(e){
     e.preventDefault();
     e.target.previousElementSibling.blur();
+    this.props.clearProducts();
     this.props.searchProducts(this.state.query)
     .then(this.props.history.replace(`/search/${this.state.query}`))
   }
@@ -31,7 +32,6 @@ class Search extends React.Component {
         <input type="input" className="search-input" placeholder="Search for items or artists"
           onChange={this.update()} value={this.state.query}
           onFocus={this.clearSearch} 
-          // onBlur={this.clearSearch}
           />
         <button className="search-button" onClick={this.handleSearch}>Search</button>
       </form>
