@@ -8,6 +8,9 @@ class Search extends React.Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.update = this.update.bind(this);
     this.clearSearch = this.clearSearch.bind(this)
+    this.checkClear = this.checkClear.bind(this)
+    //clear search bar contents when user navigates to a new link
+    window.addEventListener('click', this.checkClear)
   }
 
   handleSearch(e){
@@ -24,6 +27,13 @@ class Search extends React.Component {
 
   clearSearch(){
     this.setState({ query: "" })
+  }
+
+  checkClear(){
+    const currUrl = this.props.location.pathname;
+    if(!currUrl.includes('search')) {
+      this.clearSearch()
+    }
   }
 
   render(){
