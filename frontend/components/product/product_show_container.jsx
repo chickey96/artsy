@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ProductShow from './product_show';
 import {fetchProduct} from '../../actions/product_action';
-import {createCart} from '../../actions/cart_action';
+import {createCart, fetchCarts} from '../../actions/cart_action';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchProduct: id => dispatch(fetchProduct(id)),
-  createCart: cart => dispatch(createCart(cart))
+  createCart: cart => dispatch(createCart(cart)), 
+  fetchCarts: userId => dispatch(fetchCarts(userId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductShow));

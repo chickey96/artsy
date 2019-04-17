@@ -184,16 +184,30 @@
   width: 90px;
   border-radius: 3px;
   font-weight: 500;
-  border: 1px solid  #595959;
+  border: 1px solid  black;
   outline: none;
   margin-top: 10px;
-  color: black;
   font-family: 'Montserrat', sans-serif;
 }
 
-.cart-section button:hover{
+.cart-add-button {
+  color: black;
+}
+
+.cart-add-button:hover{
   background-color: black;
-  border-color: black;
   color: white;
+  cursor: pointer;
+}
+
+.cart-visit-button:hover {
+  background-color: #595959;
+  color: white;
+}
+
+.cart-visit-button {
+  color: white;
+  background-color: black;
+  cursor: pointer;
 }
 

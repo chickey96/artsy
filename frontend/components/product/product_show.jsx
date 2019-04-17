@@ -7,6 +7,8 @@ class ProductShow extends React.Component {
     super(props);
     this.addCart = this.addCart.bind(this);
     this.visitCart = this.visitCart.bind(this);
+    this.isInCart = this.isInCart.bind(this);
+    this.props.fetchCarts(this.props.currentUser);
   }
 
   addCart(e){
@@ -19,38 +21,37 @@ class ProductShow extends React.Component {
     this.props.history.push('/cart');
   }
   componentDidMount() {
-    this.props.fetchProduct(this.props.match.params.productId);
+    this.props.fetchCarts(this.props.currentUser)
+    .then(this.props.fetchProduct(this.props.match.params.productId));
   }
 
-  componentDidUpdate(prevProps){
-    if(prevProps.match.params.productId !== this.props.match.params.productId){
-      this.props.fetchProduct(this.props.match.params.productId);
+  parseCategory(media){
+    for(let i = 0; i < media.length; i++){
+      if(media[i] === ':'){
+        return media.slice(i+1);
+      }
     }
+  }
+
+  isInCart(){
+    for(let i = 0; i < this.props.carts.length; i++){
+      let cart = this.props.carts[i];
+      if(cart.product_id === this.props.product.id){
+        return true;
+      }
+    }
+    return false;
   }
 
   render () {
     if(!this.props.product){
       return null;
     }
-    let media = this.props.product.media_type;
-    let materials = "";
-    for(let i = 0; i < media.length; i++){
-      if(media[i] === ':'){
-        materials = media.slice(i+1);
-        break;
-      }
-    }
-    let inCart = false;
-    for(let i = 0; i < this.props.carts.length; i++){
-      let cart = this.props.carts[i];
-      if(cart.product_id === this.props.product.id){
-        inCart = true;
-        break;
-      }
-    }
+    const materials = this.parseCategory(this.props.product.media_type);
+    
     let cartOption = (<div></div>);
     if(this.props.currentUser){
-      if(!inCart){
+      if(!this.isInCart()){
         cartOption = (
           <button className="cart-add-button" onClick={this.addCart}>
             Add To Cart
@@ -59,7 +60,7 @@ class ProductShow extends React.Component {
       }
       else {
         cartOption = (
-          <button className="cart-increment-button" onClick={this.visitCart}>
+          <button className="cart-visit-button" onClick={this.visitCart}>
             View in Cart 
           </button>
         )

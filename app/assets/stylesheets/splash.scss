@@ -19,7 +19,11 @@
 .category-li button {
   outline: none;
   border: none;
-  height: 100%;
+  height: 99%;
+}
+
+.category-li button:hover {
+  cursor: pointer;
 }
 
 .category {
@@ -32,7 +36,6 @@
 
 .category-li:hover{
     border-bottom: 3px solid #F56400;
-    cursor: pointer;
     margin-bottom: -3px;
 }
 
