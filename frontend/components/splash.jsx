@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 export default class Splash extends React.Component {
 
   render () {
@@ -9,25 +10,25 @@ export default class Splash extends React.Component {
     </div>
 
     <div className="front-page-pics">
-      <div id="pic1">
+      <Link to="/product/470" id="pic1" >
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/lion.jpg' className="front-page-image"/>
-      </div>
+      </Link>
 
-      <div id="pic2">
+      <Link to="/product/508" id="pic2" >
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/flowers10.jpg' className="front-page-image" />
-      </div>
+      </Link>
 
-      <div id="pic3">
+      <Link to="/product/483" id="pic3" >
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/bang.jpg' className="front-page-image" />
-      </div>
+      </Link>
 
-        <div id="pic4">
+      <Link to="/product/523" id="pic4" >
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/flowers24.jpg' className="front-page-image" />
-        </div>
+      </Link>
 
-        <div id="pic5">
-          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/frank.jpg' className="front-page-image" />
-        </div>
+        <Link to="/product/498" id="pic5" >
+            <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/frank.jpg' className="front-page-image" />
+        </Link>
     </div>
 
     <div className="front-page-mottos">
