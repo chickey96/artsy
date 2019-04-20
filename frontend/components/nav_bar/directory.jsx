@@ -18,23 +18,34 @@ class Directory extends React.Component {
   }
   toDrawing(e){
     e.preventDefault();
-    this.props.clearProducts();
-    this.props.history.push('/products/drawing')
+    console.log(this.props.location.pathname)
+    if(this.props.location.pathname !== '/products/drawing'){
+      this.props.clearProducts();
+      this.props.history.push('/products/drawing')
+    }
   }
   toPainting(e){
     e.preventDefault();
-    this.props.clearProducts();
-    this.props.history.push('/products/painting')
+    if(this.props.location.pathname !== '/products/painting'){
+      this.props.clearProducts();
+      this.props.history.push('/products/painting')
+    }
   }
+
   toMixed(e){
     e.preventDefault();
-    this.props.clearProducts();
-    this.props.history.push('/products/mixed-media')
+    if(this.props.location.pathname !== '/products/mixed-media'){
+      this.props.clearProducts();
+      this.props.history.push('/products/mixed-media')
+    }
   }
+
   toFlowers(e){
     e.preventDefault();
-    this.props.clearProducts();
-    this.props.history.push('/products/flowers')
+    if(this.props.location.pathname !== '/products/flowers'){
+      this.props.clearProducts();
+      this.props.history.push('/products/flowers')
+    }
   }
   
   render(){
