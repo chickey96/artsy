@@ -1,7 +1,15 @@
 # Artsy
 
 ## Background and Overview
-Artsy is an Etsy clone that functions as a platform for artists to sell their work. All of the seed data is my original artwork with the exception of my cousin's flower arrangements.
+[Artsy](https://artsy-00.herokuapp.com/#/) is an Etsy clone featuring my original artwork
+
+## Technologies
+* AWS/CloudFront
+  * product images stored with Amazon Web Services, with CloudFront deployed to reduce load time
+* Postgres database
+  * all other data is stored with a Postgres database
+* Ruby on Rails/React
+  * Ruby on Rails on the backend with React on the frontend 
 
 ## Functionality
 * View and search for products
@@ -13,7 +21,7 @@ Artsy is an Etsy clone that functions as a platform for artists to sell their wo
   * make accounts, login, logout
   * user auth required to view cart and add/edit/delete comments    
 * products
-  * case insensitive search filters products by media-type, artist, title, or     price
+  * case insensitive search filters products by media-type, artist, title, or price
   * links always accessible to view products by media-type
 * comments 
   * view all comments for any given product
@@ -21,18 +29,6 @@ Artsy is an Etsy clone that functions as a platform for artists to sell their wo
   * logged in users can edit/delete their own comments
   * logged in users can add products to their cart
   * logged in users can view cart, edit product quantity, or delete items
-
-## Technologies
-* AWS/CloudFront
-  * product images are stored with Amazon Web Services, with CloudFront           deployed to reduce load time
-* Postgres database
-  * all data other than product images is stored and accessed using a postgres    database
-* Ruby on Rails/ React
-  * Artsy uses Ruby on Rails on the backend with React on the frontend 
-
-## Contributing
-
-If you are interested in contributing to Artsy, please fork the repository and use a feature branch. Pull requests are always welcome. 
 
 ## Links
 
