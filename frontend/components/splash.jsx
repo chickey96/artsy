@@ -1,8 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { searchProducts } from '../utils/product_util';
 export default class Splash extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.getProductId = this.getProductId.bind(this)
+    this.getProductShow = this.getProductShow.bind(this)
+  }
+
+  getProductId(e){
+    e.preventDefault();
+    const urlArr = e.target.src.split('/');
+    const unparsedTitle = urlArr[urlArr.length-1];
+    let title = unparsedTitle.split('.')[0];
+    if(title === 'flowers10') title = 'an energetic bouquet'
+    if(title === 'flowers24') title = 'willy wonka'
+    searchProducts(title)
+      .then(productList => this.getProductShow(productList))
+  }
+
+  getProductShow(productList){
+    const productId = productList[0].id
+    this.props.history.push(`/product/${productId}`)
+  }
+
+
   render () {
+  
     return (
     <div className= "splash-page">
     <div className="catchphrase">
@@ -10,25 +34,25 @@ export default class Splash extends React.Component {
     </div>
 
     <div className="front-page-pics">
-      <Link to="/product/470" id="pic1" >
+      <div id="pic1" onClick={this.getProductId}>
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/lion.jpg' className="front-page-image"/>
-      </Link>
+      </div>
 
-      <Link to="/product/508" id="pic2" >
+      <div id="pic2" onClick={this.getProductId}>
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/flowers10.jpg' className="front-page-image" />
-      </Link>
+      </div>
 
-      <Link to="/product/483" id="pic3" >
+      <div id="pic3" onClick={this.getProductId}>
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/bang.jpg' className="front-page-image" />
-      </Link>
+      </div>
 
-      <Link to="/product/523" id="pic4" >
+      <div id="pic4" onClick={this.getProductId}>
           <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/flowers24.jpg' className="front-page-image" />
-      </Link>
+      </div>
 
-        <Link to="/product/498" id="pic5" >
-            <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/frank.jpg' className="front-page-image" />
-        </Link>
+      <div id="pic5" onClick={this.getProductId}>
+          <img src='https://s3-us-west-1.amazonaws.com/artsy-dev/frank.jpg' className="front-page-image" />
+      </div>
     </div>
 
     <div className="front-page-mottos">

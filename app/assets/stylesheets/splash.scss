@@ -44,6 +44,7 @@
   grid-template-rows: 175px 130px 220px;
   grid-template-columns: 240px 240px 220px;
   justify-content: center;
+  cursor: pointer;
 }
 
 #pic1 {
@@ -89,6 +90,7 @@
     -webkit-font-smoothing: antialiased;
     text-align: center;
     margin: 50px;
+    cursor: default;
 }
 
 .front-page-mottos{
@@ -98,6 +100,7 @@
   grid-template-columns: 250px 250px 250px;
   justify-content: center;
   grid-gap: 30px;
+  cursor: default;
 }
 
 .motto {
@@ -156,6 +159,7 @@
   display: flex;
   padding: 10px;
   font-size: 14px;
+  cursor: default;
 }
 
 .info-box{
@@ -166,6 +170,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
 }
 
 .info-box-text{
