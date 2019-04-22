@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: default;
 }
 
 .item-count {
@@ -103,6 +104,11 @@
   border: 1px solid  #E1E3DF; 
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown:hover {
+  border: 1px solid #595959;
 }
 
 .cart-item-price {
@@ -190,6 +196,7 @@
   display: flex;
   width: 400px;
   align-self: center;
+  cursor: default;
 }
 
 .checkout-modal{
