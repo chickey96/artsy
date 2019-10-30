@@ -1,6 +1,4 @@
 # Artsy
-
-## Background and Overview
 [Artsy](https://artsy-00.herokuapp.com/#/) is an Etsy clone featuring my original artwork
 
 ## Technologies
