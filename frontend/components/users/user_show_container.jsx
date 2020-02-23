@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   console.log("container", state)
   const user = state.entities.users[ownProps.match.params.id];
   const currentUser = state.session.currentUser;
-  return {user, currentUser, carts};
+  return {user, currentUser};
 };
 
 const mapDispatchToProps = dispatch => ({

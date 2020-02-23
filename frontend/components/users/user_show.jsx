@@ -18,9 +18,14 @@ class UserShow extends React.Component {
     }
     
     return (
-      <div>
-        <div>
-          ${this.props.user.username}
+      <div className="user-show-container">
+        <div className="user-show-profile">
+          <div className="user-show-image">
+            
+          </div>
+          <div className="user-show-greeting">
+            Welcome, {this.props.user.username}
+          </div>
         </div>
       </div>
     )};

@@ -8,6 +8,7 @@ class NavBar extends React.Component{
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
+    this.currentUserId = this.props.currentUser.id;
   }
 
   handleLogout(e) {
@@ -35,9 +36,24 @@ class NavBar extends React.Component{
     
     const logoutTools = (
         <div  className="options-bar-el" id="logout-cart-options">
-          <button className="options-bar-item" id="logout-button" onClick={this.handleLogout}>
-            Log out
-          </button>
+          <div className="options-bar-item" id="profile-dropdown" to={`/users/${this.currentUserId}`}>
+            You
+            <div className="profile-dropdown-content">
+              <div className="profile-dropdown-placeholder"></div>
+              <div className="profile-dropdown-body">
+                <div>
+                  <Link id="profile-button" to={`/users/${this.currentUserId}`}>
+                    {this.props.currentUser.username}
+                  </Link>
+                </div>
+                <div>
+                  <button id="logout-button" onClick={this.handleLogout}>
+                    Log out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         
           <Link className="cart-link" to="/cart">
             <div className="cart-image">

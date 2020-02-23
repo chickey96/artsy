@@ -29,7 +29,6 @@ export default class Splash extends React.Component {
   
     return (
     <div className= "splash-page">
-      <div>WTF</div>
     <div className="catchphrase">
         If it's unconventionally crafted, angsty, or just plain nice to look at, it's on Artsy.
     </div>

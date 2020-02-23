@@ -25,7 +25,7 @@ const App = () => (
     <Route path="/products/:category" component={productIndexContainer}/>
     <Route path="/search/:query" component={searchProductIndexContainer}/>
     <Route path="/product/:productId" component={productShowContainer} />
-    <Route path="/users/:id" component={userShowContainer} />
+    <AuthRoute path="/users/:id" component={userShowContainer} />
     <Route path="/" component={Splash}/>
     <Redirect to="/"/> 
   </Switch>

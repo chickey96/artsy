@@ -1,3 +1,61 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-show-container {
+  margin: 25px;
+}
+
+.user-show-profile {
+  display: flex;
+  flex-direction: row;
+}
+
+#profile-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.profile-dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 100%;
+  z-index: 1;
+}
+
+#profile-dropdown:hover .profile-dropdown-content {
+  display: block;
+  width: max-content;
+}
+
+.profile-dropdown-body {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.profile-dropdown-body div {
+  padding: 8px;
+  background-color: #FFF;
+}
+
+.profile-dropdown-placeholder {
+  height: 100%;
+  padding-bottom: 16px;
+}
+
+#profile-dropdown:hover {
+  color: lightgrey;
+}
+
+.user-show-image {
+  background-image: url(./default-profile-picture.png);
+  width: 150px;
+  height: 150px;
+  outline: 5px solid #E55400;
+  background-size: cover;
+}
+
+.user-show-greeting {
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: lighter;
+}
