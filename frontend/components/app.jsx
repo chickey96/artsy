@@ -4,6 +4,7 @@ import Splash from './splash';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import productIndexContainer from './product/product-index-container';
 import productShowContainer from './product/product_show_container';
+import userShowContainer from './users/user_show_container';
 import DirectoryContainer from './nav_bar/directory';
 import CartIndexContainer from './carts/cart_index_container';
 import Footer from './footer';
@@ -24,6 +25,7 @@ const App = () => (
     <Route path="/products/:category" component={productIndexContainer}/>
     <Route path="/search/:query" component={searchProductIndexContainer}/>
     <Route path="/product/:productId" component={productShowContainer} />
+    <Route path="/users/:id" component={userShowContainer} />
     <Route path="/" component={Splash}/>
     <Redirect to="/"/> 
   </Switch>

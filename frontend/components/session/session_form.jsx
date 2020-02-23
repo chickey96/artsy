@@ -15,6 +15,10 @@ class SessionForm extends React.Component {
   exit() {
     this.props.clearErrors();
     const currPath = this.props.history.location.pathname;
+    if (currPath == '/') {
+      this.props.history.replace(`/users/${this.props.currentUser.id}`);
+      return;
+    } 
     const splitUrl = currPath.split('/');
     let newUrl = splitUrl.slice(0, splitUrl.length-1).join("/");
     this.props.history.replace(newUrl);
