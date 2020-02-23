@@ -41,8 +41,9 @@ class NavBar extends React.Component{
             <div className="profile-dropdown-content">
               <div className="profile-dropdown-placeholder"></div>
               <div className="profile-dropdown-body">
-                <div>
-                  <Link id="profile-button" to={`/users/${this.currentUserId}`}>
+                <div className="profile-dropdown-bar-1">
+                  <div className="user-show-thumbnail"></div>
+                  <Link id="profile-link" to={`/users/${this.currentUserId}`}>
                     {this.props.currentUser.username}
                   </Link>
                 </div>
