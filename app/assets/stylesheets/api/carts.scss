@@ -27,7 +27,6 @@
   border-radius: 3px;
   background-color: #FFF;
   display: flex;
-  flex-direction: row;
   width: 100%;
   height: 100%;
 }
@@ -44,7 +43,6 @@
 }
 .cart-item{
   display: flex;
-  flex-direction: row;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
 }
@@ -101,7 +99,7 @@
   height: 38px;
   background-color: white;
   outline: none;
-  border: 1px solid  #E1E3DF; 
+  border: 1px solid  #E1E3DF;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   cursor: pointer;
@@ -142,7 +140,7 @@
 }
 
 .checkout-col button {
-  height: 40px; 
+  height: 40px;
   width: 90%;
   border-radius: 3px;
   font-weight: 600;
@@ -173,13 +171,11 @@
 .total-amount{
   font-size: 12px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 .tax{
   font-size: 12px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -213,7 +209,7 @@
 
 .empty-cart {
   background-color: white;
-  border: 1px solid  #E1E3DF; 
+  border: 1px solid  #E1E3DF;
   border-radius: 3px;
   font-family: 'Montserrat', sans-serif;
   display: flex;

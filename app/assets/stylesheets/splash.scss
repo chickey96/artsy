@@ -1,12 +1,11 @@
 .splash-grid{
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   height: 35%;
   border-radius: 3px;
   background-color: #FFF;
   border: 1px solid #E1E3DF;
-  border-bottom-color: #CBCCC9;
+  border-bottom-color: #CBCCC9
 }
 
 .category-li {
@@ -55,7 +54,7 @@
 }
 #pic2 {
   grid-column-start: 1;
-  grid-column-end: 2; 
+  grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { MdSearch } from 'react-icons/md'
+
 class Search extends React.Component {
 
   constructor(props){
@@ -37,12 +39,14 @@ class Search extends React.Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSearch} className="search-form">
+      <form onSubmit={this.handleSearch} className="options-bar-item" id="search-form">
         <input type="input" className="search-input" placeholder="Search for items or artists"
           onChange={this.update()} value={this.state.query}
-          onFocus={this.clearSearch} 
+          onFocus={this.clearSearch}
           />
-        <button className="search-button" onClick={this.handleSearch}>Search</button>
+        <button className="search-button" onClick={this.handleSearch}>
+          <MdSearch/>
+        </button>
       </form>
     )
   }

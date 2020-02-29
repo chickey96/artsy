@@ -1,0 +1,170 @@
+// This file will automatically be included in application.css.
+#full-screen{
+  margin: 0;
+  min-width: 100vw;
+}
+
+.header{
+  height: 168px;
+  cursor: default;
+}
+
+.nav-bar{
+  height: 65%;
+}
+
+.options-bar{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 3.5%;
+ }
+
+.options-bar-el{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 68%;
+ }
+
+#register-div{
+  padding-right: 5px;
+}
+
+#logo{
+  font-size: 42px;
+  color: #f45800;
+  font-family: 'Raleway', sans-serif;
+}
+
+.options-bar-item{
+  height: 80% !important;
+  padding: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#logout-cart-options {
+  width: 15%;
+}
+
+// LOGIN BUTTON styling
+#login-button{
+  border: none;
+  font-size: 14px;
+  padding: 9px 15px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 24px;
+  width: max-content;
+}
+
+#login-button:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+#login-button:active {
+  outline: none;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+}
+
+#login-button:focus {
+  outline: none;
+}
+
+// REGISTER BUTTON styling
+#register-button{
+  border: 0 none;
+  font-size: 14px;
+  height: 36px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#register-button:hover {
+  border-radius: 24px;
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+#register-button:active {
+  outline: none;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+}
+
+#register-button:focus {
+  outline: none;
+}
+
+#logout-button{
+  font-size: 14px;
+  border: none;
+  padding-left: 0 !important;
+  font-family: 'Montserrat', sans-serif;
+}
+.cart-link{
+  border-radius: 24px;
+  height: 36px;
+  width: 45px;
+  padding: 4.5px 0px;
+  // margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+.cart-image{
+  margin-bottom: -3px;
+  margin-right: -3px;
+  -webkit-text-stroke-width: thick;
+  font-size: 18px;
+}
+
+.cart-link:hover > div{
+  fill: white;
+}
+
+.cart-link:hover{
+  fill: white;
+  background-color: rgb(238, 238, 238);
+  color: #FFF;
+  border-color: #414141;
+  cursor: pointer;
+}
+
+#logout-button:hover{
+    cursor: pointer;
+}
+
+#cart-link:hover{
+    background-color: #3c3c3c;
+    color: #FFF;
+    border-color: #222222;
+    cursor: pointer;
+}
+
+#logout-button:focus {
+  outline: none;
+  border: 1px solid;
+}
+
+#profile-dropdown {
+  height: 50px;
+  padding: 2px 5px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .user-show-thumbnail {
+    outline: none !important;
+  }
+
+  label {
+    font-size: 12px;
+  }
+}
