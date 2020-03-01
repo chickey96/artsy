@@ -18,7 +18,6 @@ class Directory extends React.Component {
   }
   toDrawing(e){
     e.preventDefault();
-    console.log(this.props.location.pathname)
     if(this.props.location.pathname !== '/products/drawing'){
       this.props.clearProducts();
       this.props.history.push('/products/drawing')
@@ -47,7 +46,7 @@ class Directory extends React.Component {
       this.props.history.push('/products/flowers')
     }
   }
-  
+
   render(){
     return (
       <ul className="splash-grid">
