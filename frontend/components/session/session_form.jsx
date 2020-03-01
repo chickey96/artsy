@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -9,8 +11,15 @@ class SessionForm extends React.Component {
     this.loginDemoUser = this.loginDemoUser.bind(this);
     this.exit = this.exit.bind(this);
     this.getClassName = this.getClassName.bind(this);
+    if(this.props.formType == 'Register') {
+      this.alternateActionName = 'Sign In';
+      this.alternateActionPath = '/login';
+    } else {
+      this.alternateActionName = 'Register';
+      this.alternateActionPath = '/signup';
+    }
   }
-  
+
   //clear errors and return to original page when exiting modal
   exit() {
     this.props.clearErrors();
@@ -18,13 +27,13 @@ class SessionForm extends React.Component {
     if (currPath == '/') {
       this.props.history.replace(`/users/${this.props.currentUser.id}`);
       return;
-    } 
+    }
     const splitUrl = currPath.split('/');
     let newUrl = splitUrl.slice(0, splitUrl.length-1).join("/");
     this.props.history.replace(newUrl);
   }
 
-  //determine whether modal input should be red due to errors 
+  //determine whether modal input should be red due to errors
   getClassName(inputName){
     const err = this.props.errors.filter(err => (err.includes(inputName)));
     if(err.length > 0) return 'input-error';
@@ -48,16 +57,16 @@ class SessionForm extends React.Component {
   }
 
   update(field){
-    return (e) => this.setState({ 
-      [field]: e.target.value 
+    return (e) => this.setState({
+      [field]: e.target.value
     });
   }
 
   loginDemoUser(e){
     e.preventDefault();
     const demoUser = {
-        email: "zglass@salinger.com", 
-        password: "whentheFatLadysings" 
+        email: "zglass@salinger.com",
+        password: "whentheFatLadysings"
       };
       this.props.demoAction(demoUser)
       this.exit();
@@ -99,56 +108,56 @@ class SessionForm extends React.Component {
           <div className="err-div">
             {this.renderUsernameErrors()}
           </div>
-           
+
         </div>
       )}}
-   
+
   render() {
-    
-    return (<div className='modal-background' onClick={this.exit}>
+    return (
+      <div className='modal-background' onClick={this.exit}>
       {/* stop propagation prevents modal from closing when user clicks inside */}
-      <div className='modal-foreground' onClick={e => e.stopPropagation()}>
-      
-      <div className='session-form'>
-        
-          <form onSubmit={this.handleSubmit} className="modal-form">
-            <div className="login-form">
-              <h1 id="greeting">{this.props.greeting}</h1>
-              <p id="tagline">{this.props.tagline}</p>
-            
-              
-              <label className='input-label'>Email address
-                <input type="text" value={this.state.email} onChange={this.update('email')}
-                className={this.getClassName('Email')}
-                />
-              </label>
-              <div className="err-div">
-                {this.renderEmailErrors()}
-              </div>
-              
-              {this.renderUsername()}
+        <div className='modal-foreground' onClick={e => e.stopPropagation()}>
+          <div className='session-form'>
+            <form onSubmit={this.handleSubmit} className="modal-form">
 
-              <label className='input-label'>Password
-                <input type="password" value={this.state.password} onChange={this.update('password')} 
-                className={this.getClassName('Password')}/>
-              </label>
+              <div className="login-form">
+                <div className="topline-session-modal">
+                  <h1 id="greeting"> {this.props.greeting} </h1>
+                  <button>
+                    <Link to={this.alternateActionPath} className="alternate-session-link">
+                      {this.alternateActionName}
+                    </Link>
+                  </button>
+                </div>
 
-              <div className="err-div">
-                {this.renderPasswordErrors()}
+                <p id="tagline">{this.props.tagline}</p>
+
+                <label className='input-label'>Email address
+                  <input type="text" value={this.state.email} onChange={this.update('email')}
+                  className={this.getClassName('Email')}/>
+                </label>
+
+                <div className="err-div"> {this.renderEmailErrors()} </div>
+
+                {this.renderUsername()}
+
+                <label className='input-label'>Password
+                  <input type="password" value={this.state.password} onChange={this.update('password')}
+                  className={this.getClassName('Password')}/>
+                </label>
+
+                <div className="err-div"> {this.renderPasswordErrors()} </div>
+
+                <input className="modal-submit"type="submit" value={this.props.formType}/>
+                <div className="modal-divider">
+                  <span id="or-option"> OR </span>
+                </div>
+                <button onClick={this.loginDemoUser} id="demo-signin">Demo</button>
               </div>
-                
-              <input className="modal-submit"type="submit" value={this.props.formType}/>
-              <div className="modal-divider">
-                <span id="or-option">
-                  OR
-                </span>
-              </div> 
-              <button onClick={this.loginDemoUser} id="demo-signin">Demo</button>
-            </div>
-        </form>
+            </form>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
     )}}
 
 export default withRouter(SessionForm);

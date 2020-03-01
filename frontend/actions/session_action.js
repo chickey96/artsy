@@ -24,22 +24,14 @@ export const clearErrors = () => ({
 
 export const createUser = user => dispatch => (
   SessionAPIUtil.createUser(user)
-  .then(user => {
-    dispatch(receiveCurrentUser(user))
-  },
-  errors => {
-    dispatch(receiveErrors(errors.responseJSON))
-  })
+  .then(user => dispatch(receiveCurrentUser(user)),
+  errors => (dispatch(receiveErrors(errors.responseJSON))))
 );
 
 export const createSession = user => dispatch => (
   SessionAPIUtil.createSession(user)
-    .then(user => {
-      dispatch(receiveCurrentUser(user))
-    },
-      errors => { 
-      dispatch(receiveErrors(errors.responseJSON))
-    })
+    .then(user => dispatch(receiveCurrentUser(user)),
+      errors => ( dispatch(receiveErrors(errors.responseJSON))))
 );
 
 export const deleteSession = () => dispatch => (

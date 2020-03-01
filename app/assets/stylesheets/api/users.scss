@@ -3,69 +3,114 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-show-container {
   margin: 25px;
+  min-height: calc(100vh - 300px);
 }
 
 .user-show-profile {
   display: flex;
-  flex-direction: row;
 }
 
-#profile-dropdown {
-  display: inline-block;
-  position: relative;
+.hidden {
+  display: none !important;
 }
 
-.profile-dropdown-content {
-  display: none;
+.profile-modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
   position: absolute;
-  min-width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.profile-modal {
   z-index: 1;
-}
-
-#profile-dropdown:hover .profile-dropdown-content {
-  display: block;
-  width: max-content;
-}
-
-.profile-dropdown-body {
-  padding: 8px 4px;
-  background-color: #FFF;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
-}
-
-.profile-dropdown-body div {
-  padding: 8px;
-}
-
-.profile-dropdown-placeholder {
-  height: 100%;
-  padding-bottom: 16px;
-}
-
-#profile-dropdown:hover {
-  color: lightgrey;
-}
-
-.profile-dropdown-bar-1 {
+  width: 25%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  position: fixed;
+  right: 3%;
+  top: 14%;
+  border-radius: 3px;
+  background-color: #FFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#profile-button {
+  border: none;
+  outline: none;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0 8px;
+  // box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.1);
+
+
+  .navbar-profile-label {
+    width: fit-content;
+    display: flex;
+  }
+}
+
+.navbar-profile-label div {
+  color: rgb(190, 190, 190);
+  font-size: 8px;
+  margin-top: 3px;
+  margin-left: 3px;
+}
+
+.profile-overlay {
+  height: 48%;
+  width: 95%;
+  border-radius: 100%;
+
+  .user-show-thumbnail {
+    outline: none;
+    width: 105%;
+    height: 106%;
+    margin-inline-start: -1px;
+  }
+}
+
+#profile-button:hover .profile-overlay {
+  background-color: black;
+
+  .user-show-thumbnail {
+    opacity: 0.7;
+  }
+}
+
+.profile-modal .user-show-thumbnail {
+  padding: 5%;
+  display: flex;
   align-content: center;
+}
+
+.bar-2 {
+  display: flex;
+}
+
+.bar-2:hover button {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .user-show-image {
   background-image: url(./default-profile-picture.png);
   width: 150px;
   height: 150px;
-  outline: 5px solid #E55400;
   background-size: cover;
 }
 
 .user-show-thumbnail {
   background-image: url(./default-profile-picture.png);
-  width: 15px;
-  height: 15px;
-  outline: 1px solid #E55400;
+  width: 45px;
+  height: 45px;
   background-size: cover;
+  background-position: center;
+  border-radius: 100% !important;
 }
 
 .user-show-greeting {
@@ -73,13 +118,88 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: lighter;
+  display: flex;
+  height: max-content;
+}
+
+#user-show-username {
+  min-width: fit-content;
+  margin-right: 15px;
+}
+
+#edit-profile {
+  font-size: 14px;
+  display: flex;
+  text-decoration: none;
+  color: black;
+  border-radius: 96px;
+  padding: 9px;
+}
+
+#edit-profile:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+#pencil-icon {
+  font-size: 16px;
+  transform: rotate(90deg);
+}
+
+#edit-profile-text {
+  margin: auto 10px;
 }
 
 #profile-link {
   text-decoration: none;
-  font-size: 14px;
   color: black;
-  padding-left: 4px;
   display: flex;
   align-items: center;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5%;
+  outline: none;
+}
+
+#profile-link:hover .modal-username {
+  text-decoration: underline;
+}
+
+.modal-profile-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  height: calc(10% + 50px);
+  padding: 5%;
+  padding-top: 0;
+  width: 80%;
+}
+
+.modal-profile-text div {
+  margin: 8px 0;
+}
+
+.modal-username {
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+}
+
+.modal-view-profile {
+  font-size: 12px;
+  width: max-content;
+  border-radius: 3px;
+  padding: 2px 8px;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  align-items: center;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+#view-profile-text {
+  height: min-content;
+}
+
+#view-profile-arrow {
+  padding-left: 15px;
+  color: #dcdcdc;
+  font-size: 14px;
 }

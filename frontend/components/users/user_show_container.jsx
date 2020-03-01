@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 import UserShow from './user_show';
-import {fetchUser} from '../../actions/user_action';
+import {fetchUser} from '../../actions/user_action.js';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("container", state)
   const user = state.entities.users[ownProps.match.params.id];
-  const currentUser = state.session.currentUser;
+  const currentUser = state.entities.users[state.session.currentUser];
   return {user, currentUser};
 };
 

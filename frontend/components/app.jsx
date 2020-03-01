@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBarContainer from './nav_bar/nav_bar_container';
+import NavBarContainer from './nav_bar/nav_bar_container.jsx';
 import Splash from './splash';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import productIndexContainer from './product/product-index-container';
@@ -27,7 +27,7 @@ const App = () => (
     <Route path="/product/:productId" component={productShowContainer} />
     <AuthRoute path="/users/:id" component={userShowContainer} />
     <Route path="/" component={Splash}/>
-    <Redirect to="/"/> 
+    <Redirect to="/"/>
   </Switch>
 
   <Switch>

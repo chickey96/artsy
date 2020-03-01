@@ -1,0 +1,146 @@
+// This file will automatically be included in application.css.
+#full-screen{
+  margin: 0;
+  min-width: 100vw;
+}
+
+.header{
+  height: 168px;
+  cursor: default;
+}
+
+.nav-bar {
+  height: 65%;
+}
+
+.options-bar{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 3.5%;
+ }
+
+.options-bar-el{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 68%;
+ }
+
+#divider-line {
+  width: 0;
+  height: 65% !important;
+  box-shadow: 0 0 0 0.8px rgba(0, 0, 0, 0.07);
+  padding: 0;
+}
+
+#register-div{
+  padding-right: 5px;
+}
+
+#logo{
+  font-size: 42px;
+  color: #f45800;
+  font-family: 'Raleway', sans-serif;
+}
+
+.options-bar-item{
+  height: 80% !important;
+  padding: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#logout-cart-options {
+  width: 15%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+// LOGIN BUTTON styling
+#login-button{
+  border: none;
+  font-size: 14px;
+  padding: 9px 15px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 24px;
+  width: max-content;
+}
+
+#login-button:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+#login-button:active {
+  outline: none;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+}
+
+#login-button:focus {
+  outline: none;
+}
+
+// REGISTER BUTTON styling
+#register-button{
+  border: 0 none;
+  font-size: 14px;
+  height: 36px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#register-button:hover {
+  border-radius: 24px;
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+#register-button:active {
+  outline: none;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+}
+
+#register-button:focus {
+  outline: none;
+}
+
+#logout-button{
+  font-size: 14px;
+  border: none;
+  padding: 5%;
+  margin: 3% 0;
+  width: 100%;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+}
+.cart-link{
+  border-radius: 24px;
+  height: 36px;
+  padding: 0px 8px;
+  display: flex;
+  font-size: 11px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-decoration: none;
+  color: black;
+}
+
+.cart-image{
+  -webkit-text-stroke-width: thick;
+  font-size: 24px;
+}
+
+.cart-link:hover .cart-image{
+  text-shadow: -0.5px 0 grey, 0 0.5px grey, 0.5px 0 grey, 0 -0.5px grey;
+}
+
+#logout-button:hover{
+    cursor: pointer;
+}
+
+#logout-button:focus {
+  outline: none;
+}

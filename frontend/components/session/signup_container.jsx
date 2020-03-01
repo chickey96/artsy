@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   action: user => dispatch(createUser(user)),
-  demoAction: user => dispatch(createSession(user)), 
+  demoAction: user => dispatch(createSession(user)),
   clearErrors: () => dispatch(clearErrors())
 });
 

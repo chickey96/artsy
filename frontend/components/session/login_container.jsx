@@ -4,7 +4,7 @@ import { createSession, clearErrors } from '../../actions/session_action';
 
 const mapStateToProps = state => ({
   formType: 'Sign in',
-  greeting: 'Sign in to continue',
+  greeting: 'Sign in',
   tagline: '',
   errors: state.errors.session,
   currentUser: state.session.currentUser
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   action: user => dispatch(createSession(user)),
-  demoAction: user => dispatch(createSession(user)), 
+  demoAction: user => dispatch(createSession(user)),
   clearErrors: () => dispatch(clearErrors())
 });
 

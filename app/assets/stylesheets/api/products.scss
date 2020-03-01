@@ -10,7 +10,6 @@
 
 .product-index-interior{
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 140px;
@@ -61,7 +60,7 @@
 
 .product-title{
   margin: 5px 0;
-  
+
 }
 
 .product-price{
@@ -88,7 +87,6 @@
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: row; 
   align-items: center;
   justify-content: center;
 }
@@ -217,4 +215,3 @@
   background-color: black;
   cursor: pointer;
 }
-

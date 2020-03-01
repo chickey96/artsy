@@ -1,12 +1,13 @@
 .splash-grid{
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
-  height: 35%;
+  height: 25%;
   border-radius: 3px;
   background-color: #FFF;
-  border: 1px solid #E1E3DF;
-  border-bottom-color: #CBCCC9;
+  border-bottom: 2px solid #CBCCC9;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-42%);
 }
 
 .category-li {
@@ -27,7 +28,7 @@
 }
 
 .category {
-  padding: 20px;
+  // padding: 20px;
   width: 90px;
   font-size: 14px;
   text-align: center;
@@ -55,7 +56,7 @@
 }
 #pic2 {
   grid-column-start: 1;
-  grid-column-end: 2; 
+  grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
 }
@@ -136,6 +137,8 @@
 }
 
 .footer{
+  width: 100%;
+  bottom: 0;
   display: flex;
   height: 35px;
   padding: 25px 0;
