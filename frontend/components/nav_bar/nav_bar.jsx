@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchContainer from '../search/searchContainer'
-
 class NavBar extends React.Component{
   constructor(props){
     super(props);
@@ -12,8 +11,8 @@ class NavBar extends React.Component{
     this.handleSignup = this.handleSignup.bind(this);
     this.openProfileDropdownModal = this.openProfileDropdownModal.bind(this);
     this.removeProfileDropdownModal = this.removeProfileDropdownModal.bind(this);
-    this.currentUserId = this.props.currentUser ? this.props.currentUser.id : 0;
-    this.currentUserName = this.props.currentUser ? this.props.currentUser.username : "n/a";
+    const currentUser = this.props.currentUser || { id: null, username: null }
+    this.state = { currentUser }
   }
 
   handleLogout(e) {
@@ -39,9 +38,12 @@ class NavBar extends React.Component{
 
   openProfileDropdownModal(e){
     e.preventDefault();
-    console.log(this.modal[0])
     this.modal[0].classList.remove("hidden");
-    this.modalOverlay[0].classList.remove("hidden")
+    this.modalOverlay[0].classList.remove("hidden");
+
+    if(this.props.currentUser !== this.state.currentUser) {
+      this.setState({currentUser: this.props.currentUser})
+    }
   }
 
   removeProfileDropdownModal(e){
@@ -57,20 +59,26 @@ class NavBar extends React.Component{
     const logoutTools = (
       <div  className="options-bar-el" id="logout-cart-options">
         <button className="options-bar-item" id="profile-button" onClick={this.openProfileDropdownModal}>
-          <div className="user-show-thumbnail"></div>
-          <div className="navbar-profile-label">You</div>
+          <div className="profile-overlay">
+            <div className="user-show-thumbnail"></div>
+          </div>
+          <div className="navbar-profile-label">You <div>&#x25BC;</div></div>
         </button>
         <div className="profile-modal-overlay hidden" onMouseDown={this.removeProfileDropdownModal}>
           <div className="profile-modal hidden">
-            <div className="bar-1">
+            <Link id="profile-link" to={`/users/${this.state.currentUser.id}`} className="bar-1">
               <div className="user-show-thumbnail"></div>
-              <Link id="profile-link" to={`/users/${this.currentUserId}`}>
-                {this.currentUserName}
-              </Link>
-            </div>
+              <div className="modal-profile-text">
+                <div className="modal-username">{this.state.currentUser.username}</div>
+                <div className="modal-view-profile">
+                  <span id="view-profile-text">View Profile</span>
+                  <span id="view-profile-arrow">&#10095;</span>
+                </div>
+              </div>
+            </Link>
             <div className="bar-2">
               <button id="logout-button" onClick={this.handleLogout}>
-                Log out
+                Sign out
               </button>
             </div>
           </div>
@@ -80,6 +88,7 @@ class NavBar extends React.Component{
           <div className="cart-image">
             &#x1F6D2;
           </div>
+          <div>Cart</div>
         </Link>
       </div>
     );
