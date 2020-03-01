@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[ownProps.match.params.id];
-  const currentUser = state.session.currentUser;
+  const currentUser = state.entities.users[state.session.currentUser];
   return {user, currentUser};
 };
 

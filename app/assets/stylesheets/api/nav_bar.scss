@@ -9,6 +9,10 @@
   cursor: default;
 }
 
+.nav-bar {
+  height: 65%;
+}
+
 .options-bar{
   height: 100%;
   display: flex;
@@ -23,6 +27,13 @@
   width: fit-content;
   height: 68%;
  }
+
+#divider-line {
+  width: 0;
+  height: 65% !important;
+  box-shadow: 0 0 0 0.8px rgba(0, 0, 0, 0.07);
+  padding: 0;
+}
 
 #register-div{
   padding-right: 5px;

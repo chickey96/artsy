@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-show-container {
   margin: 25px;
+  min-height: calc(100vh - 300px);
 }
 
 .user-show-profile {
@@ -45,6 +46,8 @@
   flex-direction: column;
   cursor: pointer;
   padding: 0 8px;
+  // box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.1);
+
 
   .navbar-profile-label {
     width: fit-content;
@@ -98,7 +101,6 @@
   background-image: url(./default-profile-picture.png);
   width: 150px;
   height: 150px;
-  outline: 5px solid #E55400;
   background-size: cover;
 }
 
@@ -116,6 +118,35 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: lighter;
+  display: flex;
+  height: max-content;
+}
+
+#user-show-username {
+  min-width: fit-content;
+  margin-right: 15px;
+}
+
+#edit-profile {
+  font-size: 14px;
+  display: flex;
+  text-decoration: none;
+  color: black;
+  border-radius: 96px;
+  padding: 9px;
+}
+
+#edit-profile:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+#pencil-icon {
+  font-size: 16px;
+  transform: rotate(90deg);
+}
+
+#edit-profile-text {
+  margin: auto 10px;
 }
 
 #profile-link {
@@ -123,8 +154,10 @@
   color: black;
   display: flex;
   align-items: center;
+  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5%;
+  outline: none;
 }
 
 #profile-link:hover .modal-username {

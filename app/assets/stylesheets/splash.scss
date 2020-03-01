@@ -1,10 +1,13 @@
 .splash-grid{
   display: flex;
   justify-content: space-evenly;
-  height: 35%;
+  height: 25%;
   border-radius: 3px;
   background-color: #FFF;
   border-bottom: 2px solid #CBCCC9;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-42%);
 }
 
 .category-li {
@@ -25,7 +28,7 @@
 }
 
 .category {
-  padding: 20px;
+  // padding: 20px;
   width: 90px;
   font-size: 14px;
   text-align: center;
@@ -134,6 +137,8 @@
 }
 
 .footer{
+  width: 100%;
+  bottom: 0;
   display: flex;
   height: 35px;
   padding: 25px 0;
