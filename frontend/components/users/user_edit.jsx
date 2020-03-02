@@ -11,8 +11,6 @@ class UserEdit extends React.Component {
       return null;
     }
 
-
-
     return (
       <div id="user-edit-page">
         <div className="user-edit-category" id="user-edit-username">
