@@ -21,6 +21,7 @@
   outline: none;
   border: none;
   height: 99%;
+  background-color: inherit;
 }
 
 .category-li button:hover {
@@ -28,7 +29,6 @@
 }
 
 .category {
-  // padding: 20px;
   width: 90px;
   font-size: 14px;
   text-align: center;

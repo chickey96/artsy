@@ -1,5 +1,5 @@
 import {
-  RECEIVE_CURRENT_USER
+  RECEIVE_CURRENT_USER, REMOVE_USER
 } from '../actions/session_action';
 
 import {
@@ -17,6 +17,10 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       const user = {[action.user.id]: action.user}
       return Object.assign({}, state, user );
+    case REMOVE_USER:
+      let changeState = merge({}, state);
+      delete changeState[action.userId];
+      return changeState;
     default:
       return state;
   }
