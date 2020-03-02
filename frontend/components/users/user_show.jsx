@@ -9,15 +9,12 @@ class UserShow extends React.Component {
   }
 
   render () {
-    if(!this.props.currentUser){
-      return null;
-    }
+    if(!this.props.currentUser) return null;
 
     return (
       <div className="user-show-container">
         <div className="user-show-profile">
-          <div className="user-show-image">
-          </div>
+          <div className="user-show-image"></div>
           <div className="user-show-greeting">
             <div id="user-show-username">{this.currentUser.username}</div>
             <Link id="edit-profile" to={`/users/edit/${this.currentUser.id}`}>
@@ -27,7 +24,8 @@ class UserShow extends React.Component {
           </div>
         </div>
       </div>
-    )};
+    );
+  }
 
 
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-
 class CartShow extends React.Component {
   constructor(props){
     super(props);
+    this.productId = this.props.cart.product_id;
     this.deleteCart = this.deleteCart.bind(this);
     this.updatePrice = this.updatePrice.bind(this);
   }
@@ -17,7 +17,7 @@ class CartShow extends React.Component {
     e.preventDefault();
     let existingCarts = [];
     this.props.carts.forEach(cart => {
-      if (cart.product_id === this.props.cart.product_id) {
+      if (cart.product_id === this.productId) {
         existingCarts.push(cart);
       }
     })
@@ -25,18 +25,22 @@ class CartShow extends React.Component {
       this.props.deleteCart(cart.id);
     })
   }
-  
+
   updatePrice(e){
     e.preventDefault();
-    let dropDown = document.getElementById(`dropdown/${this.props.cart.product_id}`);
+
+    let dropDown =
+      document.getElementById(`dropdown/${this.productId}`);
     let i = dropDown.selectedIndex;
     let newQuantity = parseInt(dropDown[i].innerText);
-    if(newQuantity === this.props.quantity){
-      return;
-    }
+
+    if(newQuantity === this.props.quantity) return;
+
     if(newQuantity > this.props.quantity){
       let i = this.props.quantity;
-      let newCart = { product_id: this.props.cart.product_id, user_id: this.props.cart.user_id};
+      let newCart = { product_id: this.productId,
+                      user_id: this.props.cart.user_id };
+
       while( i < newQuantity){
         this.props.createCart(newCart);
         i++;
@@ -45,7 +49,7 @@ class CartShow extends React.Component {
         let j = this.props.quantity;
         let existingCarts = [];
         this.props.carts.forEach(cart => {
-          if(cart.product_id === this.props.cart.product_id){
+          if(cart.product_id === this.productId){
             existingCarts.push(cart);
           }
         })
@@ -62,17 +66,19 @@ class CartShow extends React.Component {
     if(!this.props.cart){
       return null;
     }
-    
+
     let currPrice = this.props.quantity * this.props.cart.price;
     let unitPrice = (<div></div>)
+
     if (this.props.quantity > 1) {
       unitPrice = `($${this.props.cart.price}.00 each)`
     }
+
     return (
       <div className="cart-item">
 
         <div className="photo-col">
-          <img className="cart-item-image" 
+          <img className="cart-item-image"
           src={this.props.cart.photoUrl} />
         </div>
 
@@ -81,12 +87,15 @@ class CartShow extends React.Component {
             {this.props.cart.title}
           </div>
           <button className="cart-delete" onClick={this.deleteCart}>
-            Remove 
+            Remove
           </button>
         </div>
 
           <div className="drop-down-col" >
-            <select value={this.props.quantity} id={`dropdown/${this.props.cart.product_id}`}className="dropdown" onChange={this.updatePrice}>
+            <select value={this.props.quantity}
+                    id={`dropdown/${this.productId}`}
+                    className="dropdown"
+                    onChange={this.updatePrice}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

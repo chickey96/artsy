@@ -1,7 +1,10 @@
-import {RECEIVE_COMMENT_ERRORS, REMOVE_COMMENT, RECEIVE_COMMENT} from '../actions/comment_action';
+import { RECEIVE_COMMENT_ERRORS,
+         REMOVE_COMMENT,
+         RECEIVE_COMMENT } from '../actions/comment_action';
 
 const commentErrorsReducer = (state = [], action) => {
   Object.freeze(state);
+
   switch(action.type){
     case RECEIVE_COMMENT_ERRORS:
       return action.errors;

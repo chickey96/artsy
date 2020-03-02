@@ -10,7 +10,7 @@ class CartIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCarts(this.props.currentUser); 
+    this.props.fetchCarts(this.props.currentUser);
   }
 
   checkout(){
@@ -56,7 +56,10 @@ class CartIndex extends React.Component {
           total += itemTotal;
           return (
             <div className="carts-index-item">
-              <CartShowContainer carts={this.props.carts} cart={cart} key={i} quantity={quantity}/>
+              <CartShowContainer carts={this.props.carts}
+                                 cart={cart}
+                                 key={i}
+                                 quantity={quantity}/>
             </div>
           )
         })
@@ -64,7 +67,7 @@ class CartIndex extends React.Component {
         tax = tax.toFixed(2);
         adjustedTotal = parseFloat(total) + parseFloat(tax);
         adjustedTotal = adjustedTotal.toFixed(2);
-        
+
         let term = "items";
         if(totalItems === 1){
           term = "item";

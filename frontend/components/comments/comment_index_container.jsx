@@ -14,4 +14,6 @@ const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(createComment(comment))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentIndex));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CommentIndex)
+);

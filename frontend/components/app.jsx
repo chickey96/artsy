@@ -21,6 +21,7 @@ const App = () => (
     <NavBarContainer/>
     <DirectoryContainer/>
   </header>
+
   <Switch>
     <AuthRoute path="/cart" component={CartIndexContainer}/>
     <Route path="/products/:category" component={productIndexContainer}/>

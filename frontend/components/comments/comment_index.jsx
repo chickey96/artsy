@@ -6,7 +6,9 @@ class CommentIndex extends React.Component {
     super(props);
     this.addComment = this.addComment.bind(this);
     this.updateComment = this.updateComment.bind(this);
-    this.state = { body: '', user_id: this.props.currentUser, product_id: this.props.match.params.productId};
+    this.state = { body: '',
+                   user_id: this.props.currentUser,
+                   product_id: this.props.match.params.productId };
   }
 
   componentDidMount(){
@@ -16,21 +18,16 @@ class CommentIndex extends React.Component {
   addComment(e){
     e.preventDefault();
     this.props.createComment(this.state);
-    this.setState({
-      ['body']: ''
-    });
+    this.setState({ ['body']: ''});
   }
 
   updateComment(){
-    return (e) => this.setState({
-      ['body']: e.target.value
-    });
+    return (e) => this.setState({ ['body']: e.target.value });
   }
 
   render() {
-    if (!this.props.comments) {
-      return null;
-    }
+    if (!this.props.comments) return null;
+
     const comments = this.props.comments.map(comment => {
       return (
         <div className="comment-container" key={`comment-${comment.id}`}>
@@ -66,7 +63,7 @@ class CommentIndex extends React.Component {
       <div className="comment-index-container">
         {content}
       </div>
-    )   
+    )
   }
 }
 

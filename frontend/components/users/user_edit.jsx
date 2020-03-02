@@ -7,9 +7,7 @@ class UserEdit extends React.Component {
   }
 
   render () {
-    if(!this.props.currentUser){
-      return null;
-    }
+    if (!this.props.currentUser) return null;
 
     return (
       <div id="user-edit-page">
@@ -17,7 +15,7 @@ class UserEdit extends React.Component {
           <h2>Username</h2>
           <div className="content-to-edit">
             <div className="font-11">Current Username</div>
-            <div className="font-11">fake-username</div>
+            <div className="font-11">{this.props.currentUser.username}</div>
             <div className="section-divider"></div>
             <div className="font-14 bold">Change your username</div>
           </div>

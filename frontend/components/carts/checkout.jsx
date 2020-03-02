@@ -9,28 +9,25 @@ class Checkout extends React.Component {
   exit(){
     this.props.history.goBack();
   }
+
   render(){
+    const line_1 = "Thank you for your interest in purchasing Artsy products."
+    const line_2 = "This platform does not yet support payment transactions."
+    const line_3 = "For more information, please contact c.m.hickey06@gmail.com"
+    const line_4 = "Have a great day!"
+
     return(
       <div className='modal-background' onClick={this.exit}>
-        {/* stop propagation prevents modal from closing when user clicks inside */}
-        <div className='cart-modal-foreground' onClick={e => e.stopPropagation()}>    
+        {/* stop propagation prevents internal clicks from closing modal */}
+        <div className='cart-modal-foreground' onClick={e => e.stopPropagation()}>
           <div className="checkout-modal">
-            <div>
-              Thank you for your interest in purchasing Artsy products.
-            </div>
+            <div> {line_1} </div>
             <br/>
-            <div>
-              Right now our website is not set up to complete payment transactions.
-            </div>
+            <div> {line_2} </div>
             <br/>
-            <div>
-              For more information, contact c.m.hickey06@gmail.com
-            </div>
+            <div> {line_3} </div>
             <br/>
-            <div>
-              Have a great day! 
-            </div>
-            
+            <div> {line_4} </div>
           </div>
         </div>
       </div>

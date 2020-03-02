@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import UserEdit from './user_edit';
 
 const mapStateToProps = state => {
-  const currentUser = state.session.currentUser;
+  const currentUser = state.entities.users[state.session.currentUser];
   return {currentUser};
 };
 
@@ -13,4 +13,6 @@ const mapDispatchToProps = dispatch => ({
   deleteUser: id => dispatch(deleteUser(id))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserEdit));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(UserEdit)
+);
