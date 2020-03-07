@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def new
-  
+
   end
 
   def create
@@ -9,12 +9,30 @@ class Api::UsersController < ApplicationController
     if @user.save
       login(@user)
       render 'api/users/show'
-    else  
+    else
       render json: @user.errors.full_messages, status: 401
     end
   end
 
-  def show 
+  def edit
+  end
+
+  def update
+    @user = @current_user || User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      render 'api/users/show'
+    else
+      render json: @user.errors.full_messages, status: 401
+    end
+  end
+
+  def destroy
+    @user = @current_user || User.find(params[:id])
+    # @user.destroy
+  end
+
+  def show
     @user = User.find(params[:id])
   end
 

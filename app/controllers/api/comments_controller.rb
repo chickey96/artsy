@@ -8,9 +8,9 @@ class Api::CommentsController < ApplicationController
 
     if @comment.save
       render 'api/comments/show'
-    else  
+    else
       render json: @comment.errors.full_messages, status: 401
-    end   
+    end
   end
 
   def show
@@ -32,7 +32,7 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy 
+    @comment.destroy
   end
 
   private

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { createUser, createSession, clearErrors } from '../../actions/session_action';
+import { createUser,
+         clearErrors,
+         createSession } from '../../actions/session_action';
 
 const mapStateToProps = state => ({
   formType: 'Register',

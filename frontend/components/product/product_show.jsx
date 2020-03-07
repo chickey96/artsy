@@ -44,12 +44,11 @@ class ProductShow extends React.Component {
   }
 
   render () {
-    if(!this.props.product){
-      return null;
-    }
+    if(!this.props.product) return null;
+
     const materials = this.parseCategory(this.props.product.media_type);
-    
     let cartOption = (<div></div>);
+
     if(this.props.currentUser){
       if(!this.isInCart()){
         cartOption = (
@@ -61,11 +60,11 @@ class ProductShow extends React.Component {
       else {
         cartOption = (
           <button className="cart-visit-button" onClick={this.visitCart}>
-            View in Cart 
+            View in Cart
           </button>
         )
       }
-      
+
     }
     return (
       <div className="product-show-page">
@@ -95,7 +94,7 @@ class ProductShow extends React.Component {
                   </div>
                     <ul className="overview-list">
                       <li>
-                        Handmade item 
+                        Handmade item
                       </li>
                       <li>
                         Materials used: {materials}
@@ -103,9 +102,9 @@ class ProductShow extends React.Component {
                       <li>
                         Made to order
                       </li>
-                    </ul>   
+                    </ul>
                 </div>
-                <div className="line"></div> 
+                <div className="line"></div>
                 <div className="cart-section">
                   {cartOption}
                 </div>

@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get '/search/:query', to: 'api/products#search'
 
   namespace :api, defaults: {format: :json} do
-    resources :users, only: [:new, :create, :show]
+    resources :users, only: [:new, :create, :show, :edit, :update]
     resource :session, only:[:new, :create, :destroy]
-    resources :products, only: [:show, :index] 
+    resources :products, only: [:show, :index]
     resources :comments, only: [:create, :update, :show, :index, :destroy]
     resources :carts, only: [:create, :destroy, :index]
-  end 
+  end
 end

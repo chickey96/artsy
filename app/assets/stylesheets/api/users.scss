@@ -30,11 +30,10 @@
   flex-direction: column;
   position: fixed;
   right: 3%;
-  top: 14%;
+  top: 100px;
   border-radius: 3px;
   background-color: #FFF;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
-  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -46,8 +45,7 @@
   flex-direction: column;
   cursor: pointer;
   padding: 0 8px;
-  // box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.1);
-
+  background-color: inherit;
 
   .navbar-profile-label {
     width: fit-content;
@@ -89,6 +87,10 @@
   align-content: center;
 }
 
+.profile-modal button {
+  background: inherit;
+}
+
 .bar-2 {
   display: flex;
 }
@@ -115,7 +117,6 @@
 
 .user-show-greeting {
   padding: 15px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: lighter;
   display: flex;
@@ -181,6 +182,7 @@
 .modal-username {
   font-weight: 900;
   -webkit-font-smoothing: antialiased;
+  text-align: left;
 }
 
 .modal-view-profile {

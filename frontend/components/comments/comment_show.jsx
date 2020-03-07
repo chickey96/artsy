@@ -1,5 +1,4 @@
 import React from 'react';
-
 class CommentShow extends React.Component {
 
   constructor(props){
@@ -7,11 +6,15 @@ class CommentShow extends React.Component {
     this.commentInput = React.createRef();
     this.edit = this.edit.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
-    
-    this.state = { inputDisabled: true, inputValue: this.props.comment.body, 
-    editing: true, deleteClass: 'hidden-button',
-    deleteText: '', interum: '', editClass: 'hidden-button', 
-    editText: ''};
+
+    this.state = { inputDisabled: true,
+                   inputValue: this.props.comment.body,
+                   editing: true,
+                   deleteClass: 'hidden-button',
+                   deleteText: '',
+                   interum: '',
+                   editClass: 'hidden-button',
+                   editText: '' };
 
     if (this.props.currentUser === this.props.comment.user_id) {
       this.state.editClass = "edit-button";
@@ -20,18 +23,18 @@ class CommentShow extends React.Component {
   }
 
   update() {
-    return (e) => this.setState({
-      ['inputValue']: e.target.value
-    });
+    return (e) => this.setState({ ['inputValue']: e.target.value });
   }
 
   edit(e){
     e.preventDefault();
+
     let newEditText;
-    let newDeleteClass = 'hidden-button';
+    let newEditClass;
     let newDeleteText;
     let newInterum = '';
-    let newEditClass;
+    let newDeleteClass = 'hidden-button';
+
     if(this.state.editText === 'Edit'){
       newEditText = 'Update';
       newDeleteClass = 'delete-button';
@@ -46,8 +49,10 @@ class CommentShow extends React.Component {
       newEditText = 'Edit';
       newEditClass = 'edit-button';
     }
+
     const changedInput = !this.state.inputDisabled;
     const changedEditing = !this.state.editing;
+
     this.setState({
       ['inputDisabled']: changedInput,
       ['editing']: changedEditing,
@@ -58,7 +63,7 @@ class CommentShow extends React.Component {
       ['editClass']: newEditClass
     });
   }
-  
+
   deleteComment(e){
     e.preventDefault();
     this.props.deleteComment(this.props.comment.id);
@@ -77,13 +82,13 @@ class CommentShow extends React.Component {
               {this.props.comment.author}
           </div>
 
-          <textarea className="comment-body" 
+          <textarea className="comment-body"
           disabled={this.state.inputDisabled}
           onChange={this.update()}
           value={this.state.inputValue}/>
 
           <button className={this.state.editClass} onClick={this.edit}>
-          {this.state.editText}
+            {this.state.editText}
           </button>
 
           <div className="delete-div">

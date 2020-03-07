@@ -11,7 +11,7 @@ class NavBar extends React.Component{
     this.modalOverlay = document.getElementsByClassName("profile-modal-overlay");
     this.handleSignup = this.handleSignup.bind(this);
     this.openProfileDropdownModal = this.openProfileDropdownModal.bind(this);
-    this.removeProfileDropdownModal = this.removeProfileDropdownModal.bind(this);
+    this.removeProfileModal = this.removeProfileModal.bind(this);
     this.closeProfileModal = this.closeProfileModal.bind(this)
     this.goToProfileShow = this.goToProfileShow.bind(this)
     const currentUser = this.props.currentUser || { id: null, username: null }
@@ -49,7 +49,7 @@ class NavBar extends React.Component{
     }
   }
 
-  removeProfileDropdownModal(e){
+  removeProfileModal(e){
     if (e.target != this.modalOverlay[0]) {
       return;
     }
@@ -70,11 +70,20 @@ class NavBar extends React.Component{
 
     const logoutTools = (
       <div  className="options-bar-el" id="logout-cart-options">
-        <button className="options-bar-item" id="profile-button" onClick={this.openProfileDropdownModal}>
-          <div className="profile-overlay"> <div className="user-show-thumbnail"></div> </div>
-          <div className="navbar-profile-label">You <div>&#x25BC;</div> </div>
+        <button className="options-bar-item"
+                id="profile-button"
+                onClick={this.openProfileDropdownModal}>
+
+          <div className="profile-overlay">
+            <div className="user-show-thumbnail"></div>
+          </div>
+          <div className="navbar-profile-label"> You
+            <div>&#x25BC;</div>
+          </div>
         </button>
-        <div className="profile-modal-overlay hidden" onMouseDown={this.removeProfileDropdownModal}>
+
+        <div className="profile-modal-overlay hidden"
+             onMouseDown={this.removeProfileModal}>
           <div className="profile-modal hidden">
             <button id="profile-link" onClick={this.goToProfileShow} className="bar-1">
               <div className="user-show-thumbnail"></div>
@@ -105,22 +114,24 @@ class NavBar extends React.Component{
     const loginTools = (
       <div className="options-bar-el" id="login-options">
         <div id="register-div">
-          <button className="options-bar-item" id="register-button" onClick={this.handleSignup}>
+          <button className="options-bar-item"
+                  id="register-button"
+                  onClick={this.handleSignup}>
             Register
           </button>
         </div>
 
         <div id="login-div">
-          <button className="options-bar-item" id="login-button" onClick={this.handleLogin}>
+          <button className="options-bar-item"
+                  id="login-button"
+                  onClick={this.handleLogin}>
             Sign in
           </button>
         </div>
       </div>
     );
 
-    const relevantButtons = (
-        this.props.currentUser ? logoutTools : loginTools
-    );
+    const relevantButtons = (this.props.currentUser ? logoutTools : loginTools);
 
     return (
       <nav className="nav-bar">

@@ -1,7 +1,8 @@
-class User < ApplicationRecord 
+class User < ApplicationRecord
   validates :password_digest, :session_token, presence: true
-  validates :username, :email, presence: true, uniqueness: true 
+  validates :username, :email, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
+  validate :email_format, on: [:create, :update]
 
   has_many :artworks,
     primary_key: :id,
@@ -9,31 +10,50 @@ class User < ApplicationRecord
     class_name: :Product
 
   has_many :comments,
-    primary_key: :id, 
+    primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Comment 
+    class_name: :Comment
 
   has_many :carts,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Cart 
+    class_name: :Cart
 
   after_initialize :ensure_session_token
 
-  attr_reader :password 
+  attr_reader :password
+
+  def email_format
+    puts "SELF.email"
+    puts self.email
+    if User.invalid_email_format?(self.email)
+      errors.add(:email, 'format invalid')
+    end
+  end
+
+  def self.invalid_email_format?(email)
+    at_count = 0
+
+    email.each_char do |char|
+      at_count += 1 if char == '@'
+      return false if (char == '.' && at_count == 1)
+    end
+
+    return true
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if user && user.is_password?(password)
-      return user 
+      return user
     else
-      return nil 
+      return nil
     end
   end
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
-    @password = password 
+    @password = password
   end
 
   def is_password?(password)
