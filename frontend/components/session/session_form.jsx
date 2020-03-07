@@ -9,25 +9,33 @@ class SessionForm extends React.Component {
     this.getClassName = this.getClassName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
+    this.check = this.check.bind(this)
     this.exit = this.exit.bind(this);
+    this.switchSessionTypes = this.switchSessionTypes.bind(this);
 
     if (this.props.formType == 'Register') {
-      this.alternateActionName = 'Sign In';
-      this.alternateActionPath = '/login';
+      this.altActionName = 'Sign In';
+      this.altActionPath = '/login';
     } else {
-      this.alternateActionName = 'Register';
-      this.alternateActionPath = '/signup';
+      this.altActionName = 'Register';
+      this.altActionPath = '/signup';
     }
   }
 
   filterErrors(keywords) {
     if (keywords.length == 1) {
-      return this.props.errors.filter(error => (error.includes(keywords[0])))
+      return this.props.errors.filter(error => (
+        error.includes(keywords[0])
+      ))[0];
     }
 
     return this.props.errors.filter(error => (
         error.includes(keywords[0]) || error.includes(keywords[1])
-    ));
+    ))[0];
+  }
+
+  switchSessionTypes(){
+    this.props.clearErrors();
   }
 
   //clear errors and return to original page when exiting modal
@@ -47,27 +55,28 @@ class SessionForm extends React.Component {
 
   //determine whether modal input should be red due to errors
   getClassName(inputName){
-    const err = this.filterErrors([inputName]);
+    let error_keywords = [inputName];
 
-    if(err.length > 0) return 'input-error';
-
-    if(inputName === 'Email' || inputName === 'Password'){
-      const credentialErrors = this.filterErrors(['credentials']);
-      if(credentialErrors.length > 0) return 'input-error';
+    if (inputName === 'Email' || inputName === 'Password'){
+      error_keywords.push('credentials')
     }
 
+    const err = this.filterErrors(error_keywords);
+
+    if(err) return 'input-error';
     return 'modal-input';
   }
 
   //close modal if login was successful
-  check(info){
-    if(info.props.currentUser) this.exit()
+  check(){
+    if(this.props.currentUser) this.exit()
   }
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.clearErrors();
     const user = Object.assign({}, this.state);
-    this.props.action(user).then( () => this.check(this))
+    this.props.action(user).then( () => this.check());
   }
 
   update(field){
@@ -76,35 +85,21 @@ class SessionForm extends React.Component {
 
   loginDemoUser(e){
     e.preventDefault();
-    const demoUser = { email: "zglass@salinger.com",
-                       password: "whentheFatLadysings" };
 
-    this.props.demoAction(demoUser)
+    this.props.demoAction({
+      email: "zglass@salinger.com",
+      password: "whentheFatLadysings"
+    });
+
     this.exit();
   }
 
-  renderEmailErrors() {
-    let emailErrors = this.filterErrors(['Email', 'credentials'])
-
-    return (<div className="errors">
-              {emailErrors[0]}
-            </div>);
-  }
-
-  renderUsernameErrors() {
-    const usernameErrors = this.filterErrors(['Username']);
-
-    return (<div className="errors">
-              {usernameErrors[0]}
-            </div>);
-  }
-
-  renderPasswordErrors() {
-    const passwordErrors = this.filterErrors(['Password', 'credentials'])
-
-    return (<div className="errors">
-              {passwordErrors[0]}
-            </div>);
+  renderErrors(errorType) {
+    return (
+      <div className="errors">
+        {this.filterErrors(errorType)}
+      </div>
+    );
   }
 
   renderUsername() {
@@ -113,13 +108,14 @@ class SessionForm extends React.Component {
     return (
       <div className="username-div">
         <label className='input-label' >First name
-          <input type="text"
+          <input onChange={this.update('username')}
                  value={this.state.username}
-                 onChange={this.update('username')}
                  className={this.getClassName('Username')}/>
         </label>
 
-        <div className="err-div"> {this.renderUsernameErrors()} </div>
+        <div className="err-div">
+          {this.renderErrors(['Username'])}
+        </div>
       </div>
     );
   }
@@ -135,9 +131,10 @@ class SessionForm extends React.Component {
                 <div className="topline-session-modal">
                   <h1 id="greeting"> {this.props.greeting} </h1>
                   <button>
-                    <Link to={this.alternateActionPath}
-                          className="alternate-session-link">
-                      {this.alternateActionName}
+                    <Link to={this.altActionPath}
+                          onClick={this.switchSessionTypes}
+                          className="alt-session-link">
+                      {this.altActionName}
                     </Link>
                   </button>
                 </div>
@@ -145,13 +142,14 @@ class SessionForm extends React.Component {
                 <p id="tagline">{this.props.tagline}</p>
 
                 <label className='input-label'>Email address
-                  <input type="text"
+                  <input className={this.getClassName('Email')}
                          value={this.state.email}
-                         onChange={this.update('email')}
-                         className={this.getClassName('Email')}/>
+                         onChange={this.update('email')}/>
                 </label>
 
-                <div className="err-div"> {this.renderEmailErrors()} </div>
+                <div className="err-div"> {
+                  this.renderErrors(['Email', 'credentials'])}
+                </div>
 
                 {this.renderUsername()}
 
@@ -162,7 +160,9 @@ class SessionForm extends React.Component {
                          className={this.getClassName('Password')}/>
                 </label>
 
-                <div className="err-div"> {this.renderPasswordErrors()} </div>
+                <div className="err-div">
+                  {this.renderErrors(['Password', 'credentials'])}
+                </div>
 
                 <input className="modal-submit"
                        type="submit"

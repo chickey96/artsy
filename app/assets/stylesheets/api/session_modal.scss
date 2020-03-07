@@ -64,14 +64,14 @@
 .topline-session-modal button:hover {
   margin: 1px;
 
-  .alternate-session-link {
+  .alt-session-link {
     border: 2.5px solid black;
     padding: 9px 15px !important;
     margin: 3px !important;
   }
 }
 
-.alternate-session-link {
+.alt-session-link {
   text-decoration: none;
   color: black;
   padding: 9px 15px;
@@ -115,7 +115,7 @@
 }
 
 .input-error{
-  border: 1px solid red;
+  border: 1px solid red !important;
   margin-bottom: 0;
   height: 48px;
   font-size: 16px;

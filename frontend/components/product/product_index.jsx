@@ -11,10 +11,10 @@ class ProductIndex extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.query !== this.props.query){
         this.props.getProducts(this.props.query);
-    } 
+    }
   }
 
-  render() { 
+  render() {
     if(this.props.products.length === 0 && this.props.category === 'search'){
       return (
         <div className="cart-page">
@@ -22,9 +22,9 @@ class ProductIndex extends React.Component {
         </div>
       )
     }
-   
+
     const products = this.props.products.map((product, i) => {
-   
+
        return (
         <Link key={`${i}`} className="product-link" to={`/product/${product.id}`}>
           <ProductIndexItem product={product}/>

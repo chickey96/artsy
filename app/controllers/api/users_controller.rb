@@ -18,11 +18,12 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @current_user = @current_user || User.find(params[:id])
-    if @current_user.update_attributes(user_params)
+    @user = @current_user || User.find(params[:id])
+
+    if @user.update_attributes(user_params)
       render 'api/users/show'
     else
-      render json: @current_user.errors.full_messages, status: 401
+      render json: @user.errors.full_messages, status: 401
     end
   end
 

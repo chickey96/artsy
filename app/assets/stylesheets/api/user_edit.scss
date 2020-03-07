@@ -30,6 +30,7 @@
 .user-edit-input {
   width: 278px;
   padding: 6px;
+  outline: none;
 }
 
 .user-edit-label {
@@ -40,7 +41,7 @@
 
 .user-edit-submit {
   width: 135px;
-  margin-top: 24px;
+  // margin-top: 24px;
   background-color: #222222;
   font-weight: normal;
   padding: 4px 11px;
@@ -49,6 +50,10 @@
   border-radius: 3px;
   cursor: pointer;
   border-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-edit-submit:focus {
+  outline: none;
 }
 
 .user-edit-submit:hover {
@@ -79,4 +84,10 @@
   margin-top: 16px;
   border: 0;
   clear: both;
+}
+
+.user-edit-errors {
+  color: red;
+  font-size: 12px;
+  height: 24px;
 }

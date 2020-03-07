@@ -88,7 +88,7 @@ class CommentShow extends React.Component {
           value={this.state.inputValue}/>
 
           <button className={this.state.editClass} onClick={this.edit}>
-          {this.state.editText}
+            {this.state.editText}
           </button>
 
           <div className="delete-div">

@@ -1,4 +1,5 @@
 import * as UserAPIUtil from '../utils/user_util';
+import { receiveErrors } from './session_action';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const REMOVE_USER = 'REMOVE_USER';
 
@@ -19,7 +20,8 @@ export const fetchUser = id => dispatch => (
 
 export const updateUser = user => dispatch => (
   UserAPIUtil.updateUser(user)
-  .then(user => dispatch(receiveUser(user)))
+  .then(user => dispatch(receiveUser(user)),
+  errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const deleteUser = id => dispatch => (

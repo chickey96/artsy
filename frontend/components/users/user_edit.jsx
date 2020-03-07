@@ -1,9 +1,79 @@
 import React from 'react';
 
+const clearState = {
+  'email': '',
+  'confirm_email': '',
+  'Email_error': null,
+  'username': '',
+  'confirm_username': '',
+  'Username_error': null,
+  'password': '',
+  'confirm_password': '',
+  'Password_error': null
+}
 class UserEdit extends React.Component {
 
   constructor(props){
     super(props);
+    this.state = clearState;
+    this.filterErrors = this.filterErrors.bind(this);
+    this.updateAttribute = this.updateAttribute.bind(this);
+  }
+
+  updateAttribute(e){
+    e.preventDefault();
+
+    this.props.clearErrors();
+    let user = Object.assign({}, this.props.currentUser);
+    if (e.target.className == "username-edit-form"){
+      if(this.state.username !== this.state.confirm_username){
+        this.setState({'Username_error': 'Usernames must match.'})
+        return;
+      } else {
+        user.username = this.state.username;
+      }
+    } else if (e.target.className == "email-edit-form"){
+      if(this.state.email !== this.state.confirm_email){
+        this.setState({'Email_error': 'Emails must match.'})
+        return;
+      } else {
+        user.email = this.state.email;
+      }
+    } else if (e.target.className == "password-edit-form"){
+      if(this.state.username !== this.state.confirm_username){
+        this.setState({'Password_error': 'Passwords must match.'})
+        return;
+      } else {
+        user.password = this.state.password;
+      }
+    }
+
+    this.props.updateUser(user)
+    this.setState(clearState)
+  }
+
+  update(field){
+    return (e) => this.setState({ [field]: e.target.value });
+  }
+
+  filterErrors(keyword) {
+    let state_keyword = keyword + "_error";
+
+    if (this.state[state_keyword]) return this.state[state_keyword];
+
+    return (
+      this.props.errors.filter(err => (
+        err.includes(keyword) || err.includes('credentials')
+      ))[0]
+    );
+  }
+
+  renderErrors(errorType) {
+    return (
+      <div className="user-edit-errors">
+        {this.filterErrors(errorType)}
+      </div>
+    );
   }
 
   render () {
@@ -19,26 +89,36 @@ class UserEdit extends React.Component {
             <div className="section-divider"></div>
             <div className="font-14 bold">Change your username</div>
           </div>
-          <form action="">
+          <form onSubmit={this.updateAttribute} className="username-edit-form">
             <label className="user-edit-label">New Username</label>
-            <input className="user-edit-input" type="text"/>
+            <input type="text" className="user-edit-input"
+                   value={this.state.username}
+                   onChange={this.update('username')}/>
             <label className="user-edit-label">Confirm New Username</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="text"
+                   value={this.state.confirm_username}
+                   onChange={this.update('confirm_username')}/>
             <label className="user-edit-label">Your Etsy Password</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="password"/>
+            {this.renderErrors('Username')}
             <button className="user-edit-submit">Change Username</button>
           </form>
         </div>
 
         <div className="user-edit-category" id="user-edit-password">
           <h2>Password</h2>
-          <form action="">
+          <form onSubmit={this.updateAttribute} className="password-edit-form">
             <label className="user-edit-label">Current Password</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="password"/>
             <label className="user-edit-label">New Password</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="password"
+                   value={this.state.password}
+                   onChange={this.update('password')}/>
             <label className="user-edit-label">Confirm New Password</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="password"
+                   value={this.state.confirm_password}
+                   onChange={this.update('confirm_password')}/>
+            {this.renderErrors('Password')}
             <button className="user-edit-submit">Change Password</button>
           </form>
         </div>
@@ -47,17 +127,22 @@ class UserEdit extends React.Component {
           <h2>Email</h2>
           <div className="content-to-edit">
             <div className="font-11">Current Email</div>
-            <div className="font-11">email@email.com</div>
+            <div className="font-11">{this.props.currentUser.email}</div>
             <div className="section-divider"></div>
             <div className="font-14 bold">Change your email</div>
           </div>
-          <form action="">
+          <form onSubmit={this.updateAttribute} className="email-edit-form">
             <label className="user-edit-label">New Email</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="text"
+                   value={this.state.email}
+                   onChange={this.update('email')}/>
             <label className="user-edit-label">Confirm New Email</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="text"
+                   value={this.state.confirm_email}
+                   onChange={this.update('confirm_email')}/>
             <label className="user-edit-label">Your Etsy Password</label>
-            <input className="user-edit-input" type="text"/>
+            <input className="user-edit-input" type="password"/>
+            {this.renderErrors('Email')}
             <button className="user-edit-submit">Change Email</button>
           </form>
         </div>
