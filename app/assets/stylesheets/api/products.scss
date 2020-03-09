@@ -73,6 +73,10 @@
    font-size: 12px;
 }
 
+.product-show-page {
+  min-height: calc(100vh - 230px);
+}
+
 .product-show{
   display: flex;
   flex-direction: column;
@@ -86,14 +90,13 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .show-image{
   display: flex;
   width: 600px;
   height: 600px;
-  align-items: center;
 }
 
 .image-show{
@@ -112,49 +115,81 @@
 .show-info{
   display: flex;
   flex-direction: column;
-  padding: 80px 20px;
   width: 400px;
-  height: 80%;
   justify-content: center;
+  padding-left: 30px;
+  align-self: flex-start;
+}
+
+.show-info div {
+  display: flex;
 }
 
 .show-title{
-  padding: 15px;
-  display: flex;
-  font-size: 28px;
-  font-weight: 400;
-  color: #333;
+  font-family: "Guardian-EgypTT",serif;
+  font-weight: 300;
+  color: #222;
+  font-size: 26px;
+  letter-spacing: 0.35px;
 }
 
 .show-artist{
-  padding: 15px;
-  display: flex;
   font-weight: 400;
   color: #333;
   font-size: 14px;
 }
 
 .show-price{
-  padding: 15px;
-  display: flex;
   width: fit-content;
-  font-weight: 900;
+  font-weight: 500;
   color: #333;
-  font-size: 14px;
+  font-size: 28px;
+  line-height: 36px;
 }
 
-.overview{
+.product-description{
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-weight: 300;
+  line-height: 18px;
 }
 
-.overview-title{
-  padding: 15px;
-  font-size: 18px;
-  font-weight: 400;
-  color: #333;
-  text-align: left;
+.general-product-data {
+  display: flex;
+  align-items: center;
+
+  div {
+    font-size: 25px;
+    width: 10%;
+    color: transparent;
+    text-shadow: 0 0 0 black;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+#made-to-order {
+  margin-bottom: 18px;
+}
+
+.product-materials {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-materials p {
+  font-size: 13px;
+  line-height: 18px;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.product-materials div {
+  font-family: "Guardian-EgypTT",serif;
+  letter-spacing: 0.35px;
 }
 
 .overview-list{
@@ -173,18 +208,14 @@
   width: 100%;
 }
 
-.cart-section {
-  padding-left: 15px;
-}
-
-.cart-section button {
-  height: 30px;
-  width: 90px;
-  border-radius: 3px;
+.product-show button {
+  border-radius: 96px;
   font-weight: 500;
-  border: 1px solid  black;
+  border: 2px solid #222222;;
   outline: none;
   margin-top: 10px;
+  font-size: 16px;
+  padding: 10px 50px;
 }
 
 .cart-add-button {

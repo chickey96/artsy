@@ -1,10 +1,14 @@
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
 .splash-grid{
   display: flex;
   justify-content: space-evenly;
   height: 25%;
   border-radius: 3px;
   background-color: #FFF;
-  border-bottom: 2px solid #CBCCC9;
+  border-bottom: 2px solid rgba(34, 34, 34, 0.15);
   margin: 0;
   padding: 0;
   transform: translateY(-42%);
@@ -71,7 +75,7 @@
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 0.3px;
-  -webkit-font-smoothing: antialiased;
+  // -webkit-font-smoothing: antialiased;
   text-align: center;
   margin-bottom: 12px;
   cursor: default;
@@ -119,7 +123,7 @@
 
 .footer{
   width: 100%;
-  bottom: 0;
+  // bottom: 0;
   display: flex;
   height: 35px;
   padding: 25px 0;

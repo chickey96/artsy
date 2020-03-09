@@ -40,7 +40,7 @@ class UserEdit extends React.Component {
         user.email = this.state.email;
       }
     } else if (e.target.className == "password-edit-form"){
-      if(this.state.username !== this.state.confirm_username){
+      if(this.state.password !== this.state.confirm_password){
         this.setState({'Password_error': 'Passwords must match.'})
         return;
       } else {
@@ -98,7 +98,7 @@ class UserEdit extends React.Component {
             <input className="user-edit-input" type="text"
                    value={this.state.confirm_username}
                    onChange={this.update('confirm_username')}/>
-            <label className="user-edit-label">Your Etsy Password</label>
+            <label className="user-edit-label">Your Artsy Password</label>
             <input className="user-edit-input" type="password"/>
             {this.renderErrors('Username')}
             <button className="user-edit-submit">Change Username</button>
@@ -140,7 +140,7 @@ class UserEdit extends React.Component {
             <input className="user-edit-input" type="text"
                    value={this.state.confirm_email}
                    onChange={this.update('confirm_email')}/>
-            <label className="user-edit-label">Your Etsy Password</label>
+            <label className="user-edit-label">Your Artsy Password</label>
             <input className="user-edit-input" type="password"/>
             {this.renderErrors('Email')}
             <button className="user-edit-submit">Change Email</button>

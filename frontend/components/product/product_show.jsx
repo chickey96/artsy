@@ -13,32 +13,32 @@ class ProductShow extends React.Component {
 
   addCart(e){
     e.preventDefault();
-    const cart = {user_id: this.props.currentUser, product_id: this.props.product.id};
+    const cart = { user_id: this.props.currentUser,
+                   product_id: this.props.product.id };
+
     this.props.createCart(cart);
   }
+
   visitCart(e){
     e.preventDefault();
     this.props.history.push('/cart');
   }
+
   componentDidMount() {
     this.props.fetchCarts(this.props.currentUser)
-    .then(this.props.fetchProduct(this.props.match.params.productId));
+      .then(this.props.fetchProduct(this.props.match.params.productId));
   }
 
   parseCategory(media){
     for(let i = 0; i < media.length; i++){
-      if(media[i] === ':'){
-        return media.slice(i+1);
-      }
+      if(media[i] === ':') return media.slice(i+1);
     }
   }
 
   isInCart(){
     for(let i = 0; i < this.props.carts.length; i++){
       let cart = this.props.carts[i];
-      if(cart.product_id === this.props.product.id){
-        return true;
-      }
+      if(cart.product_id === this.props.product.id) return true;
     }
     return false;
   }
@@ -64,50 +64,45 @@ class ProductShow extends React.Component {
           </button>
         )
       }
-
     }
+
     return (
       <div className="product-show-page">
 
           <div className="product-show">
             <div className="product-section">
+
               <div className="show-image">
                 <div className="image-placeholder">
-                  <img src={this.props.product.photoUrl} className="image-show" />
+                  <img src={this.props.product.photoUrl}
+                       className="image-show" />
                 </div>
               </div>
 
               <div className="show-info">
-                <div className="show-title">
-                  {this.props.product.title}
-                </div>
-                <div className="show-artist">
-                  Made by: {this.props.product.artist}
-                </div>
-                <div className="show-price">
-                  ${this.props.product.price}.00
-                </div>
-                <div className="line"></div>
-                <div className="overview">
-                  <div className="overview-title">
-                    Overview
+                <div className="show-artist"> {this.props.product.artist} </div>
+                <div className="show-title"> {this.props.product.title} </div>
+                <div className="show-price"> ${this.props.product.price}.00 </div>
+                {cartOption}
+
+                <div className="product-description">
+
+                  <div className="general-product-data">
+                    <div> &#x1f590; </div>
+                    <p> Handmade </p>
                   </div>
-                    <ul className="overview-list">
-                      <li>
-                        Handmade item
-                      </li>
-                      <li>
-                        Materials used: {materials}
-                      </li>
-                      <li>
-                        Made to order
-                      </li>
-                    </ul>
+
+                  <div className="general-product-data" id="made-to-order">
+                    <div> &#x1f3f7; </div>
+                    <p>Made to order</p>
+                  </div>
+
+                  <div className="product-materials">
+                    <p> Material </p>
+                    <div> {materials} </div>
+                  </div>
                 </div>
-                <div className="line"></div>
-                <div className="cart-section">
-                  {cartOption}
-                </div>
+
               </div>
             </div>
           <div className="comment-index">
@@ -117,12 +112,8 @@ class ProductShow extends React.Component {
           </div>
 
         </div>
-
-
       </div>
     )};
-
-
-}
+  }
 
 export default ProductShow;
