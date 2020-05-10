@@ -63,7 +63,7 @@ class UserEdit extends React.Component {
   }
 
   hideModal(e){
-    if (e.target != this.modalOverlay) { return; }
+    if (e.target != this.modalOverlay[0]) { return; }
 
     this.modalOverlay[0].classList.add("hidden")
   }
