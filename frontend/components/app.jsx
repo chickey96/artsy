@@ -16,29 +16,31 @@ import SignUpContainer from './session/signup_container';
 import Checkout from './carts/checkout';
 
 const App = () => (
-  <div className="full-page">
-  <header className="header">
-    <NavBarContainer/>
-    <DirectoryContainer/>
-  </header>
+  <div id="full-page">
+    <div id="non-footer-content">
+      <header className="header">
+        <NavBarContainer/>
+        <DirectoryContainer/>
+      </header>
 
-  <Switch>
-    <AuthRoute path="/cart" component={CartIndexContainer}/>
-    <Route path="/products/:category" component={productIndexContainer}/>
-    <Route path="/search/:query" component={searchProductIndexContainer}/>
-    <Route path="/product/:productId" component={productShowContainer} />
-    <AuthRoute path="/users/edit/:id" component={userEditContainer} />
-    <AuthRoute path="/users/:id" component={userShowContainer} />
-    <Route path="/" component={Splash}/>
-    <Redirect to="/"/>
-  </Switch>
+      <Switch>
+        <AuthRoute path="/cart" component={CartIndexContainer}/>
+        <Route path="/products/:category" component={productIndexContainer}/>
+        <Route path="/search/:query" component={searchProductIndexContainer}/>
+        <Route path="/product/:productId" component={productShowContainer} />
+        <AuthRoute path="/users/edit/:id" component={userEditContainer} />
+        <AuthRoute path="/users/:id" component={userShowContainer} />
+        <Route path="/" component={Splash}/>
+        <Redirect to="/"/>
+      </Switch>
 
-  <Switch>
-      <Route path='*/login' component={LoginContainer} />
-      <Route path='*/signup' component={SignUpContainer} />
-      <Route path='/cart/checkout' component={Checkout} />
-  </Switch>
-  <Footer/>
+      <Switch>
+          <Route path='*/login' component={LoginContainer} />
+          <Route path='*/signup' component={SignUpContainer} />
+          <Route path='/cart/checkout' component={Checkout} />
+      </Switch>
+    </div>
+    <Footer/>
   </div>
 );
 

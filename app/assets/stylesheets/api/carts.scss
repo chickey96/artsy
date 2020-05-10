@@ -3,8 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cart-page{
-  min-height: 42vh;
-  margin-top: 18px;
+  min-height: calc(100vh - 205px);
   background-color: #FAF9F5;
   padding: 50px 150px;
   display: flex;

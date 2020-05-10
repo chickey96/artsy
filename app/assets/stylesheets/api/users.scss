@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-show-container {
-  margin: 25px;
+  margin: 50px;
   min-height: calc(100vh - 300px);
 }
 
@@ -14,7 +14,7 @@
   display: none !important;
 }
 
-.profile-modal-overlay {
+.modal-overlay {
   width: 100vw;
   height: 100vh;
   background-color: transparent;
@@ -25,12 +25,12 @@
 
 .profile-modal {
   z-index: 1;
-  width: 25%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   position: fixed;
   right: 3%;
-  top: 100px;
+  top: 75px;
   border-radius: 3px;
   background-color: #FFF;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
@@ -40,16 +40,18 @@
 #profile-button {
   border: none;
   outline: none;
-  justify-content: space-evenly;
+  align-items: center;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  padding: 0 8px;
   background-color: inherit;
+  height: 100%;
+  padding: 0;
 
   .navbar-profile-label {
     width: fit-content;
     display: flex;
+    height: 30%;
   }
 }
 
@@ -61,19 +63,26 @@
 }
 
 .profile-overlay {
-  height: 48%;
-  width: 95%;
-  border-radius: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  margin-left: -5px;
+  width: 33px;
+  justify-content: center;
+}
 
+.profile-hover {
+  border-radius: 100%;
+  height: 29px;
+  width: 29px;
   .user-show-thumbnail {
     outline: none;
-    width: 105%;
-    height: 106%;
-    margin-inline-start: -1px;
+    height: 30px;
+    width: 30px;
   }
 }
 
-#profile-button:hover .profile-overlay {
+#profile-button:hover .profile-hover {
   background-color: black;
 
   .user-show-thumbnail {
@@ -91,11 +100,11 @@
   background: inherit;
 }
 
-.bar-2 {
+#logout-dropdown-bar {
   display: flex;
 }
 
-.bar-2:hover button {
+#logout-dropdown-bar:hover button {
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -108,8 +117,8 @@
 
 .user-show-thumbnail {
   background-image: url(./default-profile-picture.png);
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   background-size: cover;
   background-position: center;
   border-radius: 100% !important;
@@ -126,15 +135,22 @@
 #user-show-username {
   min-width: fit-content;
   margin-right: 15px;
+  font-size: 32px;
+  line-height: 36px;
+  font-family: "Guardian-EgypTT",serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 #edit-profile {
-  font-size: 14px;
   display: flex;
   text-decoration: none;
-  color: black;
   border-radius: 96px;
   padding: 9px;
+  color: #222222;
+  line-height: 1;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 #edit-profile:hover {
@@ -159,6 +175,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5%;
   outline: none;
+  cursor: pointer;
 }
 
 #profile-link:hover .modal-username {
@@ -181,7 +198,6 @@
 
 .modal-username {
   font-weight: 900;
-  -webkit-font-smoothing: antialiased;
   text-align: left;
 }
 

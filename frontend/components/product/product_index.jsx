@@ -36,9 +36,9 @@ class ProductIndex extends React.Component {
       <div className="product-index">
         <div className="product-index-interior">
           {products}
+          {/* <div className="dummy"></div>
           <div className="dummy"></div>
-          <div className="dummy"></div>
-          <div className="dummy"></div>
+          <div className="dummy"></div> */}
         </div>
       </div>
     )

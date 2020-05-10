@@ -1,32 +1,40 @@
 // This file will automatically be included in application.css.
-#full-screen{
-  margin: 0;
-  min-width: 100vw;
+html, body, #root, #full-page {
+ padding: 0;
+ margin: 0;
+ height: fit-content;
+ min-height: 100vh;
+ width: 100vw !important;
+}
+
+#full-page{
+  display: flex;
+  flex-direction: column;
   font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#non-footer-content {
+  height: calc(100% - 85px);
+  min-height: calc(100vh - 85px);
 }
 
 .header{
-  height: 168px;
   cursor: default;
-}
-
-.nav-bar {
-  height: 65%;
+  padding-top: 10px;
 }
 
 .options-bar{
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 58px;
   padding: 0px 3.5%;
  }
 
 .options-bar-el{
   display: flex;
   align-items: center;
-  width: fit-content;
-  height: 68%;
  }
 
 #divider-line {
@@ -47,14 +55,19 @@
 }
 
 .options-bar-item{
-  height: 80% !important;
-  padding: 8px;
+  height: 100% !important;
+  padding: 8px 8px 0 8px;
 }
 
 #logout-cart-options {
-  width: 15%;
-  display: flex;
-  justify-content: space-evenly;
+  display: grid !important;
+  grid-template-columns: 33px 1px 33px;
+  grid-gap: 10px;
+  grid-template-rows: 48px;
+  height: 48px;
+  align-self: flex-end;
+  width: 10%;
+  // justify-content: space-evenly;
 }
 
 // LOGIN BUTTON styling
@@ -85,7 +98,10 @@
 #register-button{
   border: 0 none;
   font-size: 14px;
-  height: 36px;
+  padding: 9px 15px;
+  border-radius: 24px;
+  width: max-content;
+  // height: 36px;
 }
 
 #register-button:hover {
@@ -114,25 +130,28 @@
 }
 
 .cart-link{
-  border-radius: 24px;
-  height: 36px;
-  padding: 0px 8px;
   display: flex;
   font-size: 11px;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   text-decoration: none;
   color: black;
+  height: 100%;
+  padding: 0;
 }
 
 .cart-image{
   -webkit-text-stroke-width: thick;
   font-size: 24px;
+  height: 70%;
 }
 
 .cart-link:hover .cart-image{
   text-shadow: -0.5px 0 grey, 0 0.5px grey, 0.5px 0 grey, 0 -0.5px grey;
+}
+
+.nav-cart-label {
+  height: 30%;
 }
 
 #logout-button:hover{

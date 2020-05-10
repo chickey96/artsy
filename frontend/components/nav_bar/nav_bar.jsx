@@ -8,12 +8,12 @@ class NavBar extends React.Component{
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.modal = document.getElementsByClassName("profile-modal");
-    this.modalOverlay = document.getElementsByClassName("profile-modal-overlay");
+    this.modalOverlay = document.getElementsByClassName("modal-overlay");
     this.handleSignup = this.handleSignup.bind(this);
     this.openProfileDropdownModal = this.openProfileDropdownModal.bind(this);
-    this.removeProfileModal = this.removeProfileModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
     this.closeProfileModal = this.closeProfileModal.bind(this)
-    this.goToProfileShow = this.goToProfileShow.bind(this)
+    this.toUserShow = this.toUserShow.bind(this)
     const currentUser = this.props.currentUser || { id: null, username: null }
     this.state = { currentUser }
   }
@@ -49,14 +49,14 @@ class NavBar extends React.Component{
     }
   }
 
-  removeProfileModal(e){
+  hideModal(e){
     if (e.target != this.modalOverlay[0]) {
       return;
     }
    this.closeProfileModal();
   }
 
-  goToProfileShow(e){
+  toUserShow(e){
     this.props.history.push(`/users/${this.state.currentUser.id}`);
     this.closeProfileModal();
   }
@@ -67,46 +67,53 @@ class NavBar extends React.Component{
   }
 
   render(){
+    const profileModal = (
+      <div className="modal-overlay hidden" onMouseDown={this.hideModal}>
+        <div className="profile-modal hidden">
+
+          <button id="profile-link" onClick={this.toUserShow}>
+            <div className="user-show-thumbnail"></div>
+
+            <div className="modal-profile-text">
+              <div className="modal-username">
+                {this.state.currentUser.username}
+              </div>
+              <div className="modal-view-profile">
+                <span id="view-profile-text">View Profile</span>
+                <span id="view-profile-arrow">&#10095;</span>
+              </div>
+            </div>
+          </button>
+
+          <div id="logout-dropdown-bar">
+            <button id="logout-button" onClick={this.handleLogout}>
+              Sign out
+            </button>
+          </div>
+        </div>
+      </div>
+    )
 
     const logoutTools = (
-      <div  className="options-bar-el" id="logout-cart-options">
-        <button className="options-bar-item"
-                id="profile-button"
-                onClick={this.openProfileDropdownModal}>
-
+      <div className="options-bar-el" id="logout-cart-options">
+        <button id="profile-button" onClick={this.openProfileDropdownModal}>
           <div className="profile-overlay">
-            <div className="user-show-thumbnail"></div>
+            <div className="profile-hover">
+              <div className="user-show-thumbnail"></div>
+            </div>
           </div>
-          <div className="navbar-profile-label"> You
-            <div>&#x25BC;</div>
+          <div className="navbar-profile-label">
+            You <div>&#x25BC;</div>
           </div>
         </button>
 
-        <div className="profile-modal-overlay hidden"
-             onMouseDown={this.removeProfileModal}>
-          <div className="profile-modal hidden">
-            <button id="profile-link" onClick={this.goToProfileShow} className="bar-1">
-              <div className="user-show-thumbnail"></div>
-              <div className="modal-profile-text">
-                <div className="modal-username">{this.state.currentUser.username}</div>
-                <div className="modal-view-profile">
-                  <span id="view-profile-text">View Profile</span>
-                  <span id="view-profile-arrow">&#10095;</span>
-                </div>
-              </div>
-            </button>
-            <div className="bar-2">
-              <button id="logout-button" onClick={this.handleLogout}>
-                Sign out
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="options-bar-item" id="divider-line"></div>
+        { profileModal }
 
-        <Link className="options-bar-item cart-link" to="/cart">
+        <div id="divider-line"></div>
+
+        <Link className="cart-link" to="/cart">
           <div className="cart-image">&#x1F6D2;</div>
-          <div>Cart</div>
+          <div className="nav-cart-label">Cart</div>
         </Link>
       </div>
     );
