@@ -100,11 +100,11 @@
   background: inherit;
 }
 
-.bar-2 {
+#logout-dropdown-bar {
   display: flex;
 }
 
-.bar-2:hover button {
+#logout-dropdown-bar:hover button {
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -175,6 +175,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5%;
   outline: none;
+  cursor: pointer;
 }
 
 #profile-link:hover .modal-username {

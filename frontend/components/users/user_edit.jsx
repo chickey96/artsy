@@ -17,7 +17,11 @@ class UserEdit extends React.Component {
     super(props);
     this.state = clearState;
     this.filterErrors = this.filterErrors.bind(this);
+    this.modalOverlay = document.getElementsByClassName("screen-overlay");
+
     this.updateAttribute = this.updateAttribute.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   updateAttribute(e){
@@ -52,6 +56,18 @@ class UserEdit extends React.Component {
     this.setState(clearState)
   }
 
+  openModal(e){
+    e.preventDefault();
+
+    this.modalOverlay[0].classList.remove("hidden")
+  }
+
+  hideModal(e){
+    if (e.target != this.modalOverlay) { return; }
+
+    this.modalOverlay[0].classList.add("hidden")
+  }
+
   update(field){
     return (e) => this.setState({ [field]: e.target.value });
   }
@@ -79,6 +95,11 @@ class UserEdit extends React.Component {
   render () {
     if (!this.props.currentUser) return null;
 
+    let button_action = this.updateAttribute;
+    if(this.props.currentUser.username == "Demo User"){
+      button_action = this.openModal;
+    }
+
     return (
       <div id="user-edit-page">
         <div className="user-edit-category" id="user-edit-username">
@@ -89,7 +110,7 @@ class UserEdit extends React.Component {
             <div className="section-divider"></div>
             <div className="font-14 bold">Change your username</div>
           </div>
-          <form onSubmit={this.updateAttribute} className="username-edit-form">
+          <form onSubmit={button_action} className="username-edit-form">
             <label className="user-edit-label">New Username</label>
             <input type="text" className="user-edit-input"
                    value={this.state.username}
@@ -107,7 +128,7 @@ class UserEdit extends React.Component {
 
         <div className="user-edit-category" id="user-edit-password">
           <h2>Password</h2>
-          <form onSubmit={this.updateAttribute} className="password-edit-form">
+          <form onSubmit={button_action} className="password-edit-form">
             <label className="user-edit-label">Current Password</label>
             <input className="user-edit-input" type="password"/>
             <label className="user-edit-label">New Password</label>
@@ -131,7 +152,7 @@ class UserEdit extends React.Component {
             <div className="section-divider"></div>
             <div className="font-14 bold">Change your email</div>
           </div>
-          <form onSubmit={this.updateAttribute} className="email-edit-form">
+          <form onSubmit={button_action} className="email-edit-form">
             <label className="user-edit-label">New Email</label>
             <input className="user-edit-input" type="text"
                    value={this.state.email}
@@ -145,6 +166,13 @@ class UserEdit extends React.Component {
             {this.renderErrors('Email')}
             <button className="user-edit-submit">Change Email</button>
           </form>
+        </div>
+
+        <div className="screen-overlay hidden" onMouseDown={this.hideModal}>
+          <div className="freeze-demo-edit-modal">
+            <div>This page is for reference only.</div>
+            <div>The Demo User cannot be edited.</div>
+          </div>
         </div>
       </div>
     )};

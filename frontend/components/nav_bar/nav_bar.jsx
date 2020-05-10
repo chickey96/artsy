@@ -71,7 +71,7 @@ class NavBar extends React.Component{
       <div className="modal-overlay hidden" onMouseDown={this.hideModal}>
         <div className="profile-modal hidden">
 
-          <button id="profile-link" onClick={this.toUserShow} className="bar-1">
+          <button id="profile-link" onClick={this.toUserShow}>
             <div className="user-show-thumbnail"></div>
 
             <div className="modal-profile-text">
@@ -85,7 +85,7 @@ class NavBar extends React.Component{
             </div>
           </button>
 
-          <div className="bar-2">
+          <div id="logout-dropdown-bar">
             <button id="logout-button" onClick={this.handleLogout}>
               Sign out
             </button>

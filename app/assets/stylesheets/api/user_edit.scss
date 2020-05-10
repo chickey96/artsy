@@ -1,3 +1,31 @@
+.screen-overlay {
+  display: flex;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.freeze-demo-edit-modal {
+  border-radius: 3px;
+  padding: 20px;
+  background-color: white;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+
+  div {
+    padding: 20px;
+  }
+}
+
 #user-edit-page {
   display: flex;
   flex-direction: column;

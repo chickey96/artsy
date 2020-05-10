@@ -98,7 +98,10 @@ html, body, #root, #full-page {
 #register-button{
   border: 0 none;
   font-size: 14px;
-  height: 36px;
+  padding: 9px 15px;
+  border-radius: 24px;
+  width: max-content;
+  // height: 36px;
 }
 
 #register-button:hover {
