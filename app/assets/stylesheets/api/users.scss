@@ -109,14 +109,14 @@
 }
 
 .user-show-image {
-  background-image: url(./default-profile-picture.png);
+  background-image: image-url("default-profile-picture.png");
   width: 150px;
   height: 150px;
   background-size: cover;
 }
 
 .user-show-thumbnail {
-  background-image: url(./default-profile-picture.png);
+  background-image: image-url("default-profile-picture.png");
   width: 30px;
   height: 30px;
   background-size: cover;
