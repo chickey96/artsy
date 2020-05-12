@@ -8,7 +8,7 @@
     "babel-loader": "^8.0.5",
     "countrycitystatejson": "^0.2.15",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "list-of-us-cities": "^1.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
