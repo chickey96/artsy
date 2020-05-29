@@ -6,17 +6,17 @@ class SplashRedirect extends React.Component {
   constructor(props) {
     super(props);
     console.log("history", this.props.history)
-    this.props.history.push("/")
-
+    // this.props.history.push("/")
+    this.old_path = this.props.history.location.pathname
     // this.redirectToSplashPage(this.props.history)
     // this.path = this.props.history.location.pathname
   }
 
   render(){
     console.log("rendered")
-    return null;
+    // return null;
     return (
-      <Route path="/" component={Splash}/>
+      <Redirect from={this.old_path} to="/" component={Splash}/>
     );
   }
 }
