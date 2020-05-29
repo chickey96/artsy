@@ -39,7 +39,8 @@ const App = () => (
         <AuthRoute path="/users/:id" component={userShowContainer} />
         <Route exact path="/" component={Splash}/>
         {/* redirect component accounts for inaccurate params on first request */}
-        <Route path="*" component={SplashRedirect}/>
+        {/* <Route component={SplashRedirect}/> */}
+        <Route render={() => <Redirect to={{pathname: "/"}} />} />
       </Switch>
 
       <Switch>

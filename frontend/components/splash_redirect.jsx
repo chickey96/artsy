@@ -15,9 +15,9 @@ class SplashRedirect extends React.Component {
   render(){
     console.log("rendered")
     return null;
-    // return (
-    //   <Route path="/" component={Splash}/>
-    // );
+    return (
+      <Route path="/" component={Splash}/>
+    );
   }
 }
 
