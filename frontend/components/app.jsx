@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 // main splash page and redirect components
 import Splash from './splash';
 import SplashRedirect from './splash_redirect'
