@@ -6,19 +6,19 @@ class SessionForm extends React.Component {
     super(props);
     this.state = { email: '', username: '', password: '' };
     this.filterErrors = this.filterErrors.bind(this);
-    this.getClassName = this.getClassName.bind(this);
+    this.className = this.className.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
     this.check = this.check.bind(this)
     this.exit = this.exit.bind(this);
-    this.switchSessionTypes = this.switchSessionTypes.bind(this);
+    this.switchSession = this.switchSession.bind(this);
+
+    this.altAction = 'Register';
+    this.altPath = '/signup';
 
     if (this.props.formType == 'Register') {
-      this.altActionName = 'Sign In';
-      this.altActionPath = '/login';
-    } else {
-      this.altActionName = 'Register';
-      this.altActionPath = '/signup';
+      this.altAction = 'Sign In';
+      this.altPath = '/login';
     }
   }
 
@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
     ))[0];
   }
 
-  switchSessionTypes(){
+  switchSession(){
     this.props.clearErrors();
   }
 
@@ -54,16 +54,17 @@ class SessionForm extends React.Component {
   }
 
   //determine whether modal input should be red due to errors
-  getClassName(inputName){
-    let error_keywords = [inputName];
+  className(inputName){
+    let keywords = [inputName];
 
     if (inputName === 'Email' || inputName === 'Password'){
-      error_keywords.push('credentials')
+      keywords.push('credentials')
     }
 
-    const err = this.filterErrors(error_keywords);
+    const err = this.filterErrors(keywords);
 
     if(err) return 'input-error';
+
     return 'modal-input';
   }
 
@@ -74,6 +75,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+
     this.props.clearErrors();
     const user = Object.assign({}, this.state);
     this.props.action(user).then( () => this.check());
@@ -110,7 +112,7 @@ class SessionForm extends React.Component {
         <label className='input-label' >First name
           <input onChange={this.update('username')}
                  value={this.state.username}
-                 className={this.getClassName('Username')}/>
+                 className={this.className('Username')}/>
         </label>
 
         <div className="err-div">
@@ -131,10 +133,10 @@ class SessionForm extends React.Component {
                 <div className="topline-session-modal">
                   <h1 id="greeting"> {this.props.greeting} </h1>
                   <button>
-                    <Link to={this.altActionPath}
-                          onClick={this.switchSessionTypes}
+                    <Link to={this.altPath}
+                          onClick={this.switchSession}
                           className="alt-session-link">
-                      {this.altActionName}
+                      {this.altAction}
                     </Link>
                   </button>
                 </div>
@@ -142,13 +144,13 @@ class SessionForm extends React.Component {
                 <p id="tagline">{this.props.tagline}</p>
 
                 <label className='input-label'>Email address
-                  <input className={this.getClassName('Email')}
+                  <input className={this.className('Email')}
                          value={this.state.email}
                          onChange={this.update('email')}/>
                 </label>
 
-                <div className="err-div"> {
-                  this.renderErrors(['Email', 'credentials'])}
+                <div className="err-div">
+                  {this.renderErrors(['Email', 'credentials'])}
                 </div>
 
                 {this.renderUsername()}
@@ -157,7 +159,7 @@ class SessionForm extends React.Component {
                   <input type="password"
                          value={this.state.password}
                          onChange={this.update('password')}
-                         className={this.getClassName('Password')}/>
+                         className={this.className('Password')}/>
                 </label>
 
                 <div className="err-div">

@@ -11,77 +11,46 @@ const mapDispatchToProps = dispatch => ({
 class Directory extends React.Component {
   constructor(props){
     super(props)
-    this.toDrawing = this.toDrawing.bind(this);
-    this.toFlowers = this.toFlowers.bind(this);
-    this.toMixed = this.toMixed.bind(this);
-    this.toPainting = this.toPainting.bind(this);
-  }
-  toDrawing(e){
-    e.preventDefault();
-    if(this.props.location.pathname !== '/products/drawing'){
-      this.props.clearProducts();
-      this.props.history.push('/products/drawing')
-    }
-  }
-  toPainting(e){
-    e.preventDefault();
-    if(this.props.location.pathname !== '/products/painting'){
-      this.props.clearProducts();
-      this.props.history.push('/products/painting')
-    }
+    this.activateLink = this.activateLink.bind(this)
   }
 
-  toMixed(e){
-    e.preventDefault();
-    if(this.props.location.pathname !== '/products/mixed-media'){
-      this.props.clearProducts();
-      this.props.history.push('/products/mixed-media')
-    }
-  }
+  activateLink(e){
+    e.preventDefault()
 
-  toFlowers(e){
-    e.preventDefault();
-    if(this.props.location.pathname !== '/products/flowers'){
+    const category = e.currentTarget.innerText;
+    let path = "/products/"
+
+    if (category == 'Drawings'){
+      path += 'drawing';
+    } else if (category == 'Paintings'){
+      path += 'painting';
+    } else if (category == 'Flowers') {
+      path += 'flowers';
+    } else {
+      path += 'mixed-media';
+    }
+
+    if(this.props.location.pathname !== path){
       this.props.clearProducts();
-      this.props.history.push('/products/flowers')
+      this.props.history.push(path)
     }
   }
 
   render(){
+    const category_names = [ "Drawings", "Paintings", "Flowers", "Mixed Media" ]
+
     return (
       <ul className="splash-grid">
 
-        <li className="category-li">
-          <button onClick={this.toDrawing}>
-            <div className="category">
-              Drawings
-            </div>
-          </button>
-        </li>
-
-        <li className="category-li">
-          <button onClick={this.toPainting}>
-            <div className="category">
-              Paintings
-            </div>
-         </button>
-        </li>
-
-        <li className="category-li">
-          <button onClick={this.toFlowers}>
-            <div className="category">
-              Flowers
-            </div>
-          </button>
-        </li>
-
-        <li className="category-li">
-          <button onClick={this.toMixed}>
-            <div className="category">
-              Mixed Media
-            </div>
-          </button>
-        </li>
+        { category_names.map((category, idx) => (
+            <li className="category-li" key={`category-${idx}`}>
+              <button onClick={this.activateLink}>
+                <div className="category">
+                 {category}
+                </div>
+              </button>
+          </li>
+        ))}
 
       </ul>
     )
