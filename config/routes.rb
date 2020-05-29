@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :carts, only: [:create, :destroy, :index]
   end
 
-  get '*path' => redirect('static_pages#root')
+  get '*path' => redirect('/')
 end
