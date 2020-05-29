@@ -1,19 +1,25 @@
 import React from 'react';
-import NavBarContainer from './nav_bar/nav_bar_container.jsx';
+import { Route, Switch } from 'react-router-dom';
+// main splash page and redirect components
 import Splash from './splash';
 import SplashRedirect from './splash_redirect'
-import { Route, Switch } from 'react-router-dom';
-import productIndexContainer from './product/product-index-container';
-import productShowContainer from './product/product_show_container';
-import userShowContainer from './users/user_show_container';
-import userEditContainer from './users/user_edit_container';
-import DirectoryContainer from './nav_bar/directory';
-import CartIndexContainer from './carts/cart_index_container';
+// commonly reused components
 import Footer from './footer';
-import searchProductIndexContainer from './search/searchProductIndexContainer';
+import NavBarContainer from './nav_bar/nav_bar_container.jsx';
+import DirectoryContainer from './nav_bar/directory';
+// session/authentication related components
 import AuthRoute from '../utils/route_util';
 import LoginContainer from './session/login_container';
 import SignUpContainer from './session/signup_container';
+// user components
+import userShowContainer from './users/user_show_container';
+import userEditContainer from './users/user_edit_container';
+// product components
+import productIndexContainer from './product/product-index-container';
+import searchProductIndexContainer from './search/searchProductIndexContainer';
+import productShowContainer from './product/product_show_container';
+// cart components
+import CartIndexContainer from './carts/cart_index_container';
 import Checkout from './carts/checkout';
 
 const App = () => (
@@ -32,6 +38,7 @@ const App = () => (
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
         <Route exact path="/" component={Splash}/>
+        {/* redirect component accounts for inaccurate params on first request */}
         <Route path="*" component={SplashRedirect}/>
       </Switch>
 
