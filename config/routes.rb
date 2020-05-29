@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :show, :index, :destroy]
     resources :carts, only: [:create, :destroy, :index]
   end
+
+  get '*path', to: 'static_pages#root'
 end
