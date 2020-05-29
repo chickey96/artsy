@@ -49,7 +49,7 @@ class Directory extends React.Component {
                  {category}
                 </div>
               </button>
-          </li>
+            </li>
         ))}
 
       </ul>
