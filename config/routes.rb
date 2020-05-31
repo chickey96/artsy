@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
 
   # catch all route to redirect all but active storage requests to splash page
-  get '*path' => redirect('/'), constraints: lambda { |req|
-    req.path.exclude? 'rails/active_storage'
+  get '*path' => redirect('/'), constraints: -> (req){
+    req.path.exclude?('rails/active_storage')
   }
+
 end

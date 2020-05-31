@@ -30,13 +30,13 @@ const App = () => (
       </header>
 
       <Switch>
-        <Route exact path="/" component={Splash}/>
         <AuthRoute path="/cart" component={CartIndexContainer}/>
         <Route path="/products/:category" component={productIndexContainer}/>
         <Route path="/search/:query" component={searchProductIndexContainer}/>
         <Route path="/product/:productId" component={productShowContainer} />
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
+        <Route path="/" component={Splash}/>
         <Redirect to="/" />
       </Switch>
 

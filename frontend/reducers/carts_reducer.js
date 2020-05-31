@@ -10,7 +10,9 @@ const cartsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CARTS:
       const carts = {};
-      action.carts.forEach(cart => (carts[cart.id] = cart));
+      if(action.carts){
+        action.carts.forEach(cart => (carts[cart.id] = cart));
+      }
       return carts;
     case RECEIVE_CART:
       return merge({}, state, { [action.cart.id]: action.cart });
