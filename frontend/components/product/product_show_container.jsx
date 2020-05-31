@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ProductShow from './product_show';
-import {fetchProduct} from '../../actions/product_action';
-import {createCart, fetchCarts} from '../../actions/cart_action';
+import { fetchProduct } from '../../actions/product_action';
+import { createCart, fetchCarts } from '../../actions/cart_action';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {

@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 // main splash page and redirect components
 import Splash from './splash';
-import SplashRedirect from './splash_redirect'
 // commonly reused components
 import Footer from './footer';
 import NavBarContainer from './nav_bar/nav_bar_container.jsx';
@@ -38,8 +37,6 @@ const App = () => (
         <Route path="/product/:productId" component={productShowContainer} />
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
-        {/* <Route render={() => <SplashRedirect/> }/> */}
-        {/* <Route render={() => <SplashRedirect/> }/> */}
         <Redirect to="/" />
       </Switch>
 

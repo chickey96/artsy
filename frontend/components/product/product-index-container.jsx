@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProductIndex from './product_index';
-import {fetchProducts} from '../../actions/product_action';
+import { fetchProducts } from '../../actions/product_action';
 
 
 const mapStateToProps = (state, ownProps) => {

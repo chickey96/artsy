@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :carts, only: [:create, :destroy, :index]
   end
 
+  # catch all route to redirect all but active storage requests to splash page
   get '*path' => redirect('/'), constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   }
