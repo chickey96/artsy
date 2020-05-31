@@ -38,7 +38,9 @@ const App = () => (
         <Route path="/product/:productId" component={productShowContainer} />
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
-        <Route render={() => <SplashRedirect/> }/>
+        {/* <Route render={() => <SplashRedirect/> }/> */}
+        {/* <Route render={() => <SplashRedirect/> }/> */}
+        <Redirect to="/" />
       </Switch>
 
       <Switch>

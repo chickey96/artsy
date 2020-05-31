@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :carts, only: [:create, :destroy, :index]
   end
 
-  get '*path' => redirect('/')
+  get '*path' => redirect('/'), constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
 end
