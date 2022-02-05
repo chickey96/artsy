@@ -24,8 +24,6 @@ class User < ApplicationRecord
   attr_reader :password
 
   def email_format
-    puts "SELF.email"
-    puts self.email
     if User.invalid_email_format?(self.email)
       errors.add(:email, 'format invalid')
     end
