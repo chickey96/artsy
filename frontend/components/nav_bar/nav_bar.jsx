@@ -95,7 +95,7 @@ class NavBar extends React.Component{
     )
 
     const logoutTools = (
-      <div className="options-bar-el" id="logout-cart-options">
+      <div id="logout-cart-options" className="navbar-buttons">
         <button id="profile-button" onClick={this.openProfileDropdownModal}>
           <div className="profile-overlay">
             <div className="profile-hover">
@@ -119,46 +119,32 @@ class NavBar extends React.Component{
     );
 
     const loginTools = (
-      <div className="options-bar-el" id="login-options">
-        <div id="register-div">
-          <button className="options-bar-item"
-                  id="register-button"
-                  onClick={this.handleSignup}>
-            Register
-          </button>
-        </div>
+      <div id="login-options" className="navbar-buttons">
+       
+        <button id="register-button" onClick={this.handleSignup}>
+          Register
+        </button>
 
-        <div id="login-div">
-          <button className="options-bar-item"
-                  id="login-button"
-                  onClick={this.handleLogin}>
-            Sign in
-          </button>
-        </div>
+        <button id="login-button" onClick={this.handleLogin}>
+          Sign in
+        </button>
+
       </div>
     );
 
     const relevantButtons = (this.props.currentUser ? logoutTools : loginTools);
 
     return (
-      <nav className="nav-bar">
+      <nav>
 
-        <div className="options-bar">
+        <Link to="/" className="logo">
+            Artsy
+        </Link>
 
-          <div className="options-bar-el" id="logo-search">
-            <Link to="/" className="logo-link">
-              <div className="options-bar-item" id="logo">
-                Artsy
-              </div>
-            </Link>
+        <SearchContainer/>
 
-            <div id="search">
-              <SearchContainer/>
-            </div>
-
-          </div>
-          {relevantButtons}
-        </div>
+        {relevantButtons}
+    
       </nav>
     );
   }

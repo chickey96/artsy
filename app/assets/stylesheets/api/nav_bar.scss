@@ -4,7 +4,11 @@ html, body, #root, #full-page {
  margin: 0;
  height: fit-content;
  min-height: 100vh;
- width: 100vw !important;
+ width: 100vw;
+}
+
+button:hover, a:hover, link:hover {
+  cursor: pointer;
 }
 
 #full-page{
@@ -19,44 +23,31 @@ html, body, #root, #full-page {
   min-height: calc(100vh - 85px);
 }
 
-.header{
+header {
   cursor: default;
   padding-top: 10px;
 }
 
-.options-bar{
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 58px;
   padding: 0px 3.5%;
+  gap: 15px;
  }
 
-.options-bar-el{
-  display: flex;
-  align-items: center;
- }
-
+.logo {
+  font-size: 42px;
+  color: #f45800;
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+}
 #divider-line {
   width: 0;
   height: 65% !important;
   box-shadow: 0 0 0 0.8px rgba(0, 0, 0, 0.07);
   padding: 0;
-}
-
-#register-div{
-  padding-right: 5px;
-}
-
-#logo{
-  font-size: 42px;
-  color: #f45800;
-  font-family: 'Raleway', sans-serif;
-}
-
-.options-bar-item{
-  height: 100% !important;
-  padding: 8px 8px 0 8px;
 }
 
 #logout-cart-options {
@@ -71,7 +62,7 @@ html, body, #root, #full-page {
 }
 
 // LOGIN BUTTON styling
-#login-button{
+#login-button {
   border: none;
   font-size: 14px;
   padding: 9px 15px;
@@ -81,7 +72,6 @@ html, body, #root, #full-page {
 
 #login-button:hover {
   background-color: rgb(238, 238, 238);
-  cursor: pointer;
 }
 
 #login-button:active {
@@ -95,7 +85,7 @@ html, body, #root, #full-page {
 }
 
 // REGISTER BUTTON styling
-#register-button{
+#register-button {
   border: 0 none;
   font-size: 14px;
   padding: 9px 15px;
@@ -107,7 +97,6 @@ html, body, #root, #full-page {
 #register-button:hover {
   border-radius: 24px;
   background-color: rgb(238, 238, 238);
-  cursor: pointer;
 }
 
 #register-button:active {
@@ -154,10 +143,16 @@ html, body, #root, #full-page {
   height: 30%;
 }
 
-#logout-button:hover{
-    cursor: pointer;
-}
-
 #logout-button:focus {
   outline: none;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 5px;
+  margin-left: 20px;
+}
+
+.navbar-buttons button {
+  background-color: transparent;
 }
