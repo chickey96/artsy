@@ -1,17 +1,6 @@
-#logo-search {
-  width: 90%;
-}
-
-.logo-link {
-  text-decoration: none !important;
-}
-
-#search {
-  width: 80%;
-}
-
 #search-form {
   display: flex;
+  flex: 1 1 auto;
 }
 .search-input {
   font-size: 14px;
