@@ -24,7 +24,7 @@ import Checkout from './carts/checkout';
 const App = () => (
   <div id="full-page">
     <div id="non-footer-content">
-      <header className="header">
+      <header>
         <NavBarContainer/>
         <DirectoryContainer/>
       </header>
