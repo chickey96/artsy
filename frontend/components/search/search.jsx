@@ -39,9 +39,7 @@ class Search extends React.Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSearch}
-            className="options-bar-item"
-            id="search-form">
+      <form onSubmit={this.handleSearch} id="search-form">
 
         <input type="input"
                className="search-input"
