@@ -1,8 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-// main splash page and redirect components
 import Splash from './splash';
-// commonly reused components
 import Footer from './footer';
 import NavBarContainer from './nav_bar/nav_bar_container.jsx';
 import DirectoryContainer from './nav_bar/directory';
