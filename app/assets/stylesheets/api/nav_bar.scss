@@ -7,12 +7,17 @@ html, body, #root, #full-page {
  width: 100vw;
 }
 
-button, a, link {
+button, a, link, ul {
   text-decoration: none;
   outline: none;
   cursor: pointer;
   border: none;
   padding: 0;
+  background-color: inherit;
+}
+
+:root {
+  font-size: 16px;
 }
 
 #full-page{
@@ -20,45 +25,64 @@ button, a, link {
   flex-direction: column;
   font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
+  cursor: default;
 }
 
 #non-footer-content {
-  height: calc(100% - 85px);
+  display: flex;
+  flex-direction: column;
   min-height: calc(100vh - 85px);
 }
 
 header {
   cursor: default;
-  padding-top: 10px;
+  border-bottom: 2px solid rgba(34, 34, 34, 0.15);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  height: 50px;
-  padding: 0px 3.5%;
-  gap: 15px;
+  gap: 1rem;
+  padding: 1rem;
+ }
+
+ @media screen and (max-device-width: 600px) {
+   :root {
+     font-size: 28px !important;
+   }
+   nav {
+     flex-wrap: wrap;
+   
+   }
+   #search-form {
+    order: 3;
+   }
+   .logo {
+     flex: 1 1 45%;
+   }
+   .navbar-buttons {
+     flex: 1 1 45%;
+   }
  }
 
 .logo {
-  font-size: 42px;
+  font-size: 2.5rem;
   color: #f45800;
   font-family: 'Raleway', sans-serif;
-  text-decoration: none;
 }
 
 .navbar-buttons {
   display: flex;
   gap: 10px;
-  align-items: stretch;
-  margin-left: 20px;
+  align-items: center;
+  flex: 0 1 10%;
+  justify-content: flex-end;
 }
 
 .navbar-buttons button {
   background-color: transparent;
-  margin: auto 0;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 // sign in and register buttons
@@ -79,10 +103,10 @@ nav {
 
 // sign out and cart options
 .session-options {
-  gap: 15px;
+  gap: 1rem;
 
   #profile-button {
-    height: 60%;
+    height: 2rem;
     aspect-ratio: 1 / 1;
   }
 }
@@ -103,10 +127,43 @@ nav {
 .cart-link {
   padding: 0;
   -webkit-text-stroke-width: thick;
-  font-size: 24px;
-  margin: auto 0;
+  font-size: 1.75rem;
 
   &:hover {
     text-shadow: -0.5px 0 grey, 0 0.5px grey, 0.5px 0 grey, 0 -0.5px grey;
   }
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  margin: 0;
+}
+
+ @media screen and (max-device-width: 600px) {
+   header ul {
+     justify-content: space-evenly;
+   }
+ }
+
+.directory-category{
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  
+  button {
+    height: 99%;
+    width: 100%;
+  }
+
+  &:hover {
+    border-bottom: 3px solid black;
+    margin-bottom: -3px;
+  }
+}
+
+.category {
+  font-size: 1rem;
+  padding: 15px;
 }
