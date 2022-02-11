@@ -7,8 +7,12 @@ html, body, #root, #full-page {
  width: 100vw;
 }
 
-button:hover, a:hover, link:hover {
+button, a, link {
+  text-decoration: none;
+  outline: none;
   cursor: pointer;
+  border: none;
+  padding: 0;
 }
 
 #full-page{
@@ -31,8 +35,8 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 58px;
+  align-items: stretch;
+  height: 50px;
   padding: 0px 3.5%;
   gap: 15px;
  }
@@ -43,116 +47,66 @@ nav {
   font-family: 'Raleway', sans-serif;
   text-decoration: none;
 }
-#divider-line {
-  width: 0;
-  height: 65% !important;
-  box-shadow: 0 0 0 0.8px rgba(0, 0, 0, 0.07);
-  padding: 0;
-}
-
-#logout-cart-options {
-  display: grid !important;
-  grid-template-columns: 33px 1px 33px;
-  grid-gap: 10px;
-  grid-template-rows: 48px;
-  height: 48px;
-  align-self: flex-end;
-  width: 10%;
-  // justify-content: space-evenly;
-}
-
-// LOGIN BUTTON styling
-#login-button {
-  border: none;
-  font-size: 14px;
-  padding: 9px 15px;
-  border-radius: 24px;
-  width: max-content;
-}
-
-#login-button:hover {
-  background-color: rgb(238, 238, 238);
-}
-
-#login-button:active {
-  outline: none;
-  background-color: rgb(220, 220, 220);
-  cursor: pointer;
-}
-
-#login-button:focus {
-  outline: none;
-}
-
-// REGISTER BUTTON styling
-#register-button {
-  border: 0 none;
-  font-size: 14px;
-  padding: 9px 15px;
-  border-radius: 24px;
-  width: max-content;
-  // height: 36px;
-}
-
-#register-button:hover {
-  border-radius: 24px;
-  background-color: rgb(238, 238, 238);
-}
-
-#register-button:active {
-  outline: none;
-  background-color: rgb(220, 220, 220);
-  cursor: pointer;
-}
-
-#register-button:focus {
-  outline: none;
-}
-
-#logout-button{
-  font-size: 14px;
-  border: none;
-  padding: 5%;
-  margin: 3% 0;
-  width: 100%;
-  text-align: left;
-}
-
-.cart-link{
-  display: flex;
-  font-size: 11px;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  height: 100%;
-  padding: 0;
-}
-
-.cart-image{
-  -webkit-text-stroke-width: thick;
-  font-size: 24px;
-  height: 70%;
-}
-
-.cart-link:hover .cart-image{
-  text-shadow: -0.5px 0 grey, 0 0.5px grey, 0.5px 0 grey, 0 -0.5px grey;
-}
-
-.nav-cart-label {
-  height: 30%;
-}
-
-#logout-button:focus {
-  outline: none;
-}
 
 .navbar-buttons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
+  align-items: stretch;
   margin-left: 20px;
 }
 
 .navbar-buttons button {
   background-color: transparent;
+  margin: auto 0;
+  font-size: 14px;
+}
+
+// sign in and register buttons
+.public-options button {
+  padding: 9px 15px;
+  border-radius: 24px;
+  width: max-content;
+  
+  &:hover {
+    background-color: rgb(238, 238, 238);
+  }
+
+  &:active {
+    background-color: rgb(220, 220, 220);
+  }
+}
+
+
+// sign out and cart options
+.session-options {
+  gap: 15px;
+
+  #profile-button {
+    height: 60%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+#profile-button:hover {
+  background-color: black;
+  border-radius: 100%;
+  
+  .user-show-thumbnail {
+    opacity: 0.7;
+  }
+}
+
+#profile-button.user-show-thumbnail {
+  height: 100%;
+}
+
+.cart-link {
+  padding: 0;
+  -webkit-text-stroke-width: thick;
+  font-size: 24px;
+  margin: auto 0;
+
+  &:hover {
+    text-shadow: -0.5px 0 grey, 0 0.5px grey, 0.5px 0 grey, 0 -0.5px grey;
+  }
 }

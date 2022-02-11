@@ -86,7 +86,7 @@ class NavBar extends React.Component{
           </button>
 
           <div id="logout-dropdown-bar">
-            <button id="logout-button" onClick={this.handleLogout}>
+            <button onClick={this.handleLogout}>
               Sign out
             </button>
           </div>
@@ -95,31 +95,21 @@ class NavBar extends React.Component{
     )
 
     const logoutTools = (
-      <div id="logout-cart-options" className="navbar-buttons">
-        <button id="profile-button" onClick={this.openProfileDropdownModal}>
-          <div className="profile-overlay">
-            <div className="profile-hover">
-              <div className="user-show-thumbnail"></div>
-            </div>
-          </div>
-          <div className="navbar-profile-label">
-            You <div>&#x25BC;</div>
-          </div>
+      <div className="navbar-buttons session-options">
+        <button id="profile-button" onClick={this.openProfileDropdownModal}>   
+          <div className="user-show-thumbnail"></div>
         </button>
 
         { profileModal }
 
-        <div id="divider-line"></div>
-
         <Link className="cart-link" to="/cart">
-          <div className="cart-image">&#x1F6D2;</div>
-          <div className="nav-cart-label">Cart</div>
+          &#x1F6D2;
         </Link>
       </div>
     );
 
     const loginTools = (
-      <div id="login-options" className="navbar-buttons">
+      <div className="navbar-buttons public-options">
        
         <button id="register-button" onClick={this.handleSignup}>
           Register

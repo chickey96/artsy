@@ -36,68 +36,18 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-
-#profile-button {
-  border: none;
-  outline: none;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  background-color: inherit;
-  height: 100%;
-  padding: 0;
-
-  .navbar-profile-label {
-    width: fit-content;
-    display: flex;
-    height: 30%;
-  }
-}
-
-.navbar-profile-label div {
-  color: rgb(190, 190, 190);
-  font-size: 8px;
-  margin-top: 3px;
-  margin-left: 3px;
-}
-
-.profile-overlay {
-  height: 70%;
-  display: flex;
-  align-items: center;
-  margin-left: -5px;
-  width: 33px;
-  justify-content: center;
-}
-
-.profile-hover {
-  border-radius: 100%;
-  height: 29px;
-  width: 29px;
-  .user-show-thumbnail {
-    outline: none;
-    height: 30px;
-    width: 30px;
-  }
-}
-
-#profile-button:hover .profile-hover {
-  background-color: black;
-
-  .user-show-thumbnail {
-    opacity: 0.7;
-  }
-}
-
 .profile-modal .user-show-thumbnail {
   padding: 5%;
   display: flex;
   align-content: center;
+  width: 30px;
 }
 
 .profile-modal button {
   background: inherit;
+  padding: 5%;
+  width: 100%;
+  text-align: left;
 }
 
 #logout-dropdown-bar {
@@ -109,19 +59,18 @@
 }
 
 .user-show-image {
-  background-image: image-url("default-profile-picture.png");
+  background: image-url("default-profile-picture.png") cover;
   width: 150px;
   height: 150px;
-  background-size: cover;
+  // background-size: cover;
 }
 
 .user-show-thumbnail {
   background-image: image-url("default-profile-picture.png");
-  width: 30px;
-  height: 30px;
+  aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
-  border-radius: 100% !important;
+  border-radius: 100%;;
 }
 
 .user-show-greeting {
@@ -167,33 +116,23 @@
 }
 
 #profile-link {
-  text-decoration: none;
-  color: black;
   display: flex;
   align-items: center;
-  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5%;
-  outline: none;
-  cursor: pointer;
-}
-
-#profile-link:hover .modal-username {
-  text-decoration: underline;
+  gap: 5%;
+  
+  &:hover .modal-username {
+    text-decoration: underline;
+  }
 }
 
 .modal-profile-text {
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  height: calc(10% + 50px);
-  padding: 5%;
-  padding-top: 0;
-  width: 80%;
-}
-
-.modal-profile-text div {
-  margin: 8px 0;
+  align-self: stretch;
+  justify-content: space-evenly;
 }
 
 .modal-username {
@@ -203,12 +142,9 @@
 
 .modal-view-profile {
   font-size: 12px;
-  width: max-content;
   border-radius: 3px;
   padding: 2px 8px;
   border: 1px solid #e2e2e2;
-  display: flex;
-  align-items: center;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
