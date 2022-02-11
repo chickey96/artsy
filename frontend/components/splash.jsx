@@ -1,6 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { searchProducts } from '../utils/product_util';
-export default class Splash extends React.Component {
+
+const mapStateToProps = state => {
+  return ({ 
+    currentUser: state.entities.users[state.session.currentUser] 
+  })
+};
+
+class Splash extends React.Component {
 
   constructor(props){
     super(props)
@@ -27,6 +35,11 @@ export default class Splash extends React.Component {
   }
 
   render () {
+    let catchphrase = "Find truly one of a kind gifts for your loved ones.";
+    if(this.props.currentUser){ 
+      catchphrase = `Welcome back, ${this.props.currentUser.username}!`;
+    };
+    
     // TODO: make these dynamic db queries
     const src_urls = [
       'https://s3-us-west-1.amazonaws.com/artsy-dev/lion.jpg',
@@ -46,27 +59,20 @@ export default class Splash extends React.Component {
       "State of the art technology protects your personal information."
     ]
 
-    const checkmarkPath = "M9.057,20.471L2.293,13.707a1,1,0,0,1,1.414-1." +
-                          "414l5.236,5.236,11.3-13.18a1,1,0,1,1,1.518,1.3Z"
-    const checkmark = (
-      <div className="checkmark">
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <path d={checkmarkPath}></path>
-        </svg>
-      </div>
-    );
-
-    const catchphrase = "If it's unconventionally crafted, angsty, " +
-                        "or just plain nice to look at, it's on Artsy."
-
-    const info_box_titles = [ "A resizable community",
-                              "Supporting self-employed creators",
-                              "No stress" ]
+    const info_box_titles = [ "Community growth",
+                              "Direct connections ",
+                              "Stress free" ]
 
     const info_box_blurbs = [
-      "A group as large as you make it, coming together to exchange artwork.",
-      "All orders are shipped directly from the artists themselves.",
-      "Your privacy is our top priority, and we guarantee secure purchases.",
+      "Artsy is marketplace where artists and collectors come together to buy \
+      and sell unique creations. Our growing community promotes \
+      small businesses and eco-friendly manufacturing.",
+      "At Artsy, there's no mass production or centralized storage - all \
+      orders are shipped directly to each buyer by the original creator for \
+      more personalized business interactions",
+      "Your privacy is our team's top priority. We use top of the line \
+      software to guarantee secure transactions and have support staff \
+      available to address any questions or concerns.",
     ]
 
     return (
@@ -85,7 +91,7 @@ export default class Splash extends React.Component {
           { motto_titles.map((title, idx) => (
               <div className="motto" id={`motto${idx+1}`} key={`motto${idx+1}`}>
                 <div className="motto-topline">
-                  {checkmark}
+                  <div className="checkmark"> &#x2713; </div>
                   <div className="motto-title"> {title} </div>
                 </div>
 
@@ -95,18 +101,21 @@ export default class Splash extends React.Component {
         </div>
 
       <div className="info-box">
-        <div className="info-box-text">
+      
           <div className="info-box-header"> What is Artsy? </div>
+          
           { info_box_titles.map((title, idx) => (
               <div className="info-box-segment" key={`info-box-${idx+1}`}>
                 <div className="info-box-title"> {title} </div>
                 <div className="info-box-body"> {info_box_blurbs[idx]} </div>
               </div>
           )) }
-        </div>
+       
       </div>
 
     </div>
     );
   }
 };
+
+export default connect(mapStateToProps, null)(Splash);
