@@ -1,172 +1,134 @@
-.splash-grid{
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 3px;
-  background-color: #FFF;
-  border-bottom: 2px solid rgba(34, 34, 34, 0.15);
-  margin: 0;
-}
-
-.category-li {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.category-li button {
-  outline: none;
-  border: none;
-  height: 99%;
-  background-color: inherit;
-  cursor: pointer;
-}
-
-.category {
-  width: 90px;
-  font-size: 14px;
-  font-weight: 300;
-  padding: 15px;
-}
-
-.category-li:hover{
-  border-bottom: 3px solid #F56400;
-  margin-bottom: -3px;
-}
-
-.splash-pics{
-  background: rgb(238, 238, 238);
-  display: grid;
-  grid-template-rows: 175px 130px 220px;
-  grid-template-columns: 240px 240px 220px;
-  justify-content: center;
-
-  div {
-    cursor: pointer;
-  }
-}
-// row-start/col-start/row-end/col-end
-#img1 {
-  grid-area: 2 / 1 / 4 / 3;
-}
-#img2 {
-  grid-area: 1 / 1 / 2 / 2;
-}
-#img3 {
-  grid-area: 1 / 2 / 2 / 3;
-}
-#img4 {
-  grid-area: 3 / 3 / 4 / 4;
-}
-#img5 {
-  grid-area: 1 / 3 / 3 / 4;
-}
-.splash-img{
-  height: 100%;
-  width: 100%;
-}
-
 .catchphrase {
-  font-size: 24px;
+  background-color: #FDEBD2;
+  font-size: 3rem;
   font-weight: 300;
   letter-spacing: 0.3px;
   text-align: center;
-  margin: 20px 0;
-  cursor: default;
+  padding: 20px 0;
   font-family: "Guardian-EgypTT",serif;
+  position: absolute;
+  width: 100%;
+  height: 150px;
+}
+
+.splash-pics {
+  display: grid;
+  grid-template-columns: repeat(5, 15%);
+  justify-content: space-evenly;
+  margin-top: 100px;
+  grid-gap: 10px;
+  position: relative;
+
+  div {
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: black;
+  }
+
+  #img5 img {
+    object-fit: contain;
+  }
+}
+
+.splash-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: fill;
 }
 
 .front-page-mottos{
-  margin: 50px;
-  display: grid;
-  grid-template-rows: 100px;
-  grid-template-columns: 250px 250px 250px;
-  justify-content: center;
-  grid-gap: 30px;
-  cursor: default;
+  margin: 25px;
+  display: flex;
 }
 
 .motto {
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  margin: 25px;
   align-items: center;
   text-align: center;
-}
+} 
 
-.motto-title{
-  margin: 10px 0;
-  font-size: 16px;
-  padding-left: 10px;
-}
-.motto-topline{
+.motto-topline {
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 }
 
-.motto-body{
-  display: flex;
-  font-size: 14px;
-}
 .checkmark {
-  fill: #E55400;
-  font-size: 12px;
-  height: 24px;
-  width: 24px;
+  color: #E55400;
+  font-size: 2rem;
 }
 
-.footer{
-  width: 100%;
+.motto-title {
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+}
+
+.motto-body {
+  font-size: 1rem;
+}
+
+.info-box {
+  background-color: #FDEBD2;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  padding: 50px;
+  font-weight: 300;
+  gap: 20px 30px;
+}
+
+.info-box-header {
+  font-size: 3rem;
+  flex: 1 1 100%;
+}
+
+.info-box-segment {
+  flex: 1 1 30%;
+}
+
+.info-box-title {
+  font-size: 1.75rem;
+  line-height: 36px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.info-box-body {
+  font-size: 1rem;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+@media screen and (max-device-width: 600px) {
+  .front-page-mottos {
+    flex-direction: column;
+  }
+
+  .info-box {
+    flex-direction: column;
+  }
+}
+
+.footer {
   display: flex;
   height: 35px;
   padding: 25px 0;
+  gap: 10px;
   justify-content: center;
+  align-items: center;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-.footer-logo{
+.footer-logo {
   font-family: 'Raleway', sans-serif;
-  padding: 0 10px;
-  height: 100%;
-  display: flex;
-  font-size: 26px;
+  font-size: 1em;
   color: #E55400;
-  width: fit-content;
 }
 
-.footer-phrase{
-  height: 100%;
+.footer-phrase {
   display: flex;
-  padding: 10px;
-  font-size: 14px;
-  cursor: default;
-}
-
-.info-box{
-  background-color: #FDEBD2;
-  width: 100vw;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: default;
-}
-
-.info-box-text{
-  width: fit-content;
-  text-align: center;
-}
-
-.info-box-header{
-  font-weight: 300;
-  font-size: 32px;
-}
-
-.info-box-segment{
-  padding: 15px 0;
-}
-
-.info-box-title{
-  font-weight: 300;
-  font-size: 24px;
-  padding-bottom: 8px;
 }
