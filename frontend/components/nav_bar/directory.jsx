@@ -37,13 +37,18 @@ class Directory extends React.Component {
   }
 
   render(){
-    const category_names = [ "Drawings", "Paintings", "Flowers", "Mixed Media" ]
+    const category_names = [ 
+      "Drawings", 
+      "Paintings", 
+      "Flowers", 
+      "Mixed Media" 
+    ]
 
     return (
-      <ul className="splash-grid">
+      <ul>
 
         { category_names.map((category, idx) => (
-            <li className="category-li" key={`category-${idx}`}>
+            <li className="directory-category" key={`category-${idx}`}>
               <button onClick={this.activateLink}>
                 <div className="category">
                  {category}
