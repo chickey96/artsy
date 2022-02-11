@@ -1,14 +1,6 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.user-show-container {
-  margin: 50px;
-  min-height: calc(100vh - 300px);
-}
-
-.user-show-profile {
-  display: flex;
-}
 
 .hidden {
   display: none !important;
@@ -26,43 +18,84 @@
 .profile-modal {
   z-index: 1;
   width: 30%;
-  display: flex;
-  flex-direction: column;
   position: fixed;
   right: 3%;
   top: 75px;
+  font-size: 1em;
   border-radius: 3px;
   background-color: #FFF;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    
+  .user-show-thumbnail {
+    width: 4em;
+  }
+
+  button {
+    padding: 5%;
+    width: 100%;
+    text-align: left;
+  }
 }
 
-.profile-modal .user-show-thumbnail {
-  padding: 5%;
+@media screen and (max-device-width: 600px) {
+  .profile-modal {
+    width: 100% !important;
+    font-size: 2em;
+  }
+}
+
+#profile-link {
   display: flex;
-  align-content: center;
-  width: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5%;
+  gap: 5%;
+  
+  &:hover .modal-username {
+    text-decoration: underline;
+  }
 }
 
-.profile-modal button {
-  background: inherit;
-  padding: 5%;
-  width: 100%;
+.modal-view-profile {
+  border-radius: 3px;
+  padding: 2px 8px;
+  border: 1px solid #e2e2e2;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.modal-profile-text {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: space-evenly;
+}
+
+.modal-username {
+  font-weight: 900;
   text-align: left;
 }
 
-#logout-dropdown-bar {
-  display: flex;
+#view-profile-arrow {
+  padding-left: 15px;
+  color: #dcdcdc;
 }
 
 #logout-dropdown-bar:hover button {
   background: rgba(0, 0, 0, 0.05);
 }
 
+.user-show-container {
+  margin: 50px;
+  min-height: calc(100vh - 300px);
+}
+
+.user-show-profile {
+  display: flex;
+}
+
 .user-show-image {
   background: image-url("default-profile-picture.png") cover;
   width: 150px;
   height: 150px;
-  // background-size: cover;
 }
 
 .user-show-thumbnail {
@@ -113,47 +146,4 @@
 
 #edit-profile-text {
   margin: auto 10px;
-}
-
-#profile-link {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5%;
-  gap: 5%;
-  
-  &:hover .modal-username {
-    text-decoration: underline;
-  }
-}
-
-.modal-profile-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  align-self: stretch;
-  justify-content: space-evenly;
-}
-
-.modal-username {
-  font-weight: 900;
-  text-align: left;
-}
-
-.modal-view-profile {
-  font-size: 12px;
-  border-radius: 3px;
-  padding: 2px 8px;
-  border: 1px solid #e2e2e2;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-#view-profile-text {
-  height: min-content;
-}
-
-#view-profile-arrow {
-  padding-left: 15px;
-  color: #dcdcdc;
-  font-size: 14px;
 }
