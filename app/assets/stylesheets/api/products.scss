@@ -3,7 +3,6 @@
 .product-index{
   display: flex;
   min-height: 400px;
-  margin: 50px;
   justify-content: center;
 }
 
@@ -15,22 +14,15 @@
 }
 
 // TO-DO: styling for rotated phone screens
-@media all and (max-device-width: 899px) {
+@media all and (max-device-width: 600px) {
   .product-link {
-    flex-basis: 46% !important;
-    max-width: 50% !important;
-  }
-  .image-box {
-    height: calc(100vh / 5) !important;
+    flex: 1 1 100% !important;
   }
 }
 
 .product-link{
-  text-decoration: none;
   color: black;
-  flex-grow: 1;
-  flex-basis: 29%;
-  max-width: 32%;
+  flex: 1 1 29%;
   padding: 2%;
 }
 
