@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 class Footer extends React.Component {
   render() {
     return(
-    <footer className="footer">
-      <Link to="/" style={{ textDecoration: 'none' }}>
-        <div className="footer-logo">
-          Artsy
+      <footer className="footer">
+        <div></div>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <div className="footer-logo">
+            Artsy
+          </div>
+        </Link>
+        <div className="footer-phrase">
+          Helping you find unique creations.
         </div>
-      </Link>
-      <div className="footer-phrase">
-        Helping you find some things.
-      </div>
-    </footer>
+      </footer>
     )
   }
 }
