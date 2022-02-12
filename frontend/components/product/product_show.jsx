@@ -91,69 +91,57 @@ class ProductShow extends React.Component {
     }
 
     return (
-      <div className="product-show-page">
+      <div className="product-show">
 
-          <div className="product-show">
-            <div className="product-section">
-
-              <div className="show-image">
-                <img src={this.props.product.photoUrl} className="image-show" />
-              </div>
-
-              <div id="show-info">
-                <div id="show-artist"> {this.props.product.artist} </div>
-                <div id="show-title"> {this.props.product.title} </div>
-                <div id="show-price"> ${this.props.product.price}.00 </div>
-                {cartOption}
-
-                <div id="product-description">
-
-                  <div id="general-specs" className="flex-container vertical">
-                    <div className="flex-container horizontal">
-                      <div className="product-data-icon"> &#x1f590; </div>
-                      <p> Handmade </p>
-                    </div>
-
-                    <div className="flex-container horizontal">
-                      <div className="product-data-icon"> &#x1f3f7; </div>
-                      <p>Made to order</p>
-                    </div>
-                  </div>
-
-                  <div className="flex-container vertical">
-                    <p className="title"> Material </p>
-                    <div className="content"> {materials} </div>
-                  </div>
-
-                  <div className="flex-container vertical">
-                    <div className="flex-container vertical">
-                      <p className="title"> Ready to ship in </p>
-                      <div className="content"> {this.randomTime()} </div>
-                    </div>
-
-                    <div className="flex-container vertical">
-                      <p className="title"> From </p>
-                      <div className="content"> {this.randomCity()} </div>
-                    </div>
-
-                    <div className="flex-container vertical">
-                      <p className="title"> Cost to ship </p>
-                      <div className="content"> Free </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
+        <div className="left-side">
+          <img src={this.props.product.photoUrl} />
 
           <div className="comment-index">
             <div className="major-line"></div>
             <div className="comment-header">Comments</div>
-            <CommentIndexContainer/>
+            <CommentIndexContainer />
+          </div>
+        </div>
+
+        <div className="right-side">
+          <div>
+            <div className="show-artist"> {this.props.product.artist} </div>
+            <div className="show-title"> {this.props.product.title} </div>
+            <div className="show-price"> ${this.props.product.price}.00 </div>
+            {cartOption}
           </div>
 
+          <div className="product-specs">
+            <h2 >Highlights</h2>
+
+            <div> 
+              <div> &#x1f590; </div> <p> Handmade </p>
+            </div>
+
+            <div> 
+              <div> &#x1f3f7; </div> <p> Made to order</p>
+            </div>
+          
+            <div> 
+              <div> &#x1f9f6; </div> <p> Materials: {materials} </p>
+            </div>
+          </div>
+          
+          <div className="shipping-specs">
+            <h2> Shipping and return policies </h2>
+
+            <p> Ready to ship in </p>
+            <div> {this.randomTime()} </div>
+          
+            <p> Ships from </p>
+            <div> {this.randomCity()} </div>
+          
+            <p> Cost to ship </p>
+            <div> Free </div>
+          </div>
         </div>
-      </div>
+          
+      </div> 
     )};
   }
 

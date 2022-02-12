@@ -30,9 +30,7 @@ class CommentIndex extends React.Component {
 
     const comments = this.props.comments.map(comment => {
       return (
-        <div className="comment-container" key={`comment-${comment.id}`}>
-          <CommentShowContainer comment={comment} key={`comment-${comment.id}`}/>
-        </div>
+        <CommentShowContainer comment={comment} key={`comment-${comment.id}`}/>
       )
     })
     let content = (
