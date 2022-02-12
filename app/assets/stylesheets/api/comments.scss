@@ -42,21 +42,8 @@
   resize: unset;
 }
 
-.add-button {
-  border-radius: 96px;
-  border: 2px solid #222222;;
-  outline: none;
-  margin: 3px;
-  padding: 10px 30px;
-  font-weight: bold;
-  font-size: 1rem;
+.add-container > button {
   width: fit-content;
-}
-
-.add-button:hover {
-  background-color: black;
-  border-color: black;
-  color: white;
 }
 
 .comment-header {

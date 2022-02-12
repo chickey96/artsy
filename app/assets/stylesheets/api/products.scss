@@ -102,39 +102,6 @@
   font-size: 28px;
 }
 
-.product-show .right-side button {
-  border-radius: 96px;
-  border: 2px solid #222222;;
-  outline: none;
-  margin: 3px;
-  padding: 15px;
-  font-weight: bold;
-  font-size: 1rem;
-
-  &:hover {
-    margin: 1px;
-    padding: 17px;
-  }
-}
-
-.cart-add-button {
-  color: white;
-  background-color: black;
-  
-  &:hover{
-    background-color: #000000c7;
-  }
-}
-
-.cart-visit-button {
-  color: black;
-  background-color: white;
-  
-  &:hover {
-    background-color: #FFF;
-  }
-}
-
 .product-show .right-side > div {
   margin-bottom: 50px;
   display: flex;

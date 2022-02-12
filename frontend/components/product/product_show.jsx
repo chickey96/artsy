@@ -51,7 +51,6 @@ class ProductShow extends React.Component {
 
   randomTime(){
     const first_num = this.getRandomNumber(5) + 1;
-
     return `${first_num}-${first_num + 1} business days`;
   }
 
@@ -61,7 +60,6 @@ class ProductShow extends React.Component {
     const cities = geography_helper.getCities('US', random_state);
 
     if (cities.length == 0) return `${random_state}`;
-
     const random_city_idx = this.getRandomNumber(cities.length);
 
     return `${cities[random_city_idx]}, ${random_state}`;
@@ -74,20 +72,17 @@ class ProductShow extends React.Component {
     let cartOption = (<div></div>);
 
     if(this.props.currentUser){
-      if(!this.isInCart()){
+      if (this.isInCart()) { 
         cartOption = (
-          <button className="cart-add-button" onClick={this.addCart}>
-            Add To Cart
-          </button>
-        )
-      }
-      else {
-        cartOption = (
-          <button className="cart-visit-button" onClick={this.visitCart}>
+          <button className="white button large expand" onClick={this.visitCart}>
             View in Cart
           </button>
-        )
-      }
+      )} else { 
+        cartOption = (
+          <button className="black button large expand" onClick={this.addCart}>
+            Add To Cart
+          </button>
+      )}
     }
 
     return (
@@ -95,7 +90,6 @@ class ProductShow extends React.Component {
 
         <div className="left-side">
           <img src={this.props.product.photoUrl} />
-
           <div className="comment-index">
             <div className="major-line"></div>
             <div className="comment-header">Comments</div>
@@ -113,29 +107,23 @@ class ProductShow extends React.Component {
 
           <div className="product-specs">
             <h2 >Highlights</h2>
-
             <div> 
-              <div> &#x1f590; </div> <p> Handmade </p>
+              <div> &#x1f590; </div> <p> Handmade </p> 
             </div>
-
             <div> 
-              <div> &#x1f3f7; </div> <p> Made to order</p>
+              <div> &#x1f3f7; </div>  <p> Made to order</p> 
             </div>
-          
             <div> 
-              <div> &#x1f9f6; </div> <p> Materials: {materials} </p>
+              <div> &#x1f9f6; </div> <p> Materials: {materials} </p> 
             </div>
           </div>
           
           <div className="shipping-specs">
             <h2> Shipping and return policies </h2>
-
             <p> Ready to ship in </p>
             <div> {this.randomTime()} </div>
-          
             <p> Ships from </p>
             <div> {this.randomCity()} </div>
-          
             <p> Cost to ship </p>
             <div> Free </div>
           </div>

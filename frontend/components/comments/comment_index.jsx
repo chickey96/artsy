@@ -41,7 +41,7 @@ class CommentIndex extends React.Component {
           </div>
           <textarea className="add-input" type="text" value={this.state.body}
             onChange={this.updateComment()} />
-          <button className="add-button" onClick={this.addComment}>
+          <button className="white button small expand" onClick={this.addComment}>
             Submit
           </button>
         </div>
