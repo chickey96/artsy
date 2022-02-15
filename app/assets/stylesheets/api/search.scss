@@ -1,14 +1,10 @@
 #search-form {
   display: flex;
   flex: 1 1 100%;
-  border: 1px solid rgb(190, 190, 190);
+  border: 2px solid black;
   border-radius: 96px;
-  background-color: rgb(238, 238, 238);
+  background-color: #2222220d;;
   justify-content: space-between;
-
-  &:hover {
-    border-color: rgba(34, 34, 34, 0.5);
-  }
 
   &:focus-within {
     border-color: black;
@@ -30,19 +26,15 @@
   color: white;
 }
 
-.search-input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
 .search-button {
   font-size: 2rem;
   padding: 0.25rem 1rem;
   display: inline-flex;
   outline: none;
-  border-radius: 0 96px 96px 0
+  border-radius: 0 96px 96px 0;
+  background-color: transparent;
 }
 
 .search-button:hover {
-  background-color: rgb(220, 220, 220);
-  border-left: 1px solid rgb(190, 190, 190);
+  background-color: inherit;
 }
