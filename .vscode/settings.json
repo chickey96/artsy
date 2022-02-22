@@ -1,5 +1,7 @@
 {
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
 }

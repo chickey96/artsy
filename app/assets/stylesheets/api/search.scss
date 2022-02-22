@@ -5,6 +5,7 @@
   border-radius: 96px;
   background-color: #2222220d;;
   justify-content: space-between;
+  height: 48px;
 
   &:focus-within {
     border-color: black;
@@ -33,6 +34,11 @@
   outline: none;
   border-radius: 0 96px 96px 0;
   background-color: transparent;
+
+  svg {
+    height: 100%;
+    margin: auto;
+  }
 }
 
 .search-button:hover {

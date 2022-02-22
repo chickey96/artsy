@@ -35,7 +35,7 @@ class Splash extends React.Component {
   }
 
   render () {
-    let catchphrase = "Find truly one of a kind gifts for your loved ones.";
+    let catchphrase = "Explore unique creations from independent artists";
     if(this.props.currentUser){ 
       catchphrase = `Welcome back, ${this.props.currentUser.username}!`;
     };
@@ -43,10 +43,9 @@ class Splash extends React.Component {
     // TODO: make these dynamic db queries
     const src_urls = [
       'https://s3-us-west-1.amazonaws.com/artsy-dev/lion.jpg',
-      'https://s3-us-west-1.amazonaws.com/artsy-dev/flowers10.jpg',
       'https://s3-us-west-1.amazonaws.com/artsy-dev/bang.jpg',
       'https://s3-us-west-1.amazonaws.com/artsy-dev/flowers24.jpg',
-      'https://s3-us-west-1.amazonaws.com/artsy-dev/frank.jpg',
+      'https://s3-us-west-1.amazonaws.com/artsy-dev/lucy.jpg',
     ]
 
     const motto_titles = [  "Totally unique",
@@ -80,11 +79,11 @@ class Splash extends React.Component {
         <div className="catchphrase"> {catchphrase} </div>
 
         <div className="splash-pics">
-          { src_urls.map((url, idx) => (
-              <div key={`img${idx+1}`} id={`img${idx+1}`} onClick={this.productId}>
-                <img src={url} className="splash-img"/>
-              </div>
-          )) }
+          {src_urls.map((url, idx) => (
+            <div key={`img${idx + 1}`} id={`img${idx + 1}`} onClick={this.productId}>
+              <img src={url} className="splash-img" />
+            </div>
+          ))}
         </div>
 
         <div className="front-page-mottos">
