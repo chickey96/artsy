@@ -1,13 +1,20 @@
 class Api::ProductsController < ApplicationController
 
+  before_action :require_login, only:[ :new, :create ]
+
   def new 
 
   end
 
   def create
     @product = Product.new(product_params)
-    
-  
+    @product.artist_id = current_user.id 
+
+    if @product.save 
+      render 'api/products/show'
+    else
+      render json: @product.errors.full_messages, status: 401
+    end
   end
 
   def show
