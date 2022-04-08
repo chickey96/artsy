@@ -29,11 +29,19 @@ export const fetchProducts = category => dispatch => (
 );
 
 export const searchProducts = query => dispatch => {
-  return(
+  return (
   ProductAPIUtil.searchProducts(query)
     .then(products => dispatch(receiveProducts(products)))
   )};
 
 export const clearProducts = () => dispatch => {
   return (dispatch(wipeProducts()));
+};
+
+export const createProduct = product => dispatch => {
+  return (
+    ProductAPIUtil.createProduct(product)
+      .then(product => dispatch(receiveProduct(product)),
+      errors => dispatch(receiveProductErrors(errors)))
+  )
 };
