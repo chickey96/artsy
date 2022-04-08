@@ -2,6 +2,7 @@ import * as ProductAPIUtil from '../utils/product_util';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';
+export const RECEIVE_PRODUCT_ERRORS = 'RECEIVE_PRODUCT_ERRORS';
 
 const receiveProduct = product => ({
   type: RECEIVE_PRODUCT,
@@ -17,6 +18,11 @@ const wipeProducts = () => {
   const type = CLEAR_PRODUCTS;
   return({type});
 }
+
+const receiveProductErrors = errors => ({
+  type: RECEIVE_PRODUCT_ERRORS,
+  errors 
+});
 
 export const fetchProduct = id => dispatch => (
   ProductAPIUtil.fetchProduct(id)
