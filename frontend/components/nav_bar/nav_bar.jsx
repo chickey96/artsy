@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchContainer from '../search/searchContainer'
+import { RiLogoutBoxLine } from 'react-icons/ri'
 
 class NavBar extends React.Component{
   constructor(props){
@@ -71,8 +72,8 @@ class NavBar extends React.Component{
       <div className="modal-overlay hidden" onMouseDown={this.hideModal}>
         <div className="profile-modal hidden">
 
-          <button id="profile-link" onClick={this.toUserShow}>
-            <div className="user-show-thumbnail"></div>
+          <button className="dropdown-option"  onClick={this.toUserShow}>
+            <div className="user-show-thumbnail icon"></div>
 
             <div className="modal-profile-text">
               <div className="modal-username">
@@ -85,12 +86,13 @@ class NavBar extends React.Component{
             </div>
           </button>
 
-          <Link to="/listing" onClick={this.closeProfileModal}>
-            <div>&#x1f3f7;</div>
+          <Link to="/listing" className="dropdown-option" 
+                onClick={this.closeProfileModal}>
+            <div className="icon"><RiLogoutBoxLine/></div>
             <div>Sell on Artsy</div>
           </Link>
 
-          <div id="logout-dropdown-bar">
+          <div className="dropdown-option" id="logout-dropdown-bar">
             <button onClick={this.handleLogout}>
               Sign out
             </button>
