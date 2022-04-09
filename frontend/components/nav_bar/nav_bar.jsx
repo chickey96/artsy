@@ -91,7 +91,7 @@ class NavBar extends React.Component{
           </Link>
 
           <div id="logout-dropdown-bar">
-            <button id="logout-button" onClick={this.handleLogout}>
+            <button onClick={this.handleLogout}>
               Sign out
             </button>
           </div>
@@ -100,70 +100,46 @@ class NavBar extends React.Component{
     )
 
     const accountTools = (
-      <div className="options-bar-el" id="logout-cart-options">
-        <button id="profile-button" onClick={this.openProfileDropdownModal}>
-          <div className="profile-overlay">
-            <div className="profile-hover">
-              <div className="user-show-thumbnail"></div>
-            </div>
-          </div>
-          <div className="navbar-profile-label">
-            You <div>&#x25BC;</div>
-          </div>
+      <div className="navbar-buttons session-options">
+        <button id="profile-button" onClick={this.openProfileDropdownModal}>   
+          <div className="user-show-thumbnail"></div>
         </button>
 
         { profileModal }
 
-        <div id="divider-line"></div>
-
         <Link className="cart-link" to="/cart">
-          <div className="cart-image">&#x1F6D2;</div>
-          <div className="nav-cart-label">Cart</div>
+          &#x1F6D2;
         </Link>
       </div>
     );
 
     const loginTools = (
-      <div className="options-bar-el" id="login-options">
-        <div id="register-div">
-          <button className="options-bar-item"
-                  id="register-button"
-                  onClick={this.handleSignup}>
-            Register
-          </button>
-        </div>
+      <div className="navbar-buttons public-options">
+       
+        <button id="register-button" onClick={this.handleSignup}>
+          Register
+        </button>
 
-        <div id="login-div">
-          <button className="options-bar-item"
-                  id="login-button"
-                  onClick={this.handleLogin}>
-            Sign in
-          </button>
-        </div>
+        <button id="login-button" onClick={this.handleLogin}>
+          Sign in
+        </button>
+
       </div>
     );
 
     const relevantButtons = (this.props.currentUser ? accountTools : loginTools);
 
     return (
-      <nav className="nav-bar">
+      <nav>
 
-        <div className="options-bar">
+        <Link to="/" className="logo">
+            Artsy
+        </Link>
 
-          <div className="options-bar-el" id="logo-search">
-            <Link to="/" className="logo-link">
-              <div className="options-bar-item" id="logo">
-                Artsy
-              </div>
-            </Link>
+        <SearchContainer/>
 
-            <div id="search">
-              <SearchContainer/>
-            </div>
-
-          </div>
-          {relevantButtons}
-        </div>
+        {relevantButtons}
+    
       </nav>
     );
   }

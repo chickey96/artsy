@@ -30,9 +30,7 @@ class CommentIndex extends React.Component {
 
     const comments = this.props.comments.map(comment => {
       return (
-        <div className="comment-container" key={`comment-${comment.id}`}>
-          <CommentShowContainer comment={comment} key={`comment-${comment.id}`}/>
-        </div>
+        <CommentShowContainer comment={comment} key={`comment-${comment.id}`}/>
       )
     })
     let content = (
@@ -43,7 +41,7 @@ class CommentIndex extends React.Component {
           </div>
           <textarea className="add-input" type="text" value={this.state.body}
             onChange={this.updateComment()} />
-          <button className="add-button" onClick={this.addComment}>
+          <button className="white button small expand" onClick={this.addComment}>
             Submit
           </button>
         </div>

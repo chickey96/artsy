@@ -76,12 +76,14 @@ class CommentShow extends React.Component {
 
     return(
       <div className="comment-container">
-        <div className="profile-pic"> &#x1F464; </div>
-        <div className="comment-content">
+        <div className="author-info">
+          <div className="profile-pic"> &#x1F464; </div>
           <div className="comment-author">
-              {this.props.comment.author}
+            {this.props.comment.author}
           </div>
+        </div>
 
+        <div className="comment-content">
           <textarea className="comment-body"
           disabled={this.state.inputDisabled}
           onChange={this.update()}

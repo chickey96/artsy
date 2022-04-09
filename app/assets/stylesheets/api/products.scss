@@ -3,7 +3,6 @@
 .product-index{
   display: flex;
   min-height: 400px;
-  margin: 50px;
   justify-content: center;
 }
 
@@ -15,22 +14,15 @@
 }
 
 // TO-DO: styling for rotated phone screens
-@media all and (max-device-width: 899px) {
+@media all and (max-device-width: 600px) {
   .product-link {
-    flex-basis: 46% !important;
-    max-width: 50% !important;
-  }
-  .image-box {
-    height: calc(100vh / 5) !important;
+    flex: 1 1 100% !important;
   }
 }
 
 .product-link{
-  text-decoration: none;
   color: black;
-  flex-grow: 1;
-  flex-basis: 29%;
-  max-width: 32%;
+  flex: 1 1 29%;
   padding: 2%;
 }
 
@@ -68,159 +60,78 @@
 // ----------------------------------
 // USER SHOW PAGE styling
 
-.product-show-page {
-  min-height: calc(100vh - 230px);
-  // padding-top: 30px;
+.product-show {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 50px;
 }
 
-.product-show{
+.product-show .left-side {
   display: flex;
   flex-direction: column;
-  margin: 5%;
-  align-content: center;
-  cursor: default;
+
+  flex: 3 1 auto;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
-.product-section{
-  display: flex;
-  align-items: center;
+.right-side {
+  flex: 1 1 auto;
+
+  h2 { 
+    font-size: 1rem; 
+  }
 }
 
-.show-image{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 50%;
-  height: auto;
-}
-
-.image-show{
-  width: 100%;
-  object-fit: contain;
-}
-
-.image-placeholder{
-  display: flex;
-  width: 100%;
-  height: 80%;
-  justify-content: center;
-}
-
-#show-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 5%;
-  width: 50%;
-  align-self: flex-start;
-}
-
-#show-info div {
-  display: flex;
-}
-
-#show-artist{
+.show-artist{
   font-weight: 400;
-  color: #333;
-  font-size: 14px;
 }
 
-#show-title{
+.show-title{
   font-family: "Guardian-EgypTT",serif;
   font-weight: 300;
-  color: #222;
   font-size: 26px;
-  letter-spacing: 0.35px;
 }
 
-#show-price{
-  width: fit-content;
-  font-weight: 500;
-  color: #333;
+.show-price {
+  font-weight: 700;
   font-size: 28px;
-  line-height: 36px;
 }
 
-.product-show button {
-  border-radius: 96px;
-  font-weight: 500;
-  border: 2px solid #222222;;
-  outline: none;
-  margin: 10px 0;
-  font-size: 16px;
-  padding: 10px 50px;
-  max-width: 98%;
-  min-height: fit-content;
-  min-width: fit-content;
-}
-
-.cart-add-button {
-  color: black;
-}
-
-.cart-add-button:hover{
-  background-color: black;
-  color: white;
-  cursor: pointer;
-}
-
-.cart-visit-button:hover {
-  background-color: #595959;
-  color: white;
-}
-
-.cart-visit-button {
-  color: white;
-  background-color: black;
-  cursor: pointer;
-}
-
-
-#product-description{
+.product-show .right-side > div {
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  width: 100%;
   font-weight: 300;
-  line-height: 18px;
-  font-size: 13px;
+  gap: 10px;
 }
 
-#general-specs {
-  margin-bottom: 15px;
+.product-specs p {
+  font-size: 1rem;
+  margin: 0;
 }
 
-.flex-container {
-  display: flex;
-}
-
-.horizontal {
-  align-items: center;
-}
-
-.vertical {
-  flex-direction: column;
-}
-
-.product-data-icon {
+.product-specs > div {
+  display: flex; 
   font-size: 25px;
-  width: 10%;
   color: transparent;
   text-shadow: 0 0 0 black;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  align-items: center;
 }
 
-#product-description .title {
-  margin: 0;
-}
-
-#product-description .content {
+.shipping-specs div {
   font-family: "Guardian-EgypTT",serif;
-  letter-spacing: 0.35px;
   font-size: 26px;
-  margin: 0;
-  padding-top: 6px;
-  padding-bottom: 18px;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
 }
 
-#shipping-container {
-  justify-content: space-between;
+.shipping-specs p {
+  margin: 0;
 }

@@ -1,14 +1,6 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.user-show-container {
-  margin: 50px;
-  min-height: calc(100vh - 300px);
-}
-
-.user-show-profile {
-  display: flex;
-}
 
 .hidden {
   display: none !important;
@@ -26,102 +18,92 @@
 .profile-modal {
   z-index: 1;
   width: 30%;
-  display: flex;
-  flex-direction: column;
   position: fixed;
   right: 3%;
   top: 75px;
+  font-size: 1em;
   border-radius: 3px;
   background-color: #FFF;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    
+  .user-show-thumbnail {
+    width: 4em;
+  }
+
+  button {
+    padding: 5%;
+    width: 100%;
+    text-align: left;
+  }
 }
 
+@media screen and (max-device-width: 600px) {
+  .profile-modal {
+    width: 100% !important;
+    font-size: 2em;
+  }
+}
 
-#profile-button {
-  border: none;
-  outline: none;
-  align-items: center;
+#profile-link {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5%;
+  gap: 5%;
+  
+  &:hover .modal-username {
+    text-decoration: underline;
+  }
+}
+
+.modal-view-profile {
+  border-radius: 3px;
+  padding: 2px 8px;
+  border: 1px solid #e2e2e2;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.modal-profile-text {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  background-color: inherit;
-  height: 100%;
-  padding: 0;
-
-  .navbar-profile-label {
-    width: fit-content;
-    display: flex;
-    height: 30%;
-  }
+  align-self: stretch;
+  justify-content: space-evenly;
 }
 
-.navbar-profile-label div {
-  color: rgb(190, 190, 190);
-  font-size: 8px;
-  margin-top: 3px;
-  margin-left: 3px;
+.modal-username {
+  font-weight: 900;
+  text-align: left;
 }
 
-.profile-overlay {
-  height: 70%;
-  display: flex;
-  align-items: center;
-  margin-left: -5px;
-  width: 33px;
-  justify-content: center;
-}
-
-.profile-hover {
-  border-radius: 100%;
-  height: 29px;
-  width: 29px;
-  .user-show-thumbnail {
-    outline: none;
-    height: 30px;
-    width: 30px;
-  }
-}
-
-#profile-button:hover .profile-hover {
-  background-color: black;
-
-  .user-show-thumbnail {
-    opacity: 0.7;
-  }
-}
-
-.profile-modal .user-show-thumbnail {
-  padding: 5%;
-  display: flex;
-  align-content: center;
-}
-
-.profile-modal button {
-  background: inherit;
-}
-
-#logout-dropdown-bar {
-  display: flex;
+#view-profile-arrow {
+  padding-left: 15px;
+  color: #dcdcdc;
 }
 
 #logout-dropdown-bar:hover button {
   background: rgba(0, 0, 0, 0.05);
 }
 
+.user-show-container {
+  margin: 50px;
+  min-height: calc(100vh - 300px);
+}
+
+.user-show-profile {
+  display: flex;
+}
+
 .user-show-image {
-  background-image: image-url("default-profile-picture.png");
+  background: image-url("default-profile-picture.png") cover;
   width: 150px;
   height: 150px;
-  background-size: cover;
 }
 
 .user-show-thumbnail {
   background-image: image-url("default-profile-picture.png");
-  width: 30px;
-  height: 30px;
+  aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
-  border-radius: 100% !important;
+  border-radius: 100%;;
 }
 
 .user-show-greeting {
@@ -164,60 +146,4 @@
 
 #edit-profile-text {
   margin: auto 10px;
-}
-
-#profile-link {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5%;
-  outline: none;
-  cursor: pointer;
-}
-
-#profile-link:hover .modal-username {
-  text-decoration: underline;
-}
-
-.modal-profile-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  height: calc(10% + 50px);
-  padding: 5%;
-  padding-top: 0;
-  width: 80%;
-}
-
-.modal-profile-text div {
-  margin: 8px 0;
-}
-
-.modal-username {
-  font-weight: 900;
-  text-align: left;
-}
-
-.modal-view-profile {
-  font-size: 12px;
-  width: max-content;
-  border-radius: 3px;
-  padding: 2px 8px;
-  border: 1px solid #e2e2e2;
-  display: flex;
-  align-items: center;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-#view-profile-text {
-  height: min-content;
-}
-
-#view-profile-arrow {
-  padding-left: 15px;
-  color: #dcdcdc;
-  font-size: 14px;
 }

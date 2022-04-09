@@ -1,16 +1,16 @@
-.modal-background{
+.modal-background {
   display: flex;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(34, 34, 34, 0.65);
   position: fixed;
   width: 100%;
   top: 0;
   bottom: 0;
   justify-content: center;
   overflow: scroll;
-  padding-top: 30px;
+  padding-top: 10%;
   cursor: pointer;
 }
-.modal-foreground{
+.modal-foreground {
   position: absolute;
   display: flex;
   margin-bottom: 0;
@@ -19,14 +19,19 @@
   max-width: 380px;
 }
 
-.session-form{
+.session-form {
   width: 100%;
+
+  .button.large {
+    width: -webkit-fill-available;
+    line-height: 1.4;
+  }
 }
 
-.modal-form{
+.modal-form {
   padding: 15px;
   background: white;
-  border-radius: 3px;
+  border-radius: 24px;
   line-height: 1.4;
   cursor: default;
   width: 100%;
@@ -35,7 +40,7 @@
   margin-bottom: 40px;
 }
 
-.login-form{
+.login-form {
   height: 100%;
   width: 100%;
   position: relative;
@@ -49,39 +54,17 @@
   justify-content: space-between;
 }
 
-#greeting{
+#greeting {
   font-size: 26px;
   font-weight: 900;
   margin: 0;
 }
 
-.topline-session-modal button {
-  border: none;
-  border-radius: 24px;
-  margin: 2px;
-  background: none;
-}
-
-.topline-session-modal button:hover {
-  margin: 1px;
-
-  .alt-session-link {
-    border: 2.5px solid black;
-    padding: 9px 15px !important;
-    margin: 3px !important;
-  }
-}
-
-.alt-session-link {
-  text-decoration: none;
+.topline-session-modal a {
   color: black;
-  padding: 9px 15px;
-  margin: 4px;
-  border: 1.5px solid black;
-  border-radius: 24px;
 }
 
-#tagline{
+#tagline {
   margin-top: 5px;
   margin-bottom: 25px;
   font-size: 14px;
@@ -92,11 +75,11 @@
   font-size: 14px;
 }
 
-#username-input{
+#username-input {
   margin-top: 6px;
 }
 
-.modal-input{
+.modal-input {
   margin-bottom: 0;
   height: 48px;
   font-size: 16px;
@@ -115,7 +98,7 @@
   border: 1px solid #595959;
 }
 
-.input-error{
+.input-error {
   border: 1px solid red !important;
   margin-bottom: 0;
   height: 48px;
@@ -133,42 +116,25 @@
   border: 1px solid #595959;
 }
 
-.errors{
+.errors {
   color: red;
   list-style: none;
   padding-left: 0;
 }
 
-.err-div{
+.err-div {
   padding-top: 0;
   height: 20px;
   margin-bottom: 20px;
   padding-left: 0;
 }
 
-.login-err-div{
+.login-err-div {
   height: 15px;
   margin-bottom: 10px;
 }
 
-.modal-submit{
-  border-radius: 4px;
-  background-color: #222222;
-  color: white;
-  margin: 16px 0px;
-  height: 48px;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 28px;
-  font-weight: bold;
-}
-
-.modal-submit:hover{
-  background-color: #3c3c3c;
-  cursor: pointer;
-}
-
-.modal-divider{
+.modal-divider {
   text-align: center;
   border-bottom: 1px solid #E1E3DF;
   margin-bottom: 24px;
@@ -176,35 +142,9 @@
   line-height: 0;
 }
 
-#or-option{
+#or-option {
   color: #595959;
   text-align: center;
   background-color: white;
   padding: 12px;
-}
-
-#demo-signin{
-  border-radius: 4px;
-  border-color: #E1E3DF;
-  margin: 16px 0px;
-  height: 48px;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 28px;
-  font-weight: bold;
-  background-color: #FFF;
-  color: #222;
-}
-
-#demo-signin:hover{
-  background-color: #f9f9f7;
-  border-color: rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-#demo-signin:focus{
-  outline: none;
-}
-.modal-submit:focus{
-  outline: none;
 }

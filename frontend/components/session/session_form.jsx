@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
 
     const err = this.filterErrors(keywords);
 
-    if(err) return 'input-error';
+    if (err) return 'input-error';
 
     return 'modal-input';
   }
@@ -98,9 +98,7 @@ class SessionForm extends React.Component {
 
   renderErrors(errorType) {
     return (
-      <div className="errors">
-        {this.filterErrors(errorType)}
-      </div>
+      <div className="errors"> {this.filterErrors(errorType)} </div>
     );
   }
 
@@ -125,17 +123,15 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className='modal-background' onClick={this.exit}>
-      {/* stop propagation prevents modal from closing when user clicks inside */}
+      {/* stop propagation prevents modal closing if user clicks inside */}
         <div className='modal-foreground' onClick={e => e.stopPropagation()}>
           <div className='session-form'>
             <form onSubmit={this.handleSubmit} className="modal-form">
               <div className="login-form">
                 <div className="topline-session-modal">
                   <h1 id="greeting"> {this.props.greeting} </h1>
-                  <button>
-                    <Link to={this.altPath}
-                          onClick={this.switchSession}
-                          className="alt-session-link">
+                  <button className="white button small expand">
+                    <Link to={this.altPath} onClick={this.switchSession}     >
                       {this.altAction}
                     </Link>
                   </button>
@@ -166,7 +162,7 @@ class SessionForm extends React.Component {
                   {this.renderErrors(['Password', 'credentials'])}
                 </div>
 
-                <input className="modal-submit"
+                <input className="black button large expand"
                        type="submit"
                        value={this.props.formType}/>
 
@@ -174,7 +170,8 @@ class SessionForm extends React.Component {
                   <span id="or-option"> OR </span>
                 </div>
 
-                <button onClick={this.loginDemoUser} id="demo-signin">
+                <button onClick={this.loginDemoUser} 
+                        className="white button large expand">
                   Demo
                 </button>
               </div>
