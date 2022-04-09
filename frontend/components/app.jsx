@@ -17,6 +17,7 @@ import userEditContainer from './users/user_edit_container';
 import productIndexContainer from './product/product-index-container';
 import searchProductIndexContainer from './search/searchProductIndexContainer';
 import productShowContainer from './product/product_show_container';
+import productForm from './product/product_form';
 // cart components
 import CartIndexContainer from './carts/cart_index_container';
 import Checkout from './carts/checkout';
@@ -36,6 +37,7 @@ const App = () => (
         <Route path="/product/:productId" component={productShowContainer} />
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
+        <AuthRoute path="/listing" component={productForm} />
         <Route path="/" component={Splash}/>
         <Redirect to="/" />
       </Switch>
