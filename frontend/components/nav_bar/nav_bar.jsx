@@ -85,6 +85,11 @@ class NavBar extends React.Component{
             </div>
           </button>
 
+          <Link to="/listing" onClick={this.closeProfileModal}>
+            <div>&#x1f3f7;</div>
+            <div>Sell on Artsy</div>
+          </Link>
+
           <div id="logout-dropdown-bar">
             <button id="logout-button" onClick={this.handleLogout}>
               Sign out
@@ -94,7 +99,7 @@ class NavBar extends React.Component{
       </div>
     )
 
-    const logoutTools = (
+    const accountTools = (
       <div className="options-bar-el" id="logout-cart-options">
         <button id="profile-button" onClick={this.openProfileDropdownModal}>
           <div className="profile-overlay">
@@ -138,7 +143,7 @@ class NavBar extends React.Component{
       </div>
     );
 
-    const relevantButtons = (this.props.currentUser ? logoutTools : loginTools);
+    const relevantButtons = (this.props.currentUser ? accountTools : loginTools);
 
     return (
       <nav className="nav-bar">
