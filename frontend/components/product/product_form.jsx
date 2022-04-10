@@ -8,29 +8,46 @@ class ProductForm extends React.Component {
 
     render () {
         return (
-            <form>
-                <h1>Add a New Listing</h1>
-                <h2>Photos</h2>
+            <div className="product-form-container">
+                <div className="heading">Add a New Listing</div>
+                <form className="product-form"> 
+                    <div className="box">
+                        <div className="subheading">Photo</div>
+                    </div>
 
-                <h2>Listing details</h2>
-                <label> Title
-                    <input type="text" />
-                </label>
+                    <div className="box">
+                        <div className="subheading">Listing details</div>
+                        <label className="product-form-item"> 
+                            <div>Title</div>
+                            <input type="text" />
+                        </label>
 
-                <label> Category 
-                    <input type="text" />
-                </label>
+                        <label className="product-form-item">  
+                            <div>Category</div>
+                            <select>                        
+                                <option value="mixed-media">mixed-media</option>
+                                <option value="drawing">drawing</option>
+                                <option value="painting">painting</option>
+                                <option value="flowers">flowers</option>
+                            </select>
+                        </label>
 
-                <label> Materials 
-                    <input type="text" />
-                </label>
+                        <label className="product-form-item"> 
+                            <div>Materials</div>
+                            <input type="text" />
+                        </label>
+                    </div>
 
-                <h2>Inventory and Pricing</h2>
-
-                <label> Price 
-                    <input type="text" />
-                </label>
-            </form>
+                    <div className="box">
+                        <div className="subheading">Pricing</div>
+                        <label className="product-form-item"> 
+                            <div>Price</div> 
+                            <input type="text" />
+                        </label>
+                    </div>
+                    <button className="button black small">Save</button>
+                </form>
+            </div>
         )
     }
     
