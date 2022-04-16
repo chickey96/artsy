@@ -88,7 +88,7 @@ class ProductForm extends React.Component {
                     <li className="product-listing-item">
                         <div>Materials</div>
                         <input type="text" 
-                                value={this.state.title}
+                                value={this.state.materials}
                                 onChange={this.update('materials')}/>
                     </li>
                     <div className="err-div"></div>
@@ -99,7 +99,7 @@ class ProductForm extends React.Component {
                     <li className="product-listing-item"> 
                         <div>Price</div> 
                         <div>$<input type="text" 
-                                   value={this.state.title}
+                                   value={this.state.price}
                                    onChange={this.update('price')} />.00</div>
                         
                     </li>
