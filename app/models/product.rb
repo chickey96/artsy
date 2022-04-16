@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id         :bigint           not null, primary key
+#  title      :string           not null
+#  artist_id  :integer          not null
+#  price      :float            not null
+#  media_type :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Product < ApplicationRecord
   validates :title, :artist_id, :price, :media_type, presence: true
 
