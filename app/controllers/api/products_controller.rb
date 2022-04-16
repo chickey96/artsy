@@ -9,7 +9,7 @@ class Api::ProductsController < ApplicationController
     if @product.save 
       render 'api/products/show'
     else
-      render json: @product.errors.full_messages, status: 401
+      render json: @product.errors, status: 401 
     end
   end
 

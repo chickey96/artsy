@@ -53,6 +53,6 @@ export const createProduct = product => dispatch => {
   return (
     ProductAPIUtil.createProduct(product)
       .then(product => dispatch(receiveProduct(product)),
-      errors => dispatch(receiveProductErrors(errors)))
+      errors => dispatch(receiveProductErrors(errors.responseJSON)))
   )
 };
