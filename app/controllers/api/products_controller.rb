@@ -1,10 +1,6 @@
 class Api::ProductsController < ApplicationController
 
-  before_action :require_login, only:[ :new, :create ]
-
-  def new 
-
-  end
+  before_action :require_login, only:[:create ]
 
   def create
     @product = Product.new(product_params)

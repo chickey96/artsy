@@ -4,8 +4,8 @@ import ProductForm from './product_form';
 
 const mapStateToProps = (state) => {
     const currentUser = state.session.currentUser;
-    
-    return { currentUser};
+    const errors = state.errors.products;
+    return { currentUser, errors };
 };
 
 const mapDispatchToProps = dispatch => ({
