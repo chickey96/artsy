@@ -3,9 +3,9 @@ import { createProduct, clearProductErrors } from '../../actions/product_action'
 import ProductForm from './product_form';
 
 const mapStateToProps = (state) => {
-    const currentUser = state.session.currentUser;
+    const currentUserId = state.session.currentUserId;
     const errors = state.errors.products;
-    return { currentUser, errors };
+    return { currentUserId, errors };
 };
 
 const mapDispatchToProps = dispatch => ({

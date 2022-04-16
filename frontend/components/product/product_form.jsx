@@ -6,7 +6,6 @@ class ProductForm extends React.Component {
         super(props);
         this.handleSave = this.handleSave.bind(this)
         this.state = { title: '', category: '', materials:'', price: ''}
-        this.filterErrors = this.filterErrors.bind(this)
         this.showErrors = this.showErrors.bind(this)
     }
 
@@ -19,20 +18,15 @@ class ProductForm extends React.Component {
         return (e) => this.setState({ [field]: e.target.value })
     }
 
-    filterErrors(field) {
-        for(let i = 0; i < this.props.errors.length; i++) {
-            if(this.props.errors[i].includes(field)){
-                return this.props.errors[i]
-            }
+    showErrors(field) {
+        let error_msg = this.props.errors[field.toLowerCase().replace("-", "_")]
+        
+        if (error_msg) {
+            error_msg = `${field} ${error_msg[0]}`
         }
-
-        return ""
-    }
-
-    showErrors(errorType) {
         return (
-            <div className="errors"> {this.filterErrors(errorType)} </div>
-        );
+            <div className="errors"> {error_msg} </div>
+        );  
     }
 
     handleSave(e) {
@@ -89,7 +83,7 @@ class ProductForm extends React.Component {
                             <label htmlFor="floral">Flowers</label>    
                         </form>   
                     </li>
-                    <div className="err-div"> {this.showErrors('Media')} </div>
+                    <div className="err-div"> {this.showErrors('Media-Type')} </div>
                    
                     <li className="product-listing-item">
                         <div>Materials</div>
