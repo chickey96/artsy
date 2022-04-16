@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchProduct } from '../../actions/product_action';
+import { createProduct } from '../../actions/product_action';
 import ProductForm from './product_form';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     const currentUser = state.session.currentUser;
-    return { currentUser };
+    
+    return { currentUser};
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchProduct: id => dispatch(fetchProduct(id)),
+    createProduct: product => dispatch(createProduct(product)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);
