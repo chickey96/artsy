@@ -11,6 +11,11 @@ class ProductForm extends React.Component {
     }
 
     update(field){  
+        if(field == 'category' && this.state.category){
+            return (e) => this.setState({ 
+                [field]: `${this.state.category}/${e.target.value}` })
+        } 
+        
         return (e) => this.setState({ [field]: e.target.value })
     }
 
@@ -42,7 +47,7 @@ class ProductForm extends React.Component {
         let product = { 
             title: this.state.title, 
             price: this.state.price, 
-            media_type: `${this.state.category}:${this.state.materials}`,
+            media_type: media_type,
         }
 
         this.props.createProduct(product)
