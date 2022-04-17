@@ -1,3 +1,13 @@
+export const createProduct = formData => (
+  $.ajax({
+    method: 'POST',
+    url: `/api/products`,
+    data: formData,
+    contentType: false,
+    processData: false,
+  })
+);
+
 export const fetchProduct = id => (
   $.ajax({
     method: 'GET',

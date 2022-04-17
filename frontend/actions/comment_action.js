@@ -41,17 +41,17 @@ export const fetchComments = productId => dispatch => {
 export const createComment = comment => dispatch => (
   CommentAPIUtil.createComment(comment)
   .then(comment => dispatch(receiveComment(comment)),
-  errors => dispatch(receiveCommentErrors(errors)))
+  errors => dispatch(receiveCommentErrors(errors.responseJSON)))
 );
 
 export const updateComment = comment => dispatch => (
   CommentAPIUtil.updateComment(comment)
   .then(comment => dispatch(receiveComment(comment)),
-  errors => dispatch(receiveCommentErrors(errors)))
+  errors => dispatch(receiveCommentErrors(errors.responseJSON)))
 );
 
 export const deleteComment = id => dispatch => (
   CommentAPIUtil.deleteComment(id)
   .then((id) => dispatch(removeComment(id)), 
-  errors => dispatch(receiveCommentErrors(errors)))
+  errors => dispatch(receiveCommentErrors(errors.responseJSON)))
 );

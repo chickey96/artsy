@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchContainer from '../search/searchContainer'
+import { RiLogoutBoxLine } from 'react-icons/ri'
 
 class NavBar extends React.Component{
   constructor(props){
@@ -71,8 +72,8 @@ class NavBar extends React.Component{
       <div className="modal-overlay hidden" onMouseDown={this.hideModal}>
         <div className="profile-modal hidden">
 
-          <button id="profile-link" onClick={this.toUserShow}>
-            <div className="user-show-thumbnail"></div>
+          <button className="dropdown-option"  onClick={this.toUserShow}>
+            <div className="user-show-thumbnail icon"></div>
 
             <div className="modal-profile-text">
               <div className="modal-username">
@@ -85,7 +86,13 @@ class NavBar extends React.Component{
             </div>
           </button>
 
-          <div id="logout-dropdown-bar">
+          <Link to="/listing" className="dropdown-option" 
+                onClick={this.closeProfileModal}>
+            <div className="icon"><RiLogoutBoxLine/></div>
+            <div>Sell on Artsy</div>
+          </Link>
+
+          <div className="dropdown-option" id="logout-dropdown-bar">
             <button onClick={this.handleLogout}>
               Sign out
             </button>
@@ -94,7 +101,7 @@ class NavBar extends React.Component{
       </div>
     )
 
-    const logoutTools = (
+    const accountTools = (
       <div className="navbar-buttons session-options">
         <button id="profile-button" onClick={this.openProfileDropdownModal}>   
           <div className="user-show-thumbnail"></div>
@@ -122,7 +129,7 @@ class NavBar extends React.Component{
       </div>
     );
 
-    const relevantButtons = (this.props.currentUser ? logoutTools : loginTools);
+    const relevantButtons = (this.props.currentUser ? accountTools : loginTools);
 
     return (
       <nav>

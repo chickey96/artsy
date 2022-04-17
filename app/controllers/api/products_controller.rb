@@ -1,5 +1,18 @@
 class Api::ProductsController < ApplicationController
-  
+
+  before_action :require_login, only:[:create ]
+
+  def create
+    @product = Product.new(product_params)
+    @product.artist_id = current_user.id 
+    
+    if @product.save 
+      render 'api/products/show'
+    else
+      render json: @product.errors, status: 401 
+    end
+  end
+
   def show
     @product = Product.find(params[:id])
   end
@@ -29,6 +42,15 @@ class Api::ProductsController < ApplicationController
     @products = (mediaProducts + titleProducts + 
       userProducts + priceProducts)
     render 'api/products/index'
+  end
+
+  private
+  def product_params
+    params.require(:product).permit(:title, 
+                                    :artist_id, 
+                                    :price, 
+                                    :media_type, 
+                                    :photo)
   end
 
 end

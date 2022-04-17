@@ -25,15 +25,19 @@
   border-radius: 3px;
   background-color: #FFF;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
-    
-  .user-show-thumbnail {
-    width: 4em;
-  }
+}
 
-  button {
-    padding: 5%;
-    width: 100%;
-    text-align: left;
+.dropdown-option .icon {
+  width: 2rem;
+}
+.dropdown-option {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  color: black;
+
+  &:hover {
+      background: rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -41,17 +45,6 @@
   .profile-modal {
     width: 100% !important;
     font-size: 2em;
-  }
-}
-
-#profile-link {
-  display: flex;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5%;
-  gap: 5%;
-  
-  &:hover .modal-username {
-    text-decoration: underline;
   }
 }
 
@@ -79,9 +72,9 @@
   color: #dcdcdc;
 }
 
-#logout-dropdown-bar:hover button {
-  background: rgba(0, 0, 0, 0.05);
-}
+// #logout-dropdown-bar:hover button {
+//   background: rgba(0, 0, 0, 0.05);
+// }
 
 .user-show-container {
   margin: 50px;
