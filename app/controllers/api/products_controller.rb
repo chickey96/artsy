@@ -5,7 +5,7 @@ class Api::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.artist_id = current_user.id 
-
+    
     if @product.save 
       render 'api/products/show'
     else
@@ -46,7 +46,11 @@ class Api::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :artist_id, :price, :media_type)
+    params.require(:product).permit(:title, 
+                                    :artist_id, 
+                                    :price, 
+                                    :media_type, 
+                                    :photo)
   end
 
 end
