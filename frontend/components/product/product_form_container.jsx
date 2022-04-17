@@ -3,7 +3,7 @@ import { createProduct, clearProductErrors } from '../../actions/product_action'
 import ProductForm from './product_form';
 
 const mapStateToProps = (state) => {
-    const currentUserId = state.session.currentUserId;
+    const currentUserId = state.session.currentUser;
     const errors = state.errors.products;
     return { currentUserId, errors };
 };
