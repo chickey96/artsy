@@ -5,8 +5,13 @@ class ProductForm extends React.Component {
     constructor(props){
         super(props);
         this.handleSave = this.handleSave.bind(this)
-        this.state = { title: '', category: '', materials:'', price: ''}
         this.showErrors = this.showErrors.bind(this)
+        this.state = { title: '', 
+                       category: '', 
+                       materials:'', 
+                       price: '', 
+                       photoFile: null,
+                       photoUrl: null }
     }
 
     update(field){  
@@ -19,41 +24,68 @@ class ProductForm extends React.Component {
     }
 
     showErrors(field) {
-        let error_msg = this.props.errors[field.toLowerCase().replace("-", "_")]
+        let error_msg = this.props.errors[field.toLowerCase().replace(" ", "_")]
         
         if (error_msg) {
             error_msg = `${field} ${error_msg[0]}`
         }
-        return (
-            <div className="errors"> {error_msg} </div>
-        );  
+        return (<div className="errors"> {error_msg} </div>);  
+    }
+
+    uploadPhoto(e){
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result})
+        };
+        if(file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleSave(e) {
         e.preventDefault()
         this.props.clearProductErrors()
         let media_type = this.state.category
-
-        if(this.state.materials) {
+      
+        if(this.state.category && this.state.materials) {
             media_type += `:${this.state.materials}`
         }
 
-        let product = { 
-            title: this.state.title, 
-            price: this.state.price, 
-            media_type: media_type,
+        let formData = new FormData();
+        formData.append("product[title]", this.state.title)
+        formData.append("product[price]", this.state.price)
+        formData.append("product[media_type]", media_type)
+
+        if(this.state.photoFile){
+            formData.append("product[photo]", this.state.photoFile)
         }
 
-        this.props.createProduct(product)
+        this.props.createProduct(formData)
     }
 
     render () {
+        let preview = null
+        if(this.state.photoUrl) {
+            preview = ( <li className="product-listing-item">
+                            <div>Image Preview</div>
+                            <img src={this.state.photoUrl}></img>
+                        </li> )
+        }
+
         return (
             <div id="product-listing">
                 <div id="product-listing-title">Add a New Listing</div>
                 
                 <ul>
                     <li>Photo</li>
+                    <li className="product-listing-item">
+                        <div>Upload a picture of your product</div>
+                        <input type="file" 
+                               onChange={this.uploadPhoto.bind(this)}/>
+                    </li>
+                    <div className="err-div"> {this.showErrors('Photo')} </div>
+                    {preview}
                 </ul>
 
                 <ul>
@@ -68,7 +100,7 @@ class ProductForm extends React.Component {
                     <div className="err-div"> {this.showErrors('Title')} </div>
 
                     <li className="product-listing-item">
-                        <div> Media-Type </div>  
+                        <div> Media Type </div>  
                         <form onChange={this.update('category')}>           
                             <input type="checkbox" name="mix" value="mixed-media"/>     
                             <label htmlFor="mix">Mixed-Media</label>             
@@ -83,7 +115,7 @@ class ProductForm extends React.Component {
                             <label htmlFor="floral">Flowers</label>    
                         </form>   
                     </li>
-                    <div className="err-div"> {this.showErrors('Media-Type')} </div>
+                    <div className="err-div"> {this.showErrors('Media Type')} </div>
                    
                     <li className="product-listing-item">
                         <div>Materials</div>
@@ -111,8 +143,7 @@ class ProductForm extends React.Component {
                 </button>
             </div>
         )
-    }
-    
+    }   
 }
 
 export default ProductForm;
