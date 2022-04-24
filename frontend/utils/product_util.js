@@ -30,3 +30,11 @@ export const searchProducts = query => {
     data: {query}
   })
  )}
+
+export const fetchListings = () => {
+  return ($.ajax({
+    method: 'GET',
+    url: `/shop`
+  })
+  )
+}
