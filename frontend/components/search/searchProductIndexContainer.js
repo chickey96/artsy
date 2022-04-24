@@ -6,8 +6,9 @@ import { searchProducts } from '../../actions/product_action';
 const mapStateToProps = (state, ownProps) => {
   const products = Object.values(state.entities.products);
   const query = ownProps.match.params.query;
-  const category = 'search'
-  return { category, query, products };
+  const category = 'search';
+  const shopPage = false;
+  return { category, query, products, shopPage };
 };
 
 const mapDispatchToProps = dispatch => ({
