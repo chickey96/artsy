@@ -44,6 +44,11 @@ class Api::ProductsController < ApplicationController
     render 'api/products/index'
   end
 
+  def shop 
+    @products = current_user.artworks  
+    render 'api/products/index'
+  end
+
   private
   def product_params
     params.require(:product).permit(:title, 
