@@ -3,7 +3,7 @@ import ProductIndex from './product_index';
 import { fetchListings } from '../../actions/product_action';
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     const products = Object.values(state.entities.products);
     const query = null;
     const category = null;
