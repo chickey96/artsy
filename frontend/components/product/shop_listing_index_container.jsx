@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProductIndex from './product_index';
-import { fetchProducts } from '../../actions/product_action';
+import { fetchListings } from '../../actions/product_action';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getProducts: query => dispatch(fetchProducts(query))
+    getProducts: () => dispatch(fetchListings())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductIndex);
