@@ -15,6 +15,7 @@ import userEditContainer from './users/user_edit_container';
 import productIndexContainer from './product/product-index-container';
 import searchProductIndexContainer from './search/searchProductIndexContainer';
 import productShowContainer from './product/product_show_container';
+import shopListingIndexContainer from './product/shop_listing_index_container';
 import productFormContainer from './product/product_form_container';
 // cart components
 import CartIndexContainer from './carts/cart_index_container';
@@ -35,6 +36,7 @@ const App = () => (
         <Route path="/product/:productId" component={productShowContainer} />
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
+        <AuthRoute path="/shop" component={shopListingIndexContainer} />
         <AuthRoute path="/listing" component={productFormContainer} />
         <Route path="/" component={Splash}/>
         <Redirect to="/" />
