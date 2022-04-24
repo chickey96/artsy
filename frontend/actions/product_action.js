@@ -45,6 +45,11 @@ export const searchProducts = query => dispatch => {
     .then(products => dispatch(receiveProducts(products)))
   )};
 
+export const fetchListings = () => dispatch => (
+  ProductAPIUtil.fetchListings()
+    .then(products => dispatch(receiveProducts(products)))
+);
+
 export const clearProducts = () => dispatch => {
   return (dispatch(wipeProducts()));
 };
