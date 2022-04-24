@@ -7,9 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   const products = Object.values(state.entities.products);
   const query = ownProps.match.params.category;
   const category = query;
-  const currentUser = state.session.currentUser;
   const shopPage = false;
-  return {category, query, products, currentUser, shopPage};
+  return {category, query, products, shopPage};
 };
 
 const mapDispatchToProps = dispatch => ({
