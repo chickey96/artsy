@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import ProductIndexItem from './product_index_item';
 
 class ProductIndex extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
   componentDidMount() {
     this.props.getProducts(this.props.query);
@@ -10,7 +13,7 @@ class ProductIndex extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.query !== this.props.query){
-        this.props.getProducts(this.props.query);
+     this.props.getProducts(this.props.query);
     }
   }
 
@@ -23,17 +26,57 @@ class ProductIndex extends React.Component {
       )
     }
 
-    const products = this.props.products.map((product, i) => {
+    let heading = "";
+    let path = (this.props.storePage ? 'listing' : 'product')
+    let classType = (this.props.storePage ? 'product-link' : 'product-link')
 
-       return (
-        <Link key={`${i}`} className="product-link" to={`/product/${product.id}`}>
-          <ProductIndexItem product={product}/>
+    const products = this.props.products.map((product, i) => (
+      <Link key={`${i}`} className={classType} to={`/${path}/${product.id}`}>
+        <ProductIndexItem product={product}/>
+      </Link>
+    ));
+    
+    if(this.props.shopPage) {
+      let storeTagline = "Great start! Keep adding listings."
+
+      if (this.props.products.size < 10) {
+        storeTagline = "Add as many listings as you can. \
+                      Ten or more would be a great start."
+      } 
+
+      products.unshift(
+        <Link className="product-link" to={'/listing'}>
+          <div>
+            <div>+</div>
+            <div>Add a listing</div>
+          </div>
+          <div></div>
         </Link>
+      )
+
+      while(products.length < 10){
+        products.push(
+          <div className="product-link">
+            <div></div>
+            <div></div>
+          </div>
         )
-    });
+      }
+
+      heading = (
+      <div className="store-heading">
+          <div className="store-title"> Stock your shop </div>
+          <div className="store-tagline">
+            {`${storeTagline} More listings means \
+              more chances to be discovered!`}
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div className="product-index">
+        { heading }
         <div className="product-index-interior">
           {products}
         </div>

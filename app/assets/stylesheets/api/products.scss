@@ -2,6 +2,7 @@
 
 .product-index{
   display: flex;
+  flex-direction: column;
   min-height: 400px;
   justify-content: center;
 }
@@ -183,3 +184,17 @@
   align-self: flex-end;
   margin-bottom: 5rem;
 }
+
+.store-heading {
+  text-align: center;
+}
+
+.store-title {
+  font-size: 2rem;;
+}
+
+.store-tagline {
+  font-size: 1.2rem;
+}
+
+
