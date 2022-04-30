@@ -27,8 +27,8 @@ class ProductIndex extends React.Component {
     }
 
     let heading = "";
-    let path = (this.props.storePage ? 'listing' : 'product')
-    let classType = (this.props.storePage ? 'product-link' : 'product-link')
+    let path = (this.props.shopPage ? 'listing' : 'product')
+    let classType = (this.props.shopPage ? 'product-link' : 'product-link')
 
     const products = this.props.products.map((product, i) => (
       <Link key={`${i}`} className={classType} to={`/${path}/${product.id}`}>
@@ -36,11 +36,12 @@ class ProductIndex extends React.Component {
       </Link>
     ));
     
+    let indexInteriorClass = "product-index-interior"
     if(this.props.shopPage) {
-      let storeTagline = "Great start! Keep adding listings."
+      let shopTagline = "Great start! Keep adding listings."
 
       if (this.props.products.size < 10) {
-        storeTagline = "Add as many listings as you can. \
+        shopTagline = "Add as many listings as you can. \
                       Ten or more would be a great start."
       } 
 
@@ -64,20 +65,22 @@ class ProductIndex extends React.Component {
       }
 
       heading = (
-      <div className="store-heading">
-          <div className="store-title"> Stock your shop </div>
-          <div className="store-tagline">
-            {`${storeTagline} More listings means \
+      <div className="shop-heading">
+          <div className="shop-title"> Stock your shop </div>
+          <div className="shop-tagline">
+            {`${shopTagline} More listings means \
               more chances to be discovered!`}
           </div>
         </div>
       )
+
+      indexInteriorClass += " shop-index"
     }
 
     return (
       <div className="product-index">
         { heading }
-        <div className="product-index-interior">
+        <div className={indexInteriorClass}>
           {products}
         </div>
       </div>
