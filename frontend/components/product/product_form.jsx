@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProductForm extends React.Component {
 
@@ -138,9 +139,11 @@ class ProductForm extends React.Component {
                     <div className="err-div"> {this.showErrors('Price')} </div>
                 </ul>
 
-                <button onClick={this.handleSave} className="button black small">
+                <Link to="/shop" 
+                      onClick={this.handleSave} 
+                      className="button black small">
                     Save
-                </button>
+                </Link>
             </div>
         )
     }   
