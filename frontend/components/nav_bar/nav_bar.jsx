@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchContainer from '../search/searchContainer'
 import { RiLogoutBoxLine } from 'react-icons/ri'
+import { AiOutlineShop } from 'react-icons/ai'
 
 class NavBar extends React.Component{
   constructor(props){
@@ -103,6 +104,9 @@ class NavBar extends React.Component{
 
     const accountTools = (
       <div className="navbar-buttons session-options">
+        <Link to="/shop" className="shop-link">
+          <div className="icon"><AiOutlineShop /></div>
+        </Link>
         <button id="profile-button" onClick={this.openProfileDropdownModal}>   
           <div className="user-show-thumbnail"></div>
         </button>
