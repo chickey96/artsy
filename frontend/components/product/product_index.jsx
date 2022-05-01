@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductIndexItem from './product_index_item';
+import { GoPlus } from 'react-icons/go'; 
 
 class ProductIndex extends React.Component {
   constructor(props){
@@ -27,16 +28,27 @@ class ProductIndex extends React.Component {
     }
 
     let heading = "";
+    let classType = "product-link"
     let path = (this.props.shopPage ? 'listing' : 'product')
-    let classType = (this.props.shopPage ? 'product-link' : 'product-link')
+    let indexInteriorClass = "product-index-interior"
+    let shopButtons = "hidden"
+
+    if(this.props.shopPage){
+      classType += ' shop-listing-link'
+      shopButtons = "shop-buttons"
+    } 
 
     const products = this.props.products.map((product, i) => (
       <Link key={`${i}`} className={classType} to={`/${path}/${product.id}`}>
         <ProductIndexItem product={product}/>
+        <div className={shopButtons}>
+          <button className="copy-product">Copy</button>
+          <button className="delete-product">Delete</button>
+         
+        </div>
       </Link>
     ));
     
-    let indexInteriorClass = "product-index-interior"
     if(this.props.shopPage) {
       let shopTagline = "Great start! Keep adding listings."
 
@@ -46,20 +58,20 @@ class ProductIndex extends React.Component {
       } 
 
       products.unshift(
-        <Link className="product-link" to={'/listing'}>
-          <div>
-            <div>+</div>
+        <Link className={`${classType} first-shop-square`} to={'/listing'}>
+          <div className="image-box">
+            <div className="plus-icon"><GoPlus/></div>
             <div>Add a listing</div>
           </div>
-          <div></div>
+          <div className="pertinent-info"></div>
         </Link>
       )
 
       while(products.length < 10){
         products.push(
-          <div className="product-link">
-            <div></div>
-            <div></div>
+          <div className={`${classType} blank-square`}>
+            <div className="image-box"></div>
+            <div className="pertinent-info"></div>
           </div>
         )
       }

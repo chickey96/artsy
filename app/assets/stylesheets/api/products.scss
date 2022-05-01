@@ -199,5 +199,50 @@
   border: 2px solid rgba(34, 34, 34, 0.15);
   border-radius: 3px;
   padding: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.shop-listing-link {
+  border: 1.5px solid rgba(34, 34, 34, 0.15);
+  border-radius: 3px;
+
+  .image-box {
+    padding: 2px;
+  }
+}
+
+.shop-buttons {
+  border-top: 1.5px solid rgba(34, 34, 34, 0.15);
+
+  .delete-product {
+    border-left: 1.5px solid rgba(34, 34, 34, 0.15);
+  }
+  button {
+    width: 50%;
+    color: #595959;
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: .8;
+    padding: 1rem;
+  }
+}
+
+.first-shop-square .image-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0FBFD;
+    justify-content: center;
+    align-items: center;
+    color: #34A8C4;
+
+    .plus-icon svg {
+      opacity: 70%;
+      font-size: 2rem;
+      stroke-width: 2;
+    }
+}
+
+.shop-index .blank-square .image-box {
+  background-color: #FAF9F5;
 }
 
