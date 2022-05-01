@@ -5,44 +5,36 @@
   flex-direction: column;
   min-height: 400px;
   justify-content: center;
+  padding: 2rem;
 }
 
 .product-index-interior{
-  display: flex;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-// TO-DO: styling for rotated phone screens
-@media all and (max-device-width: 600px) {
-  .product-link {
-    flex: 1 1 100% !important;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 2rem;
 }
 
 .product-link{
   color: black;
-  flex: 1 1 29%;
-  padding: 2%;
 }
 
 .product{
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
 }
 
 .image-box {
-  height: calc(100vh / 3);
   overflow: hidden;
+  aspect-ratio: 1/1;
+  display: flex;
 }
 
 .image{
-  align-self: baseline;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 3px;
-  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 110%;
 }
 
 .pertinent-info div {
@@ -201,6 +193,5 @@
   border: 2px solid rgba(34, 34, 34, 0.15);
   border-radius: 3px;
   padding: 1rem;
-  margin: 0 2rem;
 }
 
