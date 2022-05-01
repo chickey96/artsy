@@ -105,7 +105,7 @@ class NavBar extends React.Component{
     const accountTools = (
       <div className="navbar-buttons session-options">
         <Link to="/shop" className="shop-link">
-          <div className="icon"><AiOutlineShop /></div>
+          <div className="shop-icon"><AiOutlineShop /></div>
         </Link>
         <button id="profile-button" onClick={this.openProfileDropdownModal}>   
           <div className="user-show-thumbnail"></div>
