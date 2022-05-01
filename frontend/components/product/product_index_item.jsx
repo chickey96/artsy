@@ -12,11 +12,11 @@ class ProductIndexItem extends React.Component {
           <div className="product-title">
             {this.props.product.title}
           </div>
-          <div className="product-artist">
-            {this.props.product.artist}
-          </div>
           <div className="product-price">
             {`$${this.props.product.price}.00`}
+          </div>
+          <div className="product-artist">
+            {this.props.product.artist}
           </div>
         </div>
       </div>
