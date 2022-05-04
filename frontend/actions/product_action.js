@@ -61,3 +61,11 @@ export const createProduct = product => dispatch => {
       errors => dispatch(receiveProductErrors(errors.responseJSON)))
   )
 };
+
+export const updateProduct = product => dispatch => {
+  return (
+    ProductAPIUtil.updateProduct(product)
+      .then(product => dispatch(receiveProduct(product)),
+      errors => dispatch(receiveProductErrors(errors.responseJSON)))
+  )
+};
