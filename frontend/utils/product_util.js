@@ -38,3 +38,11 @@ export const fetchListings = () => {
   })
   )
 }
+
+export const updateProduct = product => (
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/listing/${product.id}`,
+    data: { product }
+  })
+);
