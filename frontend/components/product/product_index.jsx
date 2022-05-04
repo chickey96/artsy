@@ -39,7 +39,7 @@ class ProductIndex extends React.Component {
     } 
 
     const products = this.props.products.map((product, i) => (
-      <Link key={`${i}`} className={classType} to={`/${path}/${product.id}`}>
+      <Link key={`${product.id}`} className={classType} to={`/${path}/${product.id}`}>
         <ProductIndexItem product={product}/>
         <div className={shopButtons}>
           <button className="copy-product">Copy</button>
@@ -58,7 +58,7 @@ class ProductIndex extends React.Component {
       } 
 
       products.unshift(
-        <Link className={`${classType} first-shop-square`} to={'/listing'}>
+        <Link key="-1" className={`${classType} first-shop-square`} to={'/listing'}>
           <div className="image-box">
             <div className="plus-icon"><GoPlus/></div>
             <div>Add a listing</div>
@@ -69,7 +69,8 @@ class ProductIndex extends React.Component {
 
       while(products.length < 10){
         products.push(
-          <div className={`${classType} blank-square`}>
+          <div  key={`blank-${products.length}`} 
+                className={`${classType} blank-square`}>
             <div className="image-box"></div>
             <div className="pertinent-info"></div>
           </div>
