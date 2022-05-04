@@ -208,18 +208,6 @@
 
   .image-box {
     padding: 2px;
-    opacity: 0.95;
-    border-bottom: 1.5px solid rgba(34, 34, 34, 0.15);
-  }
-}
-
-.shop-listing-link .product:hover {
-  .image-box {
-    opacity: 1;
-  }
-
-  .product-title {
-    text-decoration: underline;
   }
 }
 
@@ -278,14 +266,6 @@
       font-size: 2rem;
       stroke-width: 2;
     }
-}
-
-.first-shop-square:hover {
-  border-color: #b4dfe9;
-
-  .image-box {
-    border-color: #b4dfe9;
-  }
 }
 
 .shop-index .blank-square .image-box {
