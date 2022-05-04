@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/search/:query', to: 'api/products#search'
   get '/shop', to: 'api/products#shop'
+  get '/listing/:productId', to: 'api/products#update'
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:new, :create, :show, :edit, :update]
