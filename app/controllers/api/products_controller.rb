@@ -24,6 +24,16 @@ class Api::ProductsController < ApplicationController
     end
   end
 
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.update_attributes(product_params)
+      render 'api/products/index'
+    else
+      render json: @product.errors.full_messages, status: 401
+    end
+  end 
+
   def search
     query = params[:query].downcase
     products = Product.all 
