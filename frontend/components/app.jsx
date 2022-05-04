@@ -37,6 +37,7 @@ const App = () => (
         <AuthRoute path="/users/edit/:id" component={userEditContainer} />
         <AuthRoute path="/users/:id" component={userShowContainer} />
         <AuthRoute path="/shop" component={shopListingIndexContainer} />
+        <AuthRoute path="/listing/:productId" component={productFormContainer} />
         <AuthRoute path="/listing" component={productFormContainer} />
         <Route path="/" component={Splash}/>
         <Redirect to="/" />
