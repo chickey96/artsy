@@ -211,6 +211,32 @@
   }
 }
 
+.shop-listing-link .pertinent-info {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-gap: 0.25rem 0.5rem;
+
+  div {
+    line-height: unset;
+  }
+}
+
+.shop-listing-link .product-title {
+  grid-area: 1 / 1 / 1 / 3;
+}
+
+.shop-listing-link .product-price {
+  grid-area: 2 / 2 / 2 / 3;
+  justify-self: flex-end;
+}
+
+.shop-listing-link .product-artist {
+  grid-area: 2 / 1 / 2 / 2;
+  align-self: center;
+  border-right: 1.5px solid rgba(34, 34, 34, 0.15);
+}
+
 .shop-buttons {
   border-top: 1.5px solid rgba(34, 34, 34, 0.15);
 
