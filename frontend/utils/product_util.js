@@ -35,14 +35,16 @@ export const fetchListings = () => {
   return ($.ajax({
     method: 'GET',
     url: `/shop`
-  })
-  )
+  }))
 }
 
-export const updateProduct = product => (
-  $.ajax({
-    method: 'PATCH',
-    url: `/api/listing/${product.id}`,
-    data: { product }
-  })
-);
+export const updateProduct = formData => { 
+  return(
+    $.ajax({
+      method: 'PATCH',
+      url: `/listing/${formData.get('product[id]')}`,
+      data: formData,
+      contentType: false,
+      processData: false
+    }))
+};
