@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
 
-  before_action :require_login, only:[:create ]
+  before_action :require_login, only:[:create, :update]
 
   def create
     @product = Product.new(product_params)
@@ -26,7 +26,7 @@ class Api::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-
+   
     if @product.update_attributes(product_params)
       render 'api/products/index'
     else
