@@ -31,12 +31,6 @@ class ProductShow extends React.Component {
       .then(this.props.fetchProduct(this.props.match.params.productId));
   }
 
-  parseCategory(media){
-    for(let i = 0; i < media.length; i++){
-      if(media[i] === ':') return media.slice(i+1);
-    }
-  }
-
   isInCart(){
     for(let i = 0; i < this.props.carts.length; i++){
       let cart = this.props.carts[i];
@@ -68,7 +62,6 @@ class ProductShow extends React.Component {
   render () {
     if(!this.props.product) return null;
 
-    const materials = this.parseCategory(this.props.product.media_type);
     let cartOption = (<div></div>);
 
     if(this.props.currentUser){
@@ -114,7 +107,7 @@ class ProductShow extends React.Component {
               <div> &#x1f3f7; </div>  <p> Made to order</p> 
             </div>
             <div> 
-              <div> &#x1f9f6; </div> <p> Materials: {materials} </p> 
+              <div> &#x1f9f6; </div> <p> Materials: {this.props.product.materials} </p> 
             </div>
           </div>
           
