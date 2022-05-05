@@ -7,20 +7,18 @@ class ProductForm extends React.Component {
         super(props);
         this.handleSave = this.handleSave.bind(this)
         this.showErrors = this.showErrors.bind(this)
-        this.state = { title: '', 
-                       category: '', 
-                       materials:'', 
-                       price: '', 
-                       photoFile: null,
-                       photoUrl: null }
+
+        this.state = {   
+            title: '', 
+            category: '', 
+            materials: '', 
+            price: '', 
+            photoFile: null,
+            photoUrl: null 
+        }
     }
 
     update(field){  
-        if(field == 'category' && this.state.category){
-            return (e) => this.setState({ 
-                [field]: `${this.state.category}/${e.target.value}` })
-        } 
-        
         return (e) => this.setState({ [field]: e.target.value })
     }
 
@@ -47,11 +45,7 @@ class ProductForm extends React.Component {
     handleSave(e) {
         e.preventDefault()
         this.props.clearProductErrors()
-        let media_type = this.state.category
-      
-        if(this.state.category && this.state.materials) {
-            media_type += `:${this.state.materials}`
-        }
+        let media_type = `${this.state.category} : ${this.state.materials}`
 
         let formData = new FormData();
         formData.append("product[title]", this.state.title)
@@ -62,7 +56,26 @@ class ProductForm extends React.Component {
             formData.append("product[photo]", this.state.photoFile)
         }
 
-        this.props.createProduct(formData)
+        if(!this.props.productId){
+            this.props.createProduct(formData)
+        } else {
+            formData.append("product[id]", this.props.productId)
+            this.props.updateProduct(formData)
+        }
+    }
+
+    componentDidMount() {
+        this.props.fetchProduct(this.props.productId)
+            .then(() => { 
+                this.setState({
+                    title: this.props.product.title || '',
+                    category: this.props.product.category || '',
+                    materials: this.props.product.materials || '',
+                    price: this.props.product.price || '',
+                    photoFile: this.props.product.photoFile || null,
+                    photoUrl: this.props.product.photoUrl || null
+                })
+            })
     }
 
     render () {
@@ -139,6 +152,9 @@ class ProductForm extends React.Component {
                     <div className="err-div"> {this.showErrors('Price')} </div>
                 </ul>
 
+                <Link to="/shop" className="button black small">
+                    Cancel
+                </Link>
                 <Link to="/shop" 
                       onClick={this.handleSave} 
                       className="button black small">
