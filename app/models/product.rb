@@ -37,4 +37,14 @@ class Product < ApplicationRecord
       errors[:photo] << "must be attached"
     end
   end
+
+  def parse_category
+    split_point = self.media_type.index(':')
+    return self.media_type[0...split_point].strip
+  end
+
+  def parse_materials
+    split_point = self.media_type.index(':') + 1
+    return self.media_type[split_point..-1].strip
+  end
 end
