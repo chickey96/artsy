@@ -1,28 +1,45 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-  # validations
-  # associations
-  # class methods
-  # error messages
+  
+  subject(:user) { User.new(username: "charlie", 
+                            email: "charl@gmail.com",
+                            password_digest: "password_digest",
+                            session_token: "session_token") }
+
   describe "validations" do
-    it "should validate presence of name" 
-    it "should validate presence of email" 
-    it "should validate uniqueness of name" 
-    it "should validate uniqueness of email" 
+    it "should validate presence of username" do 
+      user = User.new(email: "email")
+      expect(user.valid?).to be false
+    end
+
+    it { should validate_presence_of(:username) }
+    it { should validate_presence_of(:email) } 
+    it { should validate_uniqueness_of(:username)}
+    it { should validate_uniqueness_of(:email)}
   end
 
   describe "associations" do 
-    it "should have many artworks"
-    it "should have many comments"
-    it "should have many carts"
+    it { should have_many(:artworks) }
+    it { should have_many(:comments) }
+    it { should have_many(:carts) }
   end
 
   describe "class methods" do 
     describe "::invalid_email_format?" do 
-      it "should return true if email is missing @"
-      it "should return true if email is missing ."
+      it "should return true if email is missing @" do 
+        user = User.new(email: "emailatgmail.com")
+        expect(user.valid?).to be false 
+      end
+      it "should return true if email is missing ." do 
+        user = User.new(email: "email@gmailcom")
+        expect(user.valid?).to be false
+      end
+
+      it "should return true if email has no . after @" do 
+        user = User.new(email: "email.gmail@com")
+        expect(user.valid?).to be false
+      end
     end
   end
 
