@@ -23,7 +23,7 @@ class Product < ApplicationRecord
   has_many :comments,
     primary_key: :id, 
     foreign_key: :product_id,
-    class_name: :Product 
+    class_name: :Comment 
 
   has_many :carts,
     primary_key: :id,
