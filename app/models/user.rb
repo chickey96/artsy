@@ -42,6 +42,7 @@ class User < ApplicationRecord
   end
 
   def self.invalid_email_format?(email)
+    return true if(!email)
     at_count = 0
 
     email.each_char do |char|
